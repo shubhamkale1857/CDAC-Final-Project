@@ -1,21 +1,7 @@
--- Shema Creation
 
+DROP SCHEMA if exists `dac_project`;
 CREATE SCHEMA `dac_project` ;
 
---------------------------------------------------------------------------------------------------
-
--- Trainers Table
-
-CREATE TABLE `dac_project`.`trainers` (
-  `trainer_id` INT NOT NULL AUTO_INCREMENT,
-  `specialization` VARCHAR(150) NOT NULL,
-  `experience` INT NOT NULL,
-  `certification` VARCHAR(150) NULL,
-  PRIMARY KEY (`trainer_id`));
-
---------------------------------------------------------------------------------------------------
-
--- Users Table
 
 CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
@@ -25,25 +11,30 @@ CREATE TABLE `dac_project`.`users` (
   `email` VARCHAR(45) NOT NULL,
   `dob` DATE NOT NULL,
   `gender` VARCHAR(10) NOT NULL,
-  `height` INT NOT NULL,
-  `weight` INT NULL,
+  `height` DECIMAL(10,2) NOT NULL,
+  `weight` DECIMAL(10,2) NOT NULL,
+  `role` INT NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
-  INDEX `trainerId_idx` (`trainer_id` ASC) VISIBLE,
-  CONSTRAINT `trainerId`
-    FOREIGN KEY (`trainer_id`)
-    REFERENCES `dac_project`.`trainers` (`trainer_id`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE);
+  INDEX `trainerId_idx` (`trainer_id` ASC) VISIBLE);
 
-ALTER TABLE `dac_project`.`users` 
-CHANGE COLUMN `height` `height` DECIMAL(10,2) NOT NULL ,
-CHANGE COLUMN `weight` `weight` DECIMAL(10,2) NULL DEFAULT NULL ;
 
--------------------------------------------------------------------------------------------------------
 
--- Meals Table
+CREATE TABLE `dac_project`.`trainers` (
+  `trainer_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `specialization` VARCHAR(150) NOT NULL,
+  `experience` INT NOT NULL,
+  `certification` VARCHAR(150) NULL,
+  PRIMARY KEY (`trainer_id`),
+  CONSTRAINT `user_idt`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `dac_project`.`users` (`user_id`)
+    ON DELETE CASCADE
+  );
+
+
 
 CREATE TABLE `dac_project`.`meals` (
   `meal_id` INT NOT NULL AUTO_INCREMENT,
@@ -59,9 +50,7 @@ CREATE TABLE `dac_project`.`meals` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-------------------------------------------------------------------------------------------------------------
 
--- FoodItems
 
 CREATE TABLE `dac_project`.`food_items` (
   `food_id` INT NOT NULL AUTO_INCREMENT,
@@ -70,9 +59,7 @@ CREATE TABLE `dac_project`.`food_items` (
   `serving_size` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`food_id`));
 
--------------------------------------------------------------------------------------------------------------
 
--- MealFoodItems
 
 CREATE TABLE `dac_project`.`meal_food_items` (
   `mf_id` INT NOT NULL AUTO_INCREMENT,
@@ -93,8 +80,3 @@ CREATE TABLE `dac_project`.`meal_food_items` (
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
-----------------------------------------------------------------------------------------------------------------
--- inserting data
---in trainers
-INSERT INTO `dac_project`.`trainers` (`trainer_id`, `specialization`, `experience`, `certification`) VALUES ('1', 'physic', '2', 'Physic');
-INSERT INTO `dac_project`.`trainers` (`trainer_id`, `specialization`, `experience`, `certification`) VALUES ('2', 'cardio', '3', 'Cardinality');
