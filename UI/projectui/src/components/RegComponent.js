@@ -8,10 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 function RegComp(){
     let navigate = useNavigate();
     const init = {
-        role : {value:"",error:"",touched:false,valid:false}, 
         name : {value:"",error:"",touched:false,valid:false}, 
-        email : {value:"",error:"",touched:false,valid:false}, 
-        date : {value:"",error:"",touched:false,valid:false}, 
+        email : {value:"",error:"",touched:false,valid:false},  
         weight : {value:"",error:"",touched:false,valid:false}, 
         height : {value:"",error:"",touched:false,valid:false}, 
         password : {value:"",error:"",touched:false,valid:false},
@@ -35,10 +33,10 @@ function RegComp(){
         let error = "";
         switch(key){
             case 'name':
-                var pattern = /^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+$/;
+                var pattern = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
                 if(!pattern.test(val)){
                     valid = false;
-                    error = "name not valid!!!"
+                    error = "username not valid!!!"
                 }
                 break;
             case 'email':
@@ -111,7 +109,7 @@ function RegComp(){
     }
     const[msg,setMsg] = useState("");
     const checkEmail = (val) =>{
-        fetch("http://localhost:8500/checkUser?email="+val) 
+        fetch("http://localhost:8500/getemailidreg?email="+val) 
         .then((res)=>{return res.json()})
         .then((data) => {
             if(data.length > 0){
@@ -131,19 +129,28 @@ function RegComp(){
             method : "POST",
             headers : {"content-type":"application/json"},
             body : JSON.stringify({
+                role:role,
                 name : customer.name.value,
                 email : customer.email.value,
-                date : customer.date.value,
+                date : date,
+                gender:gender,
+                height: height,
+                weight: weight,
                 password : customer.password.value
             })
         }
 
-        fetch("http://localhost:8500/insertCustomersData",reqOption)
+        fetch("http://localhost:8500/insertUserData",reqOption)
         .then((res)=>{return res.text()})
         .then((msg)=>{console.log("Data Inserted Successfully!!!")})
 
         navigate("/login");
     }
+    const[role,setRole] = useState(0);
+    const[date,setDate] = useState("");
+    const[weight,setWeight] = useState(0);
+    const[height,setHeight] = useState(0);
+    const[gender,setGender] = useState("");
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
         
@@ -155,7 +162,7 @@ function RegComp(){
             <div className="col-md-4 mt-5"> 
             <form>
                     <div className="input-group mb-3">
-                        <select className="custom-select" id="role" onChange={(e)=>{handleChange("role",e.target.value)}} onBlur={(e)=>{handleChange("role",e.target.value)}}>
+                        <select className="custom-select" id="role" onChange={(e)=>{setRole(e.target.value)}}>
                             <option selected>Select role</option>
                             <option value="1">User</option>
                             <option value="2">Trainer</option>
@@ -172,20 +179,19 @@ function RegComp(){
                     <div style={{display: (true)?"block":"none"}}><p className="text-danger">{msg}</p></div>
 
                     <label className="form-label" for="add">Enter Date of Birth</label>
-                    <input type="date" className="form-control" id="add" onChange={(e)=>{handleChange("date",e.target.value)}} onBlur={(e)=>{handleChange("date",e.target.value)}}/><br/>
-                    <div style={{display: (!customer.date.valid && customer.date.touched)?"block":"none"}}><p className="text-danger">{customer.date.error}</p></div>
+                    <input type="date" className="form-control" id="add" onChange={(e)=>{setDate(e.target.value)}}/><br/>
 
                     <label className="form-check">Select Your Gender</label>
-                    <input type="radio" name="gen" value={"m"} className="form-check-input"/>Male  &nbsp;
-                    <input type="radio" name="gen" value={"f"} className="form-check-input"/>Female  &nbsp;
-                    <input type="radio" name="gen" value={"o"} className="form-check-input"/>Other <br/><br/>
+                    <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;
+                    <input type="radio" name="gen" value={"f"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Female  &nbsp;
+                    <input type="radio" name="gen" value={"o"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Other <br/><br/>
 
                     <label className="form-label">Weight: </label>
-                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value)}}/><br/>
+                    <input type="text" name="weight" className="form-field" onChange={(e)=>{setWeight(e.target.value)}}/><br/>
                     <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
 
                     <label className="form-label">Height:</label>
-                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value)}}/><br/>
+                    <input type="text" name="height" className="form-field" onChange={(e)=>{setHeight(e.target.value)}}/><br/>
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
@@ -198,7 +204,8 @@ function RegComp(){
                     <div style={{display: (!customer.repassword.valid && customer.repassword.touched)?"block":"none"}}><p className="text-danger">{customer.repassword.error}</p></div>
 
                     <p style={{float:"right"}}>already have an account? <Link to='/login'>login</Link></p><br/>
-                    <input type="button" value={"Register"} className="btn btn-primary" onDoubleClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
+                    <input type="button" value={"Register"} className="btn btn-primary" onDoubleClick={(e)=>{submitData(e)}}  />
+                    {/* disabled={!customer.formValid} */}
                     <input type="reset" value={"Reset"} className="btn btn-danger "/>
                 </form></div>
            

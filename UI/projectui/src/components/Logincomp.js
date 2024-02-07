@@ -12,9 +12,9 @@ export const LoginComp = () =>{
         fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
         .then(resp => resp.json())
         .then(data=>{
-            if(data.length!=0)
+            if(data.length!==0)
             {
-                if(data[0].password==pwd)
+                if(data[0].pass===pwd)
                 {
                 dispatch(login());
                 localStorage.setItem("data",JSON.stringify(data));
@@ -43,7 +43,7 @@ export const LoginComp = () =>{
             fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
             .then(resp => resp.json())
             .then(data=>{
-                if(data.length==0)
+                if(data.length===0)
                 {
                     setMsg1("Email not found!");
                 }

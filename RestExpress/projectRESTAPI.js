@@ -29,7 +29,6 @@ app.use(bp.json());
 app.get("/userinfo", function(req, res){
 	email= req.query.email;
 	con.query("select * from users where email='"+email+"'", function(err, data){
-		
 		res.json(data);
 	})
 })
@@ -37,10 +36,11 @@ app.get("/userinfo", function(req, res){
 
 
 app.post("/insertUserData",function(req,res){
-	console.log(req.body.name,req.body.email,req.body.password,req.body.dob,req.body.gender,req.body.height,req.body.weight,req.body.role);
-    let qry = "insert into users(username,email,password,dob,gender,height,weight,role) values(?,?,?,?,?,?,?,?)";
-
-    con.query(qry,[req.body.name,req.body.email,req.body.password,req.body.dob,req.body.gender,req.body.height,req.body.weight,req.body.role],function(err){
+	console.log(req.body.name,req.body.email,req.body.password,req.body.date,req.body.gender,req.body.height,req.body.weight,req.body.role);
+	console.log((req.body.date).toString());
+    let qry = "insert into users(username,email,pass,dob,gender,height,weight,rolee) values('"+req.body.name+"','"+req.body.email+"','"+req.body.password+"','"+req.body.date+"','"+req.body.gender+"',"+req.body.height+","+req.body.weight+","+req.body.role+")";
+	//[req.body.name,req.body.email,req.body.password,(req.body.date).toString(),req.body.gender,req.body.height,req.body.weight,req.body.role]
+    con.query(qry,function(err){
         if(!err){
             res.send("Success!!!");
             console.log("Success!!!")
@@ -53,16 +53,25 @@ app.post("/insertUserData",function(req,res){
 
 app.get("/getemailid", function(req, res){
 	var email = req.query.email;
-	con.query("select * from users where email= '"+email+"' and role="+req.query.role  , function(err, data){
+	con.query("select * from users where email= '"+email+"' and rolee="+req.query.role  , function(err, data){
+		res.json(data);
+	})
+})
+
+app.get("/getemailidreg", function(req, res){
+	var email = req.query.email;
+	con.query("select * from users where email= '"+email+"'" , function(err, data){
 		res.json(data);
 	})
 })
 
 app.get("/getpassword",function(req, res){
 	var email = req.query.email;
-	con.query("select password from users where email= '"+email+"'", function(err, data){
-
-		res.json(data);
+	con.query("select pass from users where email= '"+email+"'", function(err, data){
+		if(!err)
+			res.json(data);
+		else
+			console.log("errorr in pass")
 	})
 })
 
