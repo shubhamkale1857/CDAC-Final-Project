@@ -9,7 +9,7 @@ export const LoginComp = () =>{
     const navigate = useNavigate();
 
     const handleClick=()=>{
-        fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
+        fetch("http://localhost:8500/getusername?uname="+uname)
         .then(resp => resp.json())
         .then(data=>{
             if(data.length!==0)
@@ -34,18 +34,16 @@ export const LoginComp = () =>{
 
     const[msg1, setMsg1]=useState("");
     const[msg2, setMsg2]=useState("");
-    const[email,setEmail]=useState("");
-    const[role,setRole]=useState(0);
+    const[uname,setUname]=useState("");
     const[pwd,setPwd]=useState("");
 
     const getUserName=()=>{
-            console.log("Role: "+role);
-            fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
+            fetch("http://localhost:8500/getusername?uname="+uname)
             .then(resp => resp.json())
             .then(data=>{
                 if(data.length===0)
                 {
-                    setMsg1("Email not found!");
+                    setMsg1("Username not found!");
                 }
                 else{
                     setMsg1("");
@@ -63,18 +61,10 @@ export const LoginComp = () =>{
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5">
                 <form >
-                <div className="input-group mb-3">
-                    <select className="custom-select" id="role" onChange={(e)=>{setRole(e.target.value)}}>
-                        <option selected>Select role</option>
-                        <option value="1">User</option>
-                        <option value="2">Trainer</option>
-                        <option value="3">Admin</option>
-                    </select>
-                    </div>
                     <div className="row">
                         <div className="col-md-12 form-group">
                         <label for="name">Email</label>
-                        <input type="text" id="name" className="form-control" onChange={(e)=>{setEmail(e.target.value)}} onBlur={getUserName}/>
+                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}} onBlur={getUserName}/>
                         <div className="text-danger">{msg1}</div>
                         </div>
                     </div>
