@@ -11,7 +11,8 @@ function RegComp(){
         name : {value:"",error:"",touched:false,valid:false}, 
         email : {value:"",error:"",touched:false,valid:false},  
         weight : {value:"",error:"",touched:false,valid:false}, 
-        height : {value:"",error:"",touched:false,valid:false}, 
+        height : {value:"",error:"",touched:false,valid:false},
+        username : {value:"",error:"",touched:false,valid:false}, 
         password : {value:"",error:"",touched:false,valid:false},
         repassword : {value:"",error:"",touched:false,valid:false},
         formValid : false 
@@ -33,7 +34,14 @@ function RegComp(){
         let error = "";
         switch(key){
             case 'name':
-                var pattern = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+                var pattern = /^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+$/;
+                if(!pattern.test(val)){
+                    valid = false;
+                    error = "Name not valid!!!"
+                }
+                break;            
+            case 'username':
+                pattern = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
                 if(!pattern.test(val)){
                     valid = false;
                     error = "username not valid!!!"
@@ -129,13 +137,14 @@ function RegComp(){
             method : "POST",
             headers : {"content-type":"application/json"},
             body : JSON.stringify({
-                role:role,
                 name : customer.name.value,
                 email : customer.email.value,
                 date : date,
                 gender:gender,
-                height: height,
-                weight: weight,
+                height: customer.height.value,
+                weight: customer.weight.value,
+                roleid:1,
+                username : customer.username.value,
                 password : customer.password.value
             })
         }
@@ -146,30 +155,21 @@ function RegComp(){
 
         navigate("/login");
     }
-    const[role,setRole] = useState(0);
     const[date,setDate] = useState("");
-    const[weight,setWeight] = useState(0);
-    const[height,setHeight] = useState(0);
+    // const[weight,setWeight] = useState(0);
+    // const[height,setHeight] = useState(0);
     const[gender,setGender] = useState("");
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
         
         <div>
             <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
-            <h1 style={{fontFamily:"Antic Didone"}}>REGISTER</h1>
+            <h1 style={{fontFamily:"Antic Didone", color:"black"}}>USER REGISTER</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5"> 
             <form>
-                    <div className="input-group mb-3">
-                        <select className="custom-select" id="role" onChange={(e)=>{setRole(e.target.value)}}>
-                            <option selected>Select role</option>
-                            <option value="1">User</option>
-                            <option value="2">Trainer</option>
-                            <option value="3">Admin</option>
-                        </select>
-                    </div>
-                    <label className="form-label" for="name">Enter UserName</label>
+                    <label className="form-label" for="name">Enter Name</label>
                     <input type="text" className="form-control" id="name" value={customer.name.val} onChange={(e)=>{handleChange("name",e.target.value)}} onBlur={(e)=>{handleChange("name",e.target.value)}}/><br/>
                     <div style={{display: (!customer.name.valid && customer.name.touched)?"block":"none"}}><p className="text-danger">{customer.name.error}</p></div>
 
@@ -187,12 +187,16 @@ function RegComp(){
                     <input type="radio" name="gen" value={"o"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Other <br/><br/>
 
                     <label className="form-label">Weight: </label>
-                    <input type="text" name="weight" className="form-field" onChange={(e)=>{setWeight(e.target.value)}}/><br/>
+                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
 
                     <label className="form-label">Height:</label>
-                    <input type="text" name="height" className="form-field" onChange={(e)=>{setHeight(e.target.value)}}/><br/>
+                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
+
+                    <label className="form-label" for="uname">Enter Username</label>
+                    <input type="text" className="form-control" id="uname" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
                     <input type="password" className="form-control" id="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
@@ -207,8 +211,7 @@ function RegComp(){
                     <input type="button" value={"Register"} className="btn btn-primary" onDoubleClick={(e)=>{submitData(e)}}  />
                     {/* disabled={!customer.formValid} */}
                     <input type="reset" value={"Reset"} className="btn btn-danger "/>
-                </form></div>
-           
+                </form></div> 
         </div>
         </div>
         
