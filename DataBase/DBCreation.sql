@@ -6,13 +6,13 @@ CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `trainer_id` INT NULL,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `dob` DATE NOT NULL,
   `gender` VARCHAR(10) NOT NULL,
   `height` DECIMAL(10,2) NOT NULL,
   `weight` DECIMAL(10,2) NOT NULL,
-  `role` INT NOT NULL,
+  `rolee` INT NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
@@ -80,6 +80,6 @@ CREATE TABLE `dac_project`.`meal_food_items` (
     ON UPDATE CASCADE);
 
 use dac_project;
-insert into users(username,email,password,dob,gender,height,weight,role) values("manas","manas@gmail.com","manas@123","2000-12-12","m",5.4,72.4,1);
-insert into users(username,email,password,dob,gender,height,weight,role) values("manasi","manasi@gmail.com","manasi@123","2000-12-12","f",5.4,72.4,1);
-insert into users(username,email,password,dob,gender,height,weight,role) values("mana","mana@gmail","mana@123","2000-12-12","m",5.4,72.4,2);
+insert into users(username,email,pass,dob,gender,height,weight,rolee) values("manas","manas@gmail.com","manas@123","2000-12-12","m",5.4,72.4,1);
+insert into users(username,email,pass,dob,gender,height,weight,rolee) values("manasi","manasi@gmail.com","manasi@123","2000-12-12","f",5.4,72.4,1);
+insert into users(username,email,pass,dob,gender,height,weight,rolee) values("mana","mana@gmail","mana@123","2000-12-12","m",5.4,72.4,2);
