@@ -203,8 +203,8 @@ function RegComp(){
                     </div></div>
 
                     <p style={{float:"right"}}>already have an account? <Link to='/login'>login</Link></p><br/>
-                    <input type="button" value={"Register"} className="btn btn-outline-success" onDoubleClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
-                    <input type="reset" value={"Reset"} className="btn btn-outline-danger "/>
+                    <input type="button" value={"Register"} className="btn btn-primary" onDoubleClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
+                    <input type="reset" value={"Reset"} className="btn btn-danger "/>
                 </form></div>
            
         </div>
