@@ -80,7 +80,7 @@ CREATE TABLE `dac_project`.`meal_food_items` (
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
-
+use dac_project;
 insert into users(username,email,password,dob,gender,height,weight,role) values("manas","manas@gmail.com","manas@123","2000-12-12","m",5.4,72.4,1);
 insert into users(username,email,password,dob,gender,height,weight,role) values("manasi","manasi@gmail.com","manasi@123","2000-12-12","f",5.4,72.4,1);
 insert into users(username,email,password,dob,gender,height,weight,role) values("mana","mana@gmail","mana@123","2000-12-12","m",5.4,72.4,2);
