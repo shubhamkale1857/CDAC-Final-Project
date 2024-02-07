@@ -2,7 +2,6 @@
 DROP SCHEMA if exists `dac_project`;
 CREATE SCHEMA `dac_project` ;
 
-
 CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `trainer_id` INT NULL,

@@ -11,13 +11,15 @@ app.listen(8500, function() {
 var con = ms.createConnection({
 	host:"localhost",
 	user:"root",
-	password:"saruna",
+	password:"sql123",
 	database:"dac_project"
 });
 con.connect(function(err){
 	if(!err)
 	{
 		console.log("db connected!!");
+	}else{
+		console.log("db not connected!!!");
 	}
 })
 app.use(cors());
@@ -33,20 +35,6 @@ app.get("/userinfo", function(req, res){
 })
 
 
-/*
-
-app.get("/checkUser",function(req,res){
-    let user = req.query.email;
-    console.log(req.query.email);
-    let qry = "select * from customers where email = ?";
-    con.query(qry,[user],function(err,data){
-        if(!err){
-            res.json(data);
-        }else{
-            console.log("error in query!!!")
-        }
-    })
-})*/
 
 app.post("/insertUserData",function(req,res){
 	console.log(req.body.name,req.body.email,req.body.password,req.body.dob,req.body.gender,req.body.height,req.body.weight,req.body.role);

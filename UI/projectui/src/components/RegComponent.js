@@ -1,16 +1,19 @@
 
 import { useReducer,useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-// import pic from "https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png"
+//import pic from "https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png"
 
 
 
 function RegComp(){
     let navigate = useNavigate();
     const init = {
+        role : {value:"",error:"",touched:false,valid:false}, 
         name : {value:"",error:"",touched:false,valid:false}, 
         email : {value:"",error:"",touched:false,valid:false}, 
-        city : {value:"",error:"",touched:false,valid:false}, 
+        date : {value:"",error:"",touched:false,valid:false}, 
+        weight : {value:"",error:"",touched:false,valid:false}, 
+        height : {value:"",error:"",touched:false,valid:false}, 
         password : {value:"",error:"",touched:false,valid:false},
         repassword : {value:"",error:"",touched:false,valid:false},
         formValid : false 
@@ -45,11 +48,18 @@ function RegComp(){
                     error = "email not valid!!!"
                 }
                 break;
-            case 'city':
-                pattern = /[\w.\d.]{2,}/;
+            case 'weight':
+                pattern = /^\d*\.?\d*$/;
                 if(!pattern.test(val)){
                     valid = false;
-                    error = "city Name not valid!!!"
+                    error = "Enter Valid Decimal Value!!!"
+                }
+                break;
+            case 'height':
+                pattern = /^\d*\.?\d*$/;
+                if(!pattern.test(val)){
+                    valid = false;
+                    error = "Enter Valid Decimal Value!!!"
                 }
                 break;
             case 'password':
@@ -75,13 +85,6 @@ function RegComp(){
                 }else{
                     error = "Strong PassWord!!!";
                 }
-                // let pattern1 =/^(?=.[0-9])(?=.[A-Z])(?=.[!@#$%^&])[A-Za-z0-9!@#$%^&]{5,}$/;
-                // pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{4,15}$/;
-                // console.log("Here to Check Passs:  "+pattern.test("Shubh@123"));
-                // if(!pattern.test(val)){
-                //     valid = false;
-                //     error = "password not valid!!!"
-                // }
                 break;
             case 'repassword':
                 if(val !== customer.password.value){
@@ -130,7 +133,7 @@ function RegComp(){
             body : JSON.stringify({
                 name : customer.name.value,
                 email : customer.email.value,
-                city : customer.city.value,
+                date : customer.date.value,
                 password : customer.password.value
             })
         }
@@ -143,24 +146,43 @@ function RegComp(){
     }
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
-        <div className="container-fluid row">
+        <div className="row">
             <div className="col"></div>
             <div className="col"> 
                 <form>
-                    <label className="form-label" for="name">Enter Your Name</label>
+                    <div className="input-group mb-3">
+                        <select className="custom-select" id="role" onChange={(e)=>{handleChange("role",e.target.value)}} onBlur={(e)=>{handleChange("role",e.target.value)}}>
+                            <option selected>Select role</option>
+                            <option value="1">User</option>
+                            <option value="2">Trainer</option>
+                            <option value="3">Admin</option>
+                        </select>
+                    </div>
+                    <label className="form-label" for="name">Enter UserName</label>
                     <input type="text" className="form-control" id="name" value={customer.name.val} onChange={(e)=>{handleChange("name",e.target.value)}} onBlur={(e)=>{handleChange("name",e.target.value)}}/><br/>
                     <div style={{display: (!customer.name.valid && customer.name.touched)?"block":"none"}}><p className="text-danger">{customer.name.error}</p></div>
-
 
                     <label className="form-label" for="email">Enter Your Email</label>
                     <input type="email" className="form-control" id="email" onChange={(e)=>{handleChange("email",e.target.value)}} onBlur={(e)=>{handleChange("email",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.email.valid && customer.email.touched)?"block":"none"}}><p className="text-danger">{customer.email.error}</p></div>
                     <div style={{display: (true)?"block":"none"}}><p className="text-danger">{msg}</p></div>
 
-                    <label className="form-label" for="add">Enter Your City</label>
-                    <input type="text" className="form-control" id="add" onChange={(e)=>{handleChange("city",e.target.value)}} onBlur={(e)=>{handleChange("city",e.target.value)}}/><br/>
-                    <div style={{display: (!customer.city.valid && customer.city.touched)?"block":"none"}}><p className="text-danger">{customer.city.error}</p></div>
+                    <label className="form-label" for="add">Enter Date of Birth</label>
+                    <input type="date" className="form-control" id="add" onChange={(e)=>{handleChange("date",e.target.value)}} onBlur={(e)=>{handleChange("date",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.date.valid && customer.date.touched)?"block":"none"}}><p className="text-danger">{customer.date.error}</p></div>
 
+                    <label className="form-check">Select Your Gender</label>
+                    <input type="radio" name="gen" value={"m"} className="form-check-input"/>Male  &nbsp;
+                    <input type="radio" name="gen" value={"f"} className="form-check-input"/>Female  &nbsp;
+                    <input type="radio" name="gen" value={"o"} className="form-check-input"/>Other <br/><br/>
+
+                    <label className="form-label">Weight: </label>
+                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
+
+                    <label className="form-label">Height:</label>
+                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
                     <input type="password" className="form-control" id="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
