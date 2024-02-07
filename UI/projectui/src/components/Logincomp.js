@@ -10,21 +10,24 @@ export const LoginComp = () =>{
 
     const handleClick=()=>{
         
-        fetch("http://localhost:8500/getemailid?email="+email)
+        fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
         .then(resp => resp.json())
         .then(data=>{
             if(data.length!=0)
             {
                 if(data[0].password==pwd)
-            {
+                {
                 dispatch(login());
                 localStorage.setItem("data",JSON.stringify(data));
                 console.log("this is data "+JSON.stringify(data));
                 navigate('/userhome');
+                }
+                else{
+                    setMsg2("Wrong password!");
+                }
             }
             else{
-                setMsg2("Wrong password!");
-            }
+
             }
             
         })
