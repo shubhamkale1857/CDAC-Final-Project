@@ -9,7 +9,6 @@ export const LoginComp = () =>{
     const navigate = useNavigate();
 
     const handleClick=()=>{
-        
         fetch("http://localhost:8500/getemailid?email="+email+"&role="+role)
         .then(resp => resp.json())
         .then(data=>{
@@ -75,14 +74,14 @@ export const LoginComp = () =>{
                     <div className="row">
                         <div className="col-md-12 form-group">
                         <label for="name">Email</label>
-                        <input type="text" id="name" className="form-control " onChange={(e)=>{setEmail(e.target.value)}} onBlur={getUserName}/>
+                        <input type="text" id="name" className="form-control" onChange={(e)=>{setEmail(e.target.value)}} onBlur={getUserName}/>
                         <div className="text-danger">{msg1}</div>
                         </div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-12 form-group">
                         <label for="pwd">Password</label>
-                        <input type="password" id="pwd" className="form-control " onChange={(e)=>{setPwd(e.target.value)}}/>
+                        <input type="password" id="pwd" className="form-control" onChange={(e)=>{setPwd(e.target.value)}}/>
                         <div className="text-danger">{msg2}</div>
                         </div>
                     </div>

@@ -146,59 +146,56 @@ function RegComp(){
     }
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
-        <div className="row">
-            <div className="col"></div>
-            <div className="col"> 
+        
+        <div>
+            <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
+            <h1 style={{fontFamily:"Antic Didone"}}>REGISTER</h1>
+            </div>
+            <div className="row justify-content-center">
+            <div className="col-md-4 mt-5"> 
                 <form>
-                    <div className="input-group mb-3">
-                        <select className="custom-select" id="role" onChange={(e)=>{handleChange("role",e.target.value)}} onBlur={(e)=>{handleChange("role",e.target.value)}}>
-                            <option selected>Select role</option>
-                            <option value="1">User</option>
-                            <option value="2">Trainer</option>
-                            <option value="3">Admin</option>
-                        </select>
-                    </div>
-                    <label className="form-label" for="name">Enter UserName</label>
+                    <label className="form-label" for="name">Enter Your Name</label>
                     <input type="text" className="form-control" id="name" value={customer.name.val} onChange={(e)=>{handleChange("name",e.target.value)}} onBlur={(e)=>{handleChange("name",e.target.value)}}/><br/>
                     <div style={{display: (!customer.name.valid && customer.name.touched)?"block":"none"}}><p className="text-danger">{customer.name.error}</p></div>
+
 
                     <label className="form-label" for="email">Enter Your Email</label>
                     <input type="email" className="form-control" id="email" onChange={(e)=>{handleChange("email",e.target.value)}} onBlur={(e)=>{handleChange("email",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.email.valid && customer.email.touched)?"block":"none"}}><p className="text-danger">{customer.email.error}</p></div>
                     <div style={{display: (true)?"block":"none"}}><p className="text-danger">{msg}</p></div>
 
-                    <label className="form-label" for="add">Enter Date of Birth</label>
-                    <input type="date" className="form-control" id="add" onChange={(e)=>{handleChange("date",e.target.value)}} onBlur={(e)=>{handleChange("date",e.target.value)}}/><br/>
-                    <div style={{display: (!customer.date.valid && customer.date.touched)?"block":"none"}}><p className="text-danger">{customer.date.error}</p></div>
-
-                    <label className="form-check">Select Your Gender</label>
-                    <input type="radio" name="gen" value={"m"} className="form-check-input"/>Male  &nbsp;
-                    <input type="radio" name="gen" value={"f"} className="form-check-input"/>Female  &nbsp;
-                    <input type="radio" name="gen" value={"o"} className="form-check-input"/>Other <br/><br/>
-
-                    <label className="form-label">Weight: </label>
-                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value)}}/><br/>
-                    <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
+                    <label className="form-label" for="add">Enter Your City</label>
+                    <input type="text" className="form-control" id="add" onChange={(e)=>{handleChange("city",e.target.value)}} onBlur={(e)=>{handleChange("city",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.city.valid && customer.city.touched)?"block":"none"}}><p className="text-danger">{customer.city.error}</p></div>
 
                     <label className="form-label">Height:</label>
                     <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value)}}/><br/>
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
+                    <div className="row">
+                    <div className="col-md-12 form-group">
                     <label className="form-label" for="pass">Enter Your Password</label>
                     <input type="password" className="form-control" id="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
                     <div style={{display: (!customer.password.valid && customer.password.touched)?"block":"none"}}><p className="text-danger">{customer.password.error}</p></div>
                     <p className="text-success" style={{display:(customer.password.valid)?"block":"none"}}>{customer.password.error}</p>
+                    </div></div>
 
+
+                    <div className="row">
+                    <div className="col-md-12 form-group">
                     <label className="form-label" for="rpass">Re-Enter Your Password</label>
                     <input type="password" className="form-control" id="rpass" onChange={(e)=>{handleChange("repassword",e.target.value)}} onBlur={(e)=>{handleChange("repassword",e.target.value)}}/><br/>
                     <div style={{display: (!customer.repassword.valid && customer.repassword.touched)?"block":"none"}}><p className="text-danger">{customer.repassword.error}</p></div>
+                    </div></div>
 
                     <p style={{float:"right"}}>already have an account? <Link to='/login'>login</Link></p><br/>
-                    <input type="button" value={"Register"} className="btn btn-outline-success" onDoubleClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
-                    <input type="reset" value={"Reset"} className="btn btn-outline-danger "/>
+                    <input type="button" value={"Register"} className="btn btn-primary" onDoubleClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
+                    <input type="reset" value={"Reset"} className="btn btn-danger "/>
                 </form></div>
-            <div className="col"></div>
+           
         </div>
+        </div>
+        
     )
 }
 
