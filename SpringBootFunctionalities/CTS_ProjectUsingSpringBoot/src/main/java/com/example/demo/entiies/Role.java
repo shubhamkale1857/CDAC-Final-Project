@@ -31,7 +31,7 @@ public class Role {
 	@Column
 	private String role_name;
 	@JsonIgnoreProperties("role")
-	@OneToMany(mappedBy = "role",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "role")
 	private List<User> users;
 	
 	public void setUsers(List<User> users) {

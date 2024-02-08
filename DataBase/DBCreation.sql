@@ -83,3 +83,57 @@ use dac_project;
 insert into users(username,email,pass,dob,gender,height,weight,rolee) values("manas","manas@gmail.com","manas@123","2000-12-12","m",5.4,72.4,1);
 insert into users(username,email,pass,dob,gender,height,weight,rolee) values("manasi","manasi@gmail.com","manasi@123","2000-12-12","f",5.4,72.4,1);
 insert into users(username,email,pass,dob,gender,height,weight,rolee) values("mana","mana@gmail","mana@123","2000-12-12","m",5.4,72.4,2);
+
+
+
+
+
+
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entiies.User;
+import com.example.demo.services.UserService;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+public class UserController {
+	@Autowired
+	UserService uservice;
+	
+	@GetMapping("/getusername")
+	public User getUser(@RequestParam String uname)
+	{
+		return uservice.find(uname);
+	}
+}
+
+
+
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entiies.User;
+import com.example.demo.repositories.UserRepository;
+
+@Service
+public class UserService {
+	@Autowired
+	UserRepository urepo;
+	
+	public User find(String uname)
+	{
+		return urepo.findByUname(uname);
+	}
+	
+	public User save(User u) {
+		return urepo.save(u);
+	}
+}

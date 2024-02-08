@@ -34,7 +34,7 @@ public class User {
 	@Column
 	private String pass;
 	@JsonIgnoreProperties("users")
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "role_id")
 	private Role role;
 	@Column
@@ -48,9 +48,9 @@ public class User {
 		this.active = active;
 	}
 
-//	@OneToOne(mappedBy = "user")
-//	private Customer customer;
-//	
-//	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-//	private Trainer trainer;
+	@OneToOne(mappedBy = "user")
+	private Customer customer;
+	
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+	private Trainer trainer;
 }
