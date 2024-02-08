@@ -29,7 +29,7 @@ public class DummyCustomerService {
 		cust.setFname(dummy.getFname());
 		cust.setLname(dummy.getLname());
 		cust.setEmail(dummy.getEmail());
-		cust.setContactno(dummy.getContactno());
+		cust.setContactno(dummy.getContact());
 		cust.setDob(dummy.getDob());
 		cust.setHeight(dummy.getHeight());
 		cust.setWeight(dummy.getWeight());

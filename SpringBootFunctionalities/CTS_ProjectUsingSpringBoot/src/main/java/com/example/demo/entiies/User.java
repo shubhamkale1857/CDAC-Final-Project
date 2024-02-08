@@ -51,6 +51,6 @@ public class User {
 	@OneToOne(mappedBy = "user")
 	private Customer customer;
 	
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "user")
 	private Trainer trainer;
 }

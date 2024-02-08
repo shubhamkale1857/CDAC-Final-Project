@@ -17,7 +17,7 @@ public class DummyCustomer {
 	private String fname;
 	private String lname;
 	private String email;
-	private String contactno;
+	private String contact;
 	private Date dob;
 	private Date regDate;
 	private String gender;

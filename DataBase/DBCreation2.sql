@@ -60,3 +60,6 @@ CREATE TABLE `dac_project`.`trainers` (
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'Admin');
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'Customer');
