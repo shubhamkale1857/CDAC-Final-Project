@@ -1,6 +1,10 @@
 package com.example.demo.entiies;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,11 +31,22 @@ public class Trainer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int trainer_id;
 	@Column
-	private String name;
+	private String fname;
+	@Column
+	private String lname;
+	@Column
+	private String email;
+	@Column
+	private String contactno;
 	@Column
 	private String specialization;
 	@Column
 	private int experience;
+	@Column
+	private Date registration_date;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Column
+	private String address;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
