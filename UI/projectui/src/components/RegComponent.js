@@ -149,7 +149,7 @@ function RegComp(){
             })
         }
 
-        fetch("http://localhost:8500/insertUserData",reqOption)
+        fetch("http://localhost:8080/saveCustomer",reqOption)
         .then((res)=>{return res.text()})
         .then((msg)=>{console.log("Data Inserted Successfully!!!")})
 
@@ -199,7 +199,7 @@ function RegComp(){
                     <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
-                    <input type="password" className="form-control" id="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
+                    <input type="password" className="form-control" id="pass" name="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
                     <div style={{display: (!customer.password.valid && customer.password.touched)?"block":"none"}}><p className="text-danger">{customer.password.error}</p></div>
                     <p className="text-success" style={{display:(customer.password.valid)?"block":"none"}}>{customer.password.error}</p>
 

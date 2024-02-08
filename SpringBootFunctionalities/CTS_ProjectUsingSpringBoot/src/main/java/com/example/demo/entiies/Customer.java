@@ -2,6 +2,8 @@ package com.example.demo.entiies;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +31,7 @@ public class Customer {
 	private String name;
 	@Column
 	private String email;
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dob;
 	@Column
