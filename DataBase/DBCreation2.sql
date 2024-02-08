@@ -38,7 +38,7 @@ CREATE TABLE `dac_project`.`customers` (
   `gender` varchar(10) DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
+  `address` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `user_id_idx` (`user_id`),
@@ -55,7 +55,7 @@ CREATE TABLE `dac_project`.`trainers` (
   `experience` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
+  `address` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
