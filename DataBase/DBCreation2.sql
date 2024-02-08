@@ -9,6 +9,24 @@ CREATE TABLE `dac_project`.`roles` (
   UNIQUE INDEX `role_name_UNIQUE` (`role_name` ASC) VISIBLE);
 
 
+CREATE TABLE `dac_project`.`cities` (
+  `city_id` int NOT NULL AUTO_INCREMENT,
+  `cname` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`city_id`),
+  UNIQUE KEY `cname_UNIQUE` (`cname`)
+);
+
+CREATE TABLE `dac_project`.`areas` (
+  `area_id` int NOT NULL AUTO_INCREMENT,
+  `aname` varchar(45) DEFAULT NULL,
+  `city_id` int DEFAULT NULL,
+  PRIMARY KEY (`area_id`),
+  UNIQUE KEY `aname_UNIQUE` (`aname`),
+  KEY `fk_city_id_idx` (`city_id`),
+  CONSTRAINT `fk_city_id` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`)
+);
+
+
 CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NULL,
@@ -26,33 +44,48 @@ CREATE TABLE `dac_project`.`users` (
 
 
 CREATE TABLE `dac_project`.`customers` (
-  `customer_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NOT NULL,
-  `email` VARCHAR(45) NULL,
-  `dob` DATE NOT NULL,
-  `height` DECIMAL(10,2) NOT NULL,
-  `weight` DECIMAL(10,2) NOT NULL,
-  `gender` VARCHAR(10) NULL,
-  `user_id` INT NULL,
+  `customer_id` int NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) NOT NULL,
+  `lname` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `contactno` varchar(13) DEFAULT NULL,
+  `dob` date NOT NULL,
+  `height` double DEFAULT NULL,
+  `weight` double DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `registration_date` date DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `city_id` int DEFAULT NULL,
+  `area_id` int DEFAULT NULL,
   PRIMARY KEY (`customer_id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `dac_project`.`users` (`user_id`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE);
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  KEY `user_id_idx` (`user_id`),
+  KEY `fk_city_id1_idx` (`city_id`),
+  KEY `fk_area_id_idx` (`area_id`),
+  CONSTRAINT `fk_area_id` FOREIGN KEY (`area_id`) REFERENCES `areas` (`area_id`),
+  CONSTRAINT `fk_city_id1` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
+);
 
-CREATE TABLE `dac_project`.`trainers` (
-  `trainer_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NULL,
-  `specialization` VARCHAR(45) NULL,
-  `experience` INT NULL,
-  `user_id` INT NULL,
+CREATE TABLE `trainers` (
+  `trainer_id` int NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) DEFAULT NULL,
+  `lname` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `contactno` varchar(13) DEFAULT NULL,
+  `specialization` varchar(45) DEFAULT NULL,
+  `experience` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `registration_date` date DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `city_id` int DEFAULT NULL,
+  `area_id` int DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `user_id1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `dac_project`.`users` (`user_id`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE);
+  KEY `user_id_idx` (`user_id`),
+  KEY `fk_city_id2_idx` (`city_id`),
+  KEY `fk_area_id2_idx` (`area_id`),
+  CONSTRAINT `fk_area_id2` FOREIGN KEY (`area_id`) REFERENCES `areas` (`area_id`),
+  CONSTRAINT `fk_city_id2` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
+  CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
+);

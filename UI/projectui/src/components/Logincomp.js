@@ -37,6 +37,7 @@ export const LoginComp = () =>{
     const[msg2, setMsg2]=useState("");
     const[uname,setUname]=useState("");
     const[pwd,setPwd]=useState("");
+    const[flag,setFlag]=useState(true);
 
     const getUserName=()=>{
             fetch("http://localhost:8500/getusername?uname="+uname)
@@ -54,9 +55,11 @@ export const LoginComp = () =>{
                 if(data.length===0)
                 {
                     setMsg1("Username not found!");
+                    setFlag(true);
                 }
                 else{
                     setMsg1("");
+                    setFlag(false);
                 }
             })
             .catch(error => {
@@ -91,7 +94,7 @@ export const LoginComp = () =>{
                     <p style={{float:"right"}}>don't have an account? <Link to='/register'>register</Link></p>
                     <div className="row">
                         <div className="col-md-5 form-group">
-                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick}/>
+                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} disabled={flag} />
                         </div>
                     </div>
                 </form>
