@@ -11,7 +11,7 @@ public class UserService {
 	@Autowired
 	UserRepository urepo;
 	
-	public User Find(String uname)
+	public User find(String uname)
 	{
 		return urepo.findByUname(uname);
 	}

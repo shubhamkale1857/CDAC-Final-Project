@@ -12,9 +12,10 @@ export const LoginComp = () =>{
         fetch("http://localhost:8080/getusername?uname="+uname)
         .then(resp => resp.json())
         .then(data=>{
+            console.log(JSON.stringify(data))
             if(data.length!==0)
             {
-                if(data[0].pass===pwd)
+                if(data.pass===pwd)
                 {
                 dispatch(login());
                 localStorage.setItem("data",JSON.stringify(data));
@@ -38,9 +39,18 @@ export const LoginComp = () =>{
     const[pwd,setPwd]=useState("");
 
     const getUserName=()=>{
-            fetch("http://localhost:8080/getusername?uname="+uname)
-            .then(resp => resp.json())
-            .then(data=>{
+            fetch("http://localhost:8500/getusername?uname="+uname)
+            .then(resp => {
+                 console.log(resp.status)
+                 return resp.json();
+            })
+            // .then(data =>{
+            //     if(data!=null)
+            //     console.log(JSON.stringify(data))
+            // })
+           .then(data=>{
+                console.log("hello");
+                console.log(data)
                 if(data.length===0)
                 {
                     setMsg1("Username not found!");
@@ -49,6 +59,9 @@ export const LoginComp = () =>{
                     setMsg1("");
                 }
             })
+            .catch(error => {
+                console.error('Fetch error:', error);
+              });
         
         
         }
@@ -63,7 +76,7 @@ export const LoginComp = () =>{
                 <form >
                     <div className="row">
                         <div className="col-md-12 form-group">
-                        <label for="name">Email</label>
+                        <label for="name">UserName</label>
                         <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}} onBlur={getUserName}/>
                         <div className="text-danger">{msg1}</div>
                         </div>

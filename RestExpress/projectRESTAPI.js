@@ -51,9 +51,9 @@ app.post("/insertUserData",function(req,res){
     });
 })
 
-app.get("/getemailid", function(req, res){
-	var email = req.query.email;
-	con.query("select * from users where email= '"+email+"' and rolee="+req.query.role  , function(err, data){
+app.get("/getusername", function(req, res){
+	var uname = req.query.uname;
+	con.query("select * from users where username= '"+uname+"'"  , function(err, data){
 		res.json(data);
 	})
 })

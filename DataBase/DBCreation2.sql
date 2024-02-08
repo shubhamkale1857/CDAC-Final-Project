@@ -1,15 +1,15 @@
-DROP SCHEMA if exists `dac_project2`;
+DROP SCHEMA if exists `dac_project`;
 
-CREATE SCHEMA `dac_project2` ;
+CREATE SCHEMA `dac_project` ;
 
-CREATE TABLE `dac_project2`.`roles` (
+CREATE TABLE `dac_project`.`roles` (
   `role_id` INT NOT NULL,
   `role_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`role_id`),
   UNIQUE INDEX `role_name_UNIQUE` (`role_name` ASC) VISIBLE);
 
 
-CREATE TABLE `dac_project2`.`users` (
+CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NULL,
   `pass` VARCHAR(45) NULL,
@@ -20,12 +20,12 @@ CREATE TABLE `dac_project2`.`users` (
   INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
   CONSTRAINT `role_id`
     FOREIGN KEY (`role_id`)
-    REFERENCES `dac_project2`.`roles` (`role_id`)
+    REFERENCES `dac_project`.`roles` (`role_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
 
-CREATE TABLE `dac_project2`.`customers` (
+CREATE TABLE `dac_project`.`customers` (
   `customer_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NOT NULL,
   `email` VARCHAR(45) NULL,
@@ -39,11 +39,11 @@ CREATE TABLE `dac_project2`.`customers` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `dac_project2`.`users` (`user_id`)
+    REFERENCES `dac_project`.`users` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
-CREATE TABLE `dac_project2`.`trainers` (
+CREATE TABLE `dac_project`.`trainers` (
   `trainer_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `specialization` VARCHAR(45) NULL,
@@ -53,6 +53,6 @@ CREATE TABLE `dac_project2`.`trainers` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `user_id1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `dac_project2`.`users` (`user_id`)
+    REFERENCES `dac_project`.`users` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);

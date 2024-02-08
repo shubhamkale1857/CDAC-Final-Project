@@ -16,8 +16,8 @@ public class UserController {
 	UserService uservice;
 	
 	@GetMapping("/getusername")
-	public User getUser(@RequestParam String uname)
+	public User getUser(@RequestParam("uname") String uname)
 	{
-		return uservice.Find(uname);
+		return uservice.find(uname);
 	}
 }
