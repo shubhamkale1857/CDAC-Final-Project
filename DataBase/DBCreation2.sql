@@ -53,9 +53,9 @@ CREATE TABLE `dac_project`.`trainers` (
   `contactno` varchar(13) DEFAULT NULL,
   `specialization` varchar(45) DEFAULT NULL,
   `experience` int DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
