@@ -43,7 +43,7 @@ CREATE TABLE `dac_project`.`users` (
     ON UPDATE CASCADE);
 
 
-CREATE TABLE `customers` (
+CREATE TABLE `dac_project`.`customers` (
   `customer_id` int NOT NULL AUTO_INCREMENT,
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) DEFAULT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE `customers` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-CREATE TABLE `trainers` (
+CREATE TABLE `dac_project`.`trainers` (
   `trainer_id` int NOT NULL AUTO_INCREMENT,
   `fname` varchar(45) DEFAULT NULL,
   `lname` varchar(45) DEFAULT NULL,
@@ -76,13 +76,10 @@ CREATE TABLE `trainers` (
   `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `city_id` int DEFAULT NULL,
   `area_id` int DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
   KEY `user_id_idx` (`user_id`),
-  KEY `fk_city_id2_idx` (`city_id`),
   KEY `fk_area_id2_idx` (`area_id`),
   CONSTRAINT `fk_area_id2` FOREIGN KEY (`area_id`) REFERENCES `areas` (`area_id`),
-  CONSTRAINT `fk_city_id2` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
   CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
