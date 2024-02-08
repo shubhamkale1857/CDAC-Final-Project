@@ -9,7 +9,7 @@ export const LoginComp = () =>{
     const navigate = useNavigate();
 
     const handleClick=()=>{
-        fetch("http://localhost:8500/getusername?uname="+uname)
+        fetch("http://localhost:8080/getusername?uname="+uname)
         .then(resp => resp.json())
         .then(data=>{
             if(data.length!==0)
@@ -38,7 +38,7 @@ export const LoginComp = () =>{
     const[pwd,setPwd]=useState("");
 
     const getUserName=()=>{
-            fetch("http://localhost:8500/getusername?uname="+uname)
+            fetch("http://localhost:8080/getusername?uname="+uname)
             .then(resp => resp.json())
             .then(data=>{
                 if(data.length===0)
