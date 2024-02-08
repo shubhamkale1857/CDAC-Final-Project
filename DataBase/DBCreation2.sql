@@ -43,7 +43,7 @@ CREATE TABLE `dac_project`.`users` (
     ON UPDATE CASCADE);
 
 
-CREATE TABLE `dac_project`.`customers` (
+CREATE TABLE `customers` (
   `customer_id` int NOT NULL AUTO_INCREMENT,
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) DEFAULT NULL,
@@ -56,15 +56,12 @@ CREATE TABLE `dac_project`.`customers` (
   `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `city_id` int DEFAULT NULL,
   `area_id` int DEFAULT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `user_id_idx` (`user_id`),
-  KEY `fk_city_id1_idx` (`city_id`),
   KEY `fk_area_id_idx` (`area_id`),
   CONSTRAINT `fk_area_id` FOREIGN KEY (`area_id`) REFERENCES `areas` (`area_id`),
-  CONSTRAINT `fk_city_id1` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
 

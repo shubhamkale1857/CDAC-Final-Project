@@ -164,7 +164,7 @@ function RegComp(){
         
         <div>
             <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
-            <h1 style={{fontFamily:"Antic Didone", color:"black"}}>USER REGISTER</h1>
+            <h1 style={{fontFamily:"Antic Didone"}}>USER REGISTER</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5"> 
