@@ -139,13 +139,13 @@ function RegComp(){
             body : JSON.stringify({
                 name : customer.name.value,
                 email : customer.email.value,
-                date : date,
+                dob : date,
                 gender:gender,
                 height: customer.height.value,
                 weight: customer.weight.value,
                 roleid:1,
                 username : customer.username.value,
-                password : customer.password.value
+                pass : customer.password.value
             })
         }
 
@@ -170,16 +170,16 @@ function RegComp(){
             <div className="col-md-4 mt-5"> 
             <form>
                     <label className="form-label" for="name">Enter Name</label>
-                    <input type="text" className="form-control" id="name" value={customer.name.val} onChange={(e)=>{handleChange("name",e.target.value)}} onBlur={(e)=>{handleChange("name",e.target.value)}}/><br/>
+                    <input type="text" className="form-control" id="name" name="name" value={customer.name.val} onChange={(e)=>{handleChange("name",e.target.value)}} onBlur={(e)=>{handleChange("name",e.target.value)}}/><br/>
                     <div style={{display: (!customer.name.valid && customer.name.touched)?"block":"none"}}><p className="text-danger">{customer.name.error}</p></div>
 
                     <label className="form-label" for="email">Enter Your Email</label>
-                    <input type="email" className="form-control" id="email" onChange={(e)=>{handleChange("email",e.target.value)}} onBlur={(e)=>{handleChange("email",e.target.value); checkEmail(e.target.value)}}/><br/>
+                    <input type="email" className="form-control" id="email" name="email" onChange={(e)=>{handleChange("email",e.target.value)}} onBlur={(e)=>{handleChange("email",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.email.valid && customer.email.touched)?"block":"none"}}><p className="text-danger">{customer.email.error}</p></div>
                     <div style={{display: (true)?"block":"none"}}><p className="text-danger">{msg}</p></div>
 
                     <label className="form-label" for="add">Enter Date of Birth</label>
-                    <input type="date" className="form-control" id="add" onChange={(e)=>{setDate(e.target.value)}}/><br/>
+                    <input type="date" className="form-control" id="add" name="dob" onChange={(e)=>{setDate(e.target.value)}}/><br/>
 
                     <label className="form-check">Select Your Gender</label>
                     <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;
@@ -195,7 +195,7 @@ function RegComp(){
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
                     <label className="form-label" for="uname">Enter Username</label>
-                    <input type="text" className="form-control" id="uname" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value)}}/><br/>
+                    <input type="text" className="form-control" id="uname" name="username" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value)}}/><br/>
                     <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
 
                     <label className="form-label" for="pass">Enter Your Password</label>

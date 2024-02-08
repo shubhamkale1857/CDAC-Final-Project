@@ -2,6 +2,8 @@ package com.example.demo.entiies;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
@@ -21,6 +23,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
+@Component
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -40,7 +43,7 @@ public class Customer {
 	private double weight;
 	@Column
 	private String gender;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 }

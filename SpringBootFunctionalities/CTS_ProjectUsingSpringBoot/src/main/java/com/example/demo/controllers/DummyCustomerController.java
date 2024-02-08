@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entiies.DummyCustomer;
-import com.example.demo.services.CustomerService;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.example.demo.services.DummyCustomerService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class CustomerController {
+public class DummyCustomerController {
 	@Autowired
-	CustomerService cService;
+	DummyCustomerService dService;
 	
+	@PostMapping("/saveCustomer")
+	public String saveCustomerUser(@RequestBody DummyCustomer dummy) {
+		String str = dService.save(dummy);
+		System.out.println(str);
+		return str;
+	}
 }

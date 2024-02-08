@@ -1,5 +1,7 @@
 package com.example.demo.entiies;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +19,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
+@Component
 @Entity
 @Table(name = "trainers")
 public class Trainer {

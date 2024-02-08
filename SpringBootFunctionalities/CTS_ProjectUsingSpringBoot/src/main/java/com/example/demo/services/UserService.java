@@ -15,4 +15,8 @@ public class UserService {
 	{
 		return urepo.findByUname(uname);
 	}
+	
+	public User save(User u) {
+		return urepo.save(u);
+	}
 }
