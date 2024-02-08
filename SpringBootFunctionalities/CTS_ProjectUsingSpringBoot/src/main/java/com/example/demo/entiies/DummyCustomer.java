@@ -14,12 +14,16 @@ import lombok.ToString;
 @ToString
 @Component
 public class DummyCustomer {
-	private String username;
-	private String pass;
-	private String name;
+	private String fname;
+	private String lname;
 	private String email;
+	private String contactno;
 	private Date dob;
+	private Date regDate;
 	private String gender;
 	private double height;
 	private double weight;
+	private String address;
+	private String username;
+	private String pass;
 }

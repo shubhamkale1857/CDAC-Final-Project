@@ -31,9 +31,13 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
 	@Column
-	private String name;
+	private String fname;
+	@Column
+	private String lname;
 	@Column
 	private String email;
+	@Column
+	private String contactno;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dob;
@@ -46,4 +50,9 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Column
+	private Date registration_date;
+	@Column
+	private String address;
 }

@@ -26,13 +26,17 @@ public class DummyCustomerService {
 		String username = dummy.getUsername();
 		System.out.println("User Saved");
 		User u = uService.find(username);
-		cust.setName(dummy.getName());
+		cust.setFname(dummy.getFname());
+		cust.setLname(dummy.getLname());
 		cust.setEmail(dummy.getEmail());
+		cust.setContactno(dummy.getContactno());
 		cust.setDob(dummy.getDob());
 		cust.setHeight(dummy.getHeight());
 		cust.setWeight(dummy.getWeight());
 		cust.setGender(dummy.getGender());
 		cust.setUser(u);
+		cust.setRegistration_date(dummy.getRegDate());
+		cust.setAddress(dummy.getAddress());
 		cService.save(cust);
 		return "Done";
 	}

@@ -11,7 +11,7 @@ app.listen(8500, function() {
 var con = ms.createConnection({
 	host:"localhost",
 	user:"root",
-	password:"saruna",
+	password:"sql123",
 	database:"dac_project"
 });
 con.connect(function(err){
@@ -53,15 +53,22 @@ app.post("/insertUserData",function(req,res){
 
 app.get("/getusername", function(req, res){
 	var uname = req.query.uname;
-	con.query("select * from users where username= '"+uname+"'"  , function(err, data){
+	con.query("select * from users where username= '"+uname+"'" , function(err, data){
 		res.json(data);
 	})
 })
 
 app.get("/getemailidreg", function(req, res){
 	var email = req.query.email;
-	con.query("select * from users where email= '"+email+"'" , function(err, data){
-		res.json(data);
+	con.query("select * from customers where email='"+email+"'", function(err, data){
+		if(!err){
+			res.json(data);
+			console.log("Success email");
+		}else{
+			res.send("hello");
+			console.log("Error email");
+		}
+		
 	})
 })
 

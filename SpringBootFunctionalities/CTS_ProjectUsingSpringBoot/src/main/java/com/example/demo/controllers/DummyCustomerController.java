@@ -19,6 +19,7 @@ public class DummyCustomerController {
 	public String saveCustomerUser(@RequestBody DummyCustomer dummy) {
 		String str = dService.save(dummy);
 		System.out.println(str);
-		return str;
+		System.out.println(dummy);
+		return "hello";
 	}
 }
