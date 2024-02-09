@@ -172,16 +172,18 @@ function RegComp(){
         fetch("http://localhost:8080/saveCustomer",reqOption)
         .then((res)=>{
             if(res.ok){
-                return res.json();
+                console.log("here in react")
+                return res.text();
             }else{
                 throw new Error("Server Error For Registration");
             }
         })
         .then((msg)=>{
             console.log("Data Inserted Successfully!!!");
-            navigate("/login");
         })
-        .catch(error => navigate("/register"))    
+        .catch(error => navigate("/register"))
+
+        navigate("/login");   
     }
     const[date,setDate] = useState("");
     const[dateReg,setDateReg] = useState("");

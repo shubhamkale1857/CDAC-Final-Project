@@ -5,6 +5,7 @@ import java.sql.Date;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -47,6 +48,7 @@ public class Customer {
 	private double weight;
 	@Column
 	private String gender;
+//	@JsonIgnoreProperties("customer")
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;

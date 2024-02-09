@@ -31,7 +31,6 @@ public class Role {
 	@Column
 	private String role_name;
 	
-	
 	public Role(int role_id, String role_name) {
 		super();
 		this.role_id = role_id;

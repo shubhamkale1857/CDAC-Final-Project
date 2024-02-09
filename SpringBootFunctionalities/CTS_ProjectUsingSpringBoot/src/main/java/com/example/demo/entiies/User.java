@@ -47,9 +47,6 @@ public class User {
 		this.role = role;
 		this.active = active;
 	}
-
-	//entity dummy comment
-	
 	@OneToOne(mappedBy = "user")
 	private Customer customer;
 	
