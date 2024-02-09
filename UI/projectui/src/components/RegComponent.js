@@ -159,7 +159,6 @@ function RegComp(){
                 email : customer.email.value,
                 contact:customer.contact.value,
                 dob : date,
-                regDate:dateReg,
                 gender:gender,
                 height: customer.height.value,
                 weight: customer.weight.value,
@@ -186,7 +185,6 @@ function RegComp(){
         navigate("/login");   
     }
     const[date,setDate] = useState("");
-    const[dateReg,setDateReg] = useState("");
     const[gender,setGender] = useState("");
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
@@ -218,9 +216,6 @@ function RegComp(){
 
                     <label className="form-label" for="add">Enter Date of Birth</label>
                     <input type="date" className="form-control" id="add" name="dob" onChange={(e)=>{setDate(e.target.value)}}/><br/>
-
-                    <label className="form-label" for="ad">Enter Date of Registration</label>
-                    <input type="date" className="form-control" id="ad" name="regDate" onChange={(e)=>{setDateReg(e.target.value)}}/><br/>
 
                     <label className="form-check">Select Your Gender</label>
                     <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;

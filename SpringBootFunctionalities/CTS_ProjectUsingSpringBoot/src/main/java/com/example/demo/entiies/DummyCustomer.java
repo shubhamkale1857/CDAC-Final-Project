@@ -1,6 +1,7 @@
 package com.example.demo.entiies;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ public class DummyCustomer {
 	private String email;
 	private String contact;
 	private Date dob;
-	private Date regDate;
+	private LocalDate regDate;
 	private String gender;
 	private double height;
 	private double weight;

@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +37,7 @@ public class DummyCustomerService {
 		cust.setWeight(dummy.getWeight());
 		cust.setGender(dummy.getGender());
 		cust.setUser(u);
-		cust.setRegistration_date(dummy.getRegDate());
+		cust.setRegistration_date(LocalDate.now());
 		cust.setAddress(dummy.getAddress());
 		cService.save(cust);
 		return "Done";

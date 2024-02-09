@@ -1,6 +1,8 @@
 package com.example.demo.entiies;
 
+
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
@@ -54,7 +56,7 @@ public class Customer {
 	private User user;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
-	private Date registration_date;
+	private LocalDate registration_date;
 	@Column
 	private String address;
 }
