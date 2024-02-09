@@ -170,10 +170,18 @@ function RegComp(){
         }
         console.log(reqOption);
         fetch("http://localhost:8080/saveCustomer",reqOption)
-        .then((res)=>{return res.text()})
-        .then((msg)=>{console.log("Data Inserted Successfully!!!")})
-
-        navigate("/login");
+        .then((res)=>{
+            if(res.ok){
+                return res.json();
+            }else{
+                throw new Error("Server Error For Registration");
+            }
+        })
+        .then((msg)=>{
+            console.log("Data Inserted Successfully!!!");
+            navigate("/login");
+        })
+        .catch(error => navigate("/register"))    
     }
     const[date,setDate] = useState("");
     const[dateReg,setDateReg] = useState("");
