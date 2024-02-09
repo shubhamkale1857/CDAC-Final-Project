@@ -30,17 +30,8 @@ public class Role {
 	private int role_id;
 	@Column
 	private String role_name;
-	@JsonIgnoreProperties("role")
-	@OneToMany(mappedBy = "role")
-	private List<User> users;
 	
-	public void setUsers(List<User> users) {
-		for(User u : users) {
-			u.setRole(this);
-		}
-		this.users = users;
-	}
-
+	
 	public Role(int role_id, String role_name) {
 		super();
 		this.role_id = role_id;

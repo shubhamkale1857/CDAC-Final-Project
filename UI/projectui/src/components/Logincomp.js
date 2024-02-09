@@ -9,65 +9,83 @@ export const LoginComp = () =>{
     const navigate = useNavigate();
 
     const handleClick=()=>{
-        fetch("http://localhost:8080/getusername?uname="+uname)
-        .then(resp => resp.json())
-        .then(data=>{
-            console.log(JSON.stringify(data))
-            if(data.length!==0)
+        const reqOption = {
+            method : "POST",
+            headers : {"content-type":"application/json"},
+            body : JSON.stringify({
+                username:uname,
+                password:pwd
+            })
+        }
+        fetch("http://localhost:8080/login",reqOption)
+        .then((res)=>{return res.text()})
+        .then((msg)=>{
+            if(msg==="success")
             {
-                if(data.pass===pwd)
-                {
                 dispatch(login());
-                localStorage.setItem("data",JSON.stringify(data));
-                console.log("this is data "+JSON.stringify(data));
-                navigate('/userhome');
-                }
-                else{
-                    setMsg2("Wrong password!");
-                }
+                   //localStorage.setItem("data",JSON.stringify(data));
+                   //console.log("this is data "+JSON.stringify(data));
+                   navigate('/userhome');
             }
             else{
-
+                    setMsg("Wrong credentials!");
             }
-            
         })
+        // .then(resp => resp.json())
+        // .then(data=>{
+        //     console.log(JSON.stringify(data))
+        //     if(data.length!==0)
+        //     {
+        //         if(data.pass===pwd)
+        //         {
+        //         dispatch(login());
+        //         localStorage.setItem("data",JSON.stringify(data));
+        //         console.log("this is data "+JSON.stringify(data));
+        //         navigate('/userhome');
+        //         }
+        //         else{
+        //             setMsg2("Wrong password!");
+        //         }
+        //     }
+        //     else{
+
+        //     }
+            
+        // })
     }
 
-    const[msg1, setMsg1]=useState("");
-    const[msg2, setMsg2]=useState("");
+    const[msg, setMsg]=useState("");
     const[uname,setUname]=useState("");
     const[pwd,setPwd]=useState("");
     const[flag,setFlag]=useState(true);
 
-    const getUserName=()=>{
-            fetch("http://localhost:8500/getusername?uname="+uname)
-            .then(resp => {
-                 console.log(resp.status)
-                 return resp.json();
-            })
-            // .then(data =>{
-            //     if(data!=null)
-            //     console.log(JSON.stringify(data))
-            // })
-           .then(data=>{
-                console.log("hello");
-                console.log(data)
-                if(data.length===0)
-                {
-                    setMsg1("Username not found!");
-                    setFlag(true);
-                }
-                else{
-                    setMsg1("");
-                    setFlag(false);
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-              });
-        
-        
-        }
+    // const getUserName=()=>{
+    //         fetch("http://localhost:8500/getusername?uname="+uname)
+    //         .then(resp => {
+    //              console.log(resp.status)
+    //              return resp.json();
+    //         })
+    //         // .then(data =>{
+    //         //     if(data!=null)
+    //         //     console.log(JSON.stringify(data))
+    //         // })
+    //        .then(data=>{
+    //             console.log("hello");
+    //             console.log(data)
+    //             if(data.length===0)
+    //             {
+    //                 setMsg1("Username not found!");
+    //                 setFlag(true);
+    //             }
+    //             else{
+    //                 setMsg1("");
+    //                 setFlag(false);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Fetch error:', error);
+    //           });
+    //     }
     return(
         <div>
             <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
@@ -80,21 +98,20 @@ export const LoginComp = () =>{
                     <div className="row">
                         <div className="col-md-12 form-group">
                         <label for="name">UserName</label>
-                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}} onBlur={getUserName}/>
-                        <div className="text-danger">{msg1}</div>
+                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}}/>
                         </div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-12 form-group">
                         <label for="pwd">Password</label>
                         <input type="password" id="pwd" className="form-control" onChange={(e)=>{setPwd(e.target.value)}}/>
-                        <div className="text-danger">{msg2}</div>
+                        <div className="text-danger">{msg}</div>
                         </div>
                     </div>
                     <p style={{float:"right"}}>don't have an account? <Link to='/register'>register</Link></p>
                     <div className="row">
                         <div className="col-md-5 form-group">
-                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} disabled={flag} />
+                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} />
                         </div>
                     </div>
                 </form>
