@@ -39,6 +39,7 @@ CREATE TABLE `dac_project`.`customers` (
   `user_id` int DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
+  `goal` varchar(45) NOT NULL DEFAULT 'maintain',
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `user_id_idx` (`user_id`),

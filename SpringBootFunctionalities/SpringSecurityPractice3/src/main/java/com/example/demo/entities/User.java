@@ -47,9 +47,10 @@ public class User {
 		this.role = role;
 		this.active = active;
 	}
-	@OneToOne(mappedBy = "user")
-	private Customer customer;
-	
-	@OneToOne(mappedBy = "user")
-	private Trainer trainer;
+//	@JsonIgnoreProperties("user")
+//	@OneToOne(mappedBy = "user")
+//	private Customer customer;
+//	@JsonIgnoreProperties("user")
+//	@OneToOne(mappedBy = "user")
+//	private Trainer trainer;
 }
