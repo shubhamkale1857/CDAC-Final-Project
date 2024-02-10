@@ -73,17 +73,12 @@ public class AuthController {
 		  System.out.println(loginRequest.getUsername()+" : "+loginRequest.getPassword());
 		  
 		 //authenticationProvider.au
-		 System.out.println("1");
 	    Authentication authentication = authManager.
 	        authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-	    System.out.println("2");
 	    SecurityContextHolder.getContext().setAuthentication(authentication);
-	    System.out.println("3");
 	    MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
         System.out.println(userDetails);
         
-        
-	    
 	    /*String jwtCookie = jwtUtils.generateTokenFromUsername(loginRequest.getUsername());
 	    System.out.println(jwtCookie);*/
         
