@@ -13,7 +13,7 @@ CREATE TABLE `dac_project`.`roles` (
 CREATE TABLE `dac_project`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NULL,
-  `pass` VARCHAR(45) NULL,
+  `pass` VARCHAR(200) NULL,
   `role_id` INT NULL,
   `active` INT NULL DEFAULT 1,
   PRIMARY KEY (`user_id`),
