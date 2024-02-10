@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { LoginComp } from './components/Logincomp';
 import { HomeComp } from './components/HomeComp';
 import { ProfileComp } from './components/ProfileComp';
-import { UserHome } from './components/UserHomeComp';
+import { CustomerHome } from './components/CustHomeComp';
 import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
 
@@ -47,7 +47,7 @@ function App() {
           <Route path='/' element={<HomeComp/>}/>
           <Route path='/login' element={<LoginComp/>}/>
           <Route path='/register' element={<RegComp/>}/>
-          <Route path='/userhome' element={<UserHome/>}/>
+          <Route path='/CustomerHome' element={<CustomerHome/>}/>
           <Route path='/logout' element={<LogoutComp/>}/>
           <Route path='/profile' element={<ProfileComp/>}/>
           <Route path='/updatepass' element={<UpdatePassComp/>}/>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import pic2 from "../pic3.jpg"
 import pic5 from "../pic5.jpg"
 
-export const UserHome=()=>{
+export const CustomerHome=()=>{
     const myState = useSelector(state => state.logged)
     return(
         <div>

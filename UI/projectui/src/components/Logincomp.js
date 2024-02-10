@@ -17,41 +17,53 @@ export const LoginComp = () =>{
                 password:pwd
             })
         }
-        fetch("http://localhost:8080/login",reqOption)
-        .then((res)=>{return res.text()})
-        .then((msg)=>{
-            if(msg==="success")
-            {
-                dispatch(login());
-                   //localStorage.setItem("data",JSON.stringify(data));
-                   //console.log("this is data "+JSON.stringify(data));
-                   navigate('/userhome');
-            }
-            else{
-                    setMsg("Wrong credentials!");
-            }
-        })
-        // .then(resp => resp.json())
-        // .then(data=>{
-        //     console.log(JSON.stringify(data))
-        //     if(data.length!==0)
+        // fetch("http://localhost:8080/login",reqOption)
+        // .then((res)=>{return res.text()})
+        // .then((msg)=>{
+        //     if(msg==="success")
         //     {
-        //         if(data.pass===pwd)
-        //         {
         //         dispatch(login());
-        //         localStorage.setItem("data",JSON.stringify(data));
-        //         console.log("this is data "+JSON.stringify(data));
-        //         navigate('/userhome');
-        //         }
-        //         else{
-        //             setMsg2("Wrong password!");
-        //         }
+        //            //localStorage.setItem("data",JSON.stringify(data));
+        //            //console.log("this is data "+JSON.stringify(data));
+        //            navigate('/userhome');
         //     }
         //     else{
-
+        //             setMsg("Wrong credentials!");
         //     }
-            
         // })
+
+        fetch("http://localhost:8080/login",reqOptions)
+        .then(resp =>  {if(resp.ok)
+                         {
+                                console.log(resp.status)
+                                //console.log(JSON.stringify(resp))
+                                return resp.json();
+                          }    
+                          else
+                          {
+                                console.log(resp.status)
+                                //throw new Error("Server error"); 
+                                setMsg("Login failed")
+                                return null;
+                          }
+                        })  
+        .then(data => {
+                if( data !== null)
+                {
+                    dispatch(login())
+                    localStorage.setItem("loggedUser",JSON.stringify(data));
+                    const role = data.roles[0];
+                    if(role === "ADMIN")
+                        navigate("/admin_home");
+                    else if(role === "CUSTOMER")
+                        navigate("/CustomerHome");
+                    else if(role === "TRAINER")
+                        navigate("/patient_home");
+                }                    
+            })              
+            .catch(error => alert(error)
+        )  
+        
     }
 
     const[msg, setMsg]=useState("");
@@ -59,33 +71,7 @@ export const LoginComp = () =>{
     const[pwd,setPwd]=useState("");
     const[flag,setFlag]=useState(true);
 
-    // const getUserName=()=>{
-    //         fetch("http://localhost:8500/getusername?uname="+uname)
-    //         .then(resp => {
-    //              console.log(resp.status)
-    //              return resp.json();
-    //         })
-    //         // .then(data =>{
-    //         //     if(data!=null)
-    //         //     console.log(JSON.stringify(data))
-    //         // })
-    //        .then(data=>{
-    //             console.log("hello");
-    //             console.log(data)
-    //             if(data.length===0)
-    //             {
-    //                 setMsg1("Username not found!");
-    //                 setFlag(true);
-    //             }
-    //             else{
-    //                 setMsg1("");
-    //                 setFlag(false);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Fetch error:', error);
-    //           });
-    //     }
+    
     return(
         <div>
             <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
