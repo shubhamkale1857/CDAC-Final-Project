@@ -32,7 +32,7 @@ export const LoginComp = () =>{
         //     }
         // })
 
-        fetch("http://localhost:8080/login",reqOptions)
+        fetch("http://localhost:8080/login",reqOption)
         .then(resp =>  {if(resp.ok)
                          {
                                 console.log(resp.status)
