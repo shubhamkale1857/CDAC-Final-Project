@@ -43,6 +43,4 @@ public class UserInfoResponse {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
-	
-	
 }

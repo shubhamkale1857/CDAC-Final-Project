@@ -1,22 +1,17 @@
 package com.example.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.entities.User;
 
-import jakarta.transaction.Transactional;
-
-@Transactional
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-	@Query("select u from User u where uid = :uid and pwd =:pwd")
-	public User getUser(String uid,String pwd);
+
+	@Query("select u from User u where u.username=:uname")
+	public User findByUname(String uname);
 	
-	@Query("select u from User u where uid = :uid")
-	public User getUser(String uid);
-	
-	@Modifying
-	@Query("update User set active = true where id = :id")
-	public int approve(int id);
+	@Query("select u from User u where u.username=:uname and pass=:pwd")
+	public User getUser(String uname, String pwd);
 }

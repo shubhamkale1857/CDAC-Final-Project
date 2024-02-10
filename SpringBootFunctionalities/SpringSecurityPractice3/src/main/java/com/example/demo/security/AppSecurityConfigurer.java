@@ -90,7 +90,7 @@ public class AppSecurityConfigurer {
 		http.authorizeHttpRequests(authorize -> {
 			authorize.requestMatchers("/").permitAll();
 			authorize.requestMatchers("/login").permitAll();
-			authorize.requestMatchers("/regDoctor").permitAll();
+			authorize.requestMatchers("/saveCustomer").permitAll();
 			authorize.requestMatchers("/getAllSps").permitAll();
 			authorize.requestMatchers("/getAllSps").permitAll();
 			authorize.requestMatchers("/uploadimg/**").permitAll();

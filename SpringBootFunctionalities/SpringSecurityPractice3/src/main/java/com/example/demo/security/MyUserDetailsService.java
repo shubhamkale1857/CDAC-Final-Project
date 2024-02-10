@@ -38,7 +38,7 @@ public class MyUserDetailsService implements UserDetailsService
 		//System.out.println(pwd);
 		//String enc_pwd = passwordEncoder.encode(pwd);
 		//System.out.println(enc_pwd);
-		com.example.demo.entities.User u = urepo.getUser(username);
+		com.example.demo.entities.User u = urepo.findByUname(username);
 		if(u == null)
 			throw new UsernameNotFoundException("Could not find user");
 				
