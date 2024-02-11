@@ -43,7 +43,7 @@ export const LoginComp = () =>{
                           {
                                 console.log(resp.status)
                                 //throw new Error("Server error"); 
-                                setMsg("Login failed")
+                                setMsg("Wrong Credentials")
                                 return null;
                           }
                         })  
@@ -53,12 +53,12 @@ export const LoginComp = () =>{
                     dispatch(login())
                     localStorage.setItem("loggedUser",JSON.stringify(data));
                     const role = data.roles[0];
-                    if(role === "ADMIN")
-                        navigate("/admin_home");
-                    else if(role === "CUSTOMER")
-                        navigate("/CustomerHome");
-                    else if(role === "TRAINER")
-                        navigate("/patient_home");
+                    if(role === "Admin")
+                        navigate("/AdminHome");
+                    else if(role === "Customer")
+                        navigate("/CustomerHome", { replace: true });
+                    else if(role === "Trainer")
+                        navigate("/TrainerHome");
                 }                    
             })              
             .catch(error => alert(error)

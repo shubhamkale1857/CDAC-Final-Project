@@ -66,4 +66,4 @@ CREATE TABLE `dac_project`.`trainers` (
 
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'Admin');
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'Customer');
-INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('3', 'TRAINER');
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('3', 'Trainer');
