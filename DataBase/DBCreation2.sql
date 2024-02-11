@@ -54,6 +54,7 @@ CREATE TABLE `dac_project`.`trainers` (
   `contactno` varchar(13) DEFAULT NULL,
   `specialization` varchar(45) DEFAULT NULL,
   `experience` int DEFAULT NULL,
+  `dob` DATE NULL,
   `registration_date` date DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
   `user_id` int DEFAULT NULL,

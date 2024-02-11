@@ -59,4 +59,6 @@ public class Customer {
 	private LocalDate registration_date;
 	@Column
 	private String address;
+	@Column
+	private String goal;
 }

@@ -50,7 +50,7 @@ public class Customer {
 	private double weight;
 	@Column
 	private String gender;
-//	@JsonIgnoreProperties("customer")
+	@JsonIgnoreProperties("customer")
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -59,4 +59,6 @@ public class Customer {
 	private LocalDate registration_date;
 	@Column
 	private String address;
+	@Column
+	private String goal;
 }

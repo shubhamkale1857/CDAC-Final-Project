@@ -27,4 +27,5 @@ public class DummyCustomer {
 	private String address;
 	private String username;
 	private String pass;
+	private String goal;
 }

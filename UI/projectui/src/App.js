@@ -54,7 +54,7 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
-          
+
           <Route path='*' element={<h1>please check url</h1>}/>
         </Routes>
     </div>

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-function RegComp(){
+function TrainerRegistration(){
     let navigate = useNavigate();
     const init = {
         fname : {value:"",error:"",touched:false,valid:false}, 
@@ -164,8 +164,7 @@ function RegComp(){
                 weight: customer.weight.value,
                 address: customer.address.value,
                 username : customer.username.value,
-                pass : customer.password.value,
-                goal : goal
+                pass : customer.password.value
             })
         }
         console.log(reqOption);
@@ -187,7 +186,6 @@ function RegComp(){
     }
     const[date,setDate] = useState("");
     const[gender,setGender] = useState("");
-    const[goal,setGoal] = useState("");
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
         
@@ -218,8 +216,8 @@ function RegComp(){
 
                     <label className="form-label" for="add">Enter Date of Birth</label>
                     <input type="date" className="form-control" id="add" name="dob" onChange={(e)=>{setDate(e.target.value)}}/><br/>
-                    
-                    <label className="form-check-label">Select Your Gender</label><br/>
+
+                    <label className="form-check">Select Your Gender</label>
                     <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;
                     <input type="radio" name="gen" value={"f"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Female  &nbsp;
                     <input type="radio" name="gen" value={"o"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Other <br/><br/>
@@ -232,14 +230,6 @@ function RegComp(){
                     <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
-                    <label className="form-label">Goal</label><br/>
-                    <input type="radio" name="goal" value={"Maintain"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
-                    <label className="form-check-label">Maintain</label>&nbsp;&nbsp;
-                    <input type="radio" name="goal" value={"Lose Weight"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
-                    <label className="form-check-label">Lose Weight</label>&nbsp;&nbsp;
-                    <input type="radio" name="goal" value={"Gain Weight"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
-                    <label className="form-check-label">Gain Weight</label>&nbsp;&nbsp;
-                    <br/><br/>
                     <label className="form-label" for="address">Enter Address</label>
                     <textarea type="text" className="form-control" id="address" name="address" value={customer.address.val} onChange={(e)=>{handleChange("address",e.target.value)}} onBlur={(e)=>{handleChange("address",e.target.value)}}/><br/>
                     <div style={{display: (!customer.address.valid && customer.address.touched)?"block":"none"}}><p className="text-danger">{customer.address.error}</p></div>
@@ -268,4 +258,4 @@ function RegComp(){
     )
 }
 
-export default RegComp;
+export default TrainerRegistration;

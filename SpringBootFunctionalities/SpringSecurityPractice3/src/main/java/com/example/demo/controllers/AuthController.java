@@ -108,6 +108,7 @@ public class AuthController {
 	  @PostMapping("/saveCustomer")
 	   public Customer regCustomer(@RequestBody DummyCustomer dummy)
 	   {
+		  System.out.println(dummy);
 		  System.out.println("hello in saveCustomer");
 		     System.out.println(encoder.encode("Admin@123"));
 //		  
@@ -140,6 +141,7 @@ public class AuthController {
 				cust.setUser(u);
 				cust.setRegistration_date(LocalDate.now());
 				cust.setAddress(dummy.getAddress());
+				cust.setGoal(dummy.getGoal());
 				return cservice.save(cust);
 		}
 	  

@@ -4,8 +4,6 @@ public class MessageResponse {
 
 	String msg;
 	
-	
-
 	public MessageResponse(String msg) {
 		super();
 		this.msg = msg;
