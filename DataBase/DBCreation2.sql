@@ -56,6 +56,7 @@ CREATE TABLE `dac_project`.`trainers` (
   `experience` int DEFAULT NULL,
   `dob` DATE NULL,
   `registration_date` date DEFAULT NULL,
+  `gender` VARCHAR(45) NULL,
   `address` varchar(150) DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
@@ -65,3 +66,4 @@ CREATE TABLE `dac_project`.`trainers` (
 
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'Admin');
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'Customer');
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('3', 'TRAINER');

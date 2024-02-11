@@ -10,6 +10,7 @@ import { ProfileComp } from './components/ProfileComp';
 import { CustomerHome } from './components/CustHomeComp';
 import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
+import TrainerRegistration from './components/TrainerRegistration';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -41,6 +42,9 @@ function App() {
           <li className='nav-item'>
             <Link to='/login' className='nav-link' id='link'>login</Link>
           </li>
+          <li className='nav-item'>
+            <Link to='/trainerReg' className='nav-link' id='link'>Trainer Registraion</Link>
+          </li>
         </ul> 
         </div>
         <Routes>
@@ -54,7 +58,7 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
-
+          <Route path='/trainerReg' element={<TrainerRegistration/>}/>
           <Route path='*' element={<h1>please check url</h1>}/>
         </Routes>
     </div>

@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
@@ -43,12 +44,16 @@ public class Trainer {
 	private String specialization;
 	@Column
 	private int experience;
-	@Column
-	private Date registration_date;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
+	private LocalDate registration_date;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Column
+	private Date dob;
+	@Column
 	private String address;
-	
+	@Column
+	private String gender;
 	@JsonIgnoreProperties("trainer")
 	@OneToOne
 	@JoinColumn(name = "user_id")

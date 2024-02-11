@@ -12,8 +12,8 @@ function TrainerRegistration(){
         lname : {value:"",error:"",touched:false,valid:false}, 
         email : {value:"",error:"",touched:false,valid:false},  
         contact : {value:"",error:"",touched:false,valid:false},
-        weight : {value:"",error:"",touched:false,valid:false}, 
-        height : {value:"",error:"",touched:false,valid:false},
+        specialization : {value:"",error:"",touched:false,valid:false}, 
+        experience : {value:"",error:"",touched:false,valid:false},
         address : {value:"",error:"",touched:false,valid:false},
         username : {value:"",error:"",touched:false,valid:false}, 
         password : {value:"",error:"",touched:false,valid:false},
@@ -71,18 +71,18 @@ function TrainerRegistration(){
                     error = "Contact not valid!!!"
                 }
                 break;
-            case 'weight':
-                pattern = /^\d*\.?\d*$/;
+            case 'specialization':
+                pattern = /^\w{4,50}$/;
                 if(!pattern.test(val)){
                     valid = false;
-                    error = "Enter Valid Decimal Value!!!"
+                    error = "Charecter Must be Between 4 to 50!!!";
                 }
                 break;
-            case 'height':
-                pattern = /^\d*\.?\d*$/;
+            case 'experience':
+                pattern = /^[0-9]{1,2}$/;
                 if(!pattern.test(val)){
                     valid = false;
-                    error = "Enter Valid Decimal Value!!!"
+                    error = "Enter Valid Experience in Number";
                 }
                 break;
             case 'password':
@@ -160,15 +160,15 @@ function TrainerRegistration(){
                 contact:customer.contact.value,
                 dob : date,
                 gender:gender,
-                height: customer.height.value,
-                weight: customer.weight.value,
+                specialization: customer.specialization.value,
+                experience: customer.experience.value,
                 address: customer.address.value,
                 username : customer.username.value,
                 pass : customer.password.value
             })
         }
         console.log(reqOption);
-        fetch("http://localhost:8080/saveCustomer",reqOption)
+        fetch("http://localhost:8080/saveTrainer",reqOption)
         .then((res)=>{
             if(res.ok){
                 console.log("here in react")
@@ -180,7 +180,7 @@ function TrainerRegistration(){
         .then((msg)=>{
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/register"))
+        .catch(error => navigate("/trainerReg"))
 
         navigate("/login");   
     }
@@ -191,7 +191,7 @@ function TrainerRegistration(){
         
         <div>
             <div className="container-fluid custom-bg" style={{height: "40vh"}}>
-            <h1 style={{fontFamily:"Antic Didone"}}>USER REGISTER</h1>
+            <h1 style={{fontFamily:"Antic Didone"}}>TRAINER REGISTER</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5"> 
@@ -222,13 +222,22 @@ function TrainerRegistration(){
                     <input type="radio" name="gen" value={"f"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Female  &nbsp;
                     <input type="radio" name="gen" value={"o"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Other <br/><br/>
 
-                    <label className="form-label">Weight: </label>
+
+                    <label className="form-label" for="specialization">Enter Specialization</label>
+                    <input type="text" className="form-control" id="specialization" name="specialization" value={customer.specialization.val} onChange={(e)=>{handleChange("specialization",e.target.value)}} onBlur={(e)=>{handleChange("specialization",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.specialization.valid && customer.specialization.touched)?"block":"none"}}><p className="text-danger">{customer.specialization.error}</p></div>
+
+                    <label className="form-label" for="experience">Enter Experience In Year's</label>
+                    <input type="text" className="form-control" id="experience" name="experience" value={customer.experience.val} onChange={(e)=>{handleChange("experience",e.target.value)}} onBlur={(e)=>{handleChange("experience",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.experience.valid && customer.experience.touched)?"block":"none"}}><p className="text-danger">{customer.experience.error}</p></div>
+
+                    {/* <label className="form-label">Weight: </label>
                     <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value); checkEmail(e.target.value)}}/><br/>
                     <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
 
                     <label className="form-label">Height:</label>
                     <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value); checkEmail(e.target.value)}}/><br/>
-                    <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
+                    <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/> */}
 
                     <label className="form-label" for="address">Enter Address</label>
                     <textarea type="text" className="form-control" id="address" name="address" value={customer.address.val} onChange={(e)=>{handleChange("address",e.target.value)}} onBlur={(e)=>{handleChange("address",e.target.value)}}/><br/>
