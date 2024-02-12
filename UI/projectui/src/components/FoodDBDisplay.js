@@ -5,8 +5,6 @@ export const FoodDBDisplay = () =>{
 
     const servings = (f)=>
     {
-        console.log("in servings");
-        console.log(f.serving_size);
         if(f.serving_size==="byqty")
         {
             return "1";

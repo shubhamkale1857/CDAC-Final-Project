@@ -145,6 +145,7 @@ function RegComp(){
                 customer.email.valid=true;
             }
         })
+        .catch(()=>navigate("/ErrorPage"))
 
         console.log("lenght of message: "+msg);
     }
@@ -179,6 +180,7 @@ function RegComp(){
             }
         })
         .then((msg)=>{
+            alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
         .catch(error => navigate("/register"))

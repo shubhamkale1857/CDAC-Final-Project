@@ -2,13 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const ProfileComp = () => {
     const navigate = useNavigate();
-    const data1= localStorage.getItem("data");
+    const data1= localStorage.getItem("loggedUser");
     const gotoupdate=()=>{
         navigate("/updatepass");
     }
     return (
         <div>
-            <h1>User Profile Component</h1>
+            <h1>Profile Component</h1>
         </div>
     );
 };

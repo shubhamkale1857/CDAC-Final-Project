@@ -61,7 +61,7 @@ export const LoginComp = () =>{
                         navigate("/TrainerHome");
                 }                    
             })              
-            .catch(error => alert(error)
+            .catch(() => navigate("/ErrorPage")
         )  
         
     }
