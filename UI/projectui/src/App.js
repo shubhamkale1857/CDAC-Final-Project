@@ -22,7 +22,7 @@ function App() {
   const myState = useSelector((state) => state.logged);
   return (
     <div>
-      <Sidebar>
+      {/* <Sidebar>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/product" element={<Product />} />
         </Routes>
-      </Sidebar>
+      </Sidebar> */}
       <div style={{ display: myState.loggedIn ? "none" : "block" }}>
         <ul className="nav navbar" style={{ backgroundColor: "black" }}>
           <li className="nav-item">
@@ -50,6 +50,8 @@ function App() {
           </li>
         </ul>
       </div>
+
+      <Sidebar />
       <Routes>
         <Route path="/" element={<HomeComp />} />
         <Route path="/login" element={<LoginComp />} />
