@@ -77,6 +77,7 @@ export const LoginComp = () =>{
                 setUserMsg("");
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     const[msg, setMsg]=useState("");
     const[uname,setUname]=useState("");

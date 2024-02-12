@@ -93,8 +93,7 @@ CREATE TABLE `dac_project`.`admins` (
 
 INSERT INTO `dac_project`.`admins` (`admin_id`, `fname`, `lname`, `gender`,`dob`, `contact`, `email`, `address`, `user_id`) VALUES ('1', 'Shubham', 'Kale','Male', '2000-04-09', '8007997105', 'shubhamkale1857@gmail.com', 'Naik Nagar Georai', '1');
 
--- incripted password for Shubh@123
--- $2a$10$29VXmTgHxm9mlv/sfAPCoeUUgvh1KMun44ze9WraHPN8a0BgIg3mW
+
 
 CREATE TABLE `dac_project`.`categories` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
