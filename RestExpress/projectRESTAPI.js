@@ -11,7 +11,7 @@ app.listen(8500, function() {
 var con = ms.createConnection({
 	host:"localhost",
 	user:"root",
-	password:"saruna",
+	password:"sql123",
 	database:"dac_project"
 });
 con.connect(function(err){

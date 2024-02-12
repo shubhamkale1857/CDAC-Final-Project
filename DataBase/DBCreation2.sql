@@ -43,6 +43,7 @@ CREATE TABLE `dac_project`.`customers` (
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `emailconstraint` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -61,6 +62,7 @@ CREATE TABLE `dac_project`.`trainers` (
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`trainer_id`),
   KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `emailconstraint1` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
   CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -82,13 +84,14 @@ CREATE TABLE `dac_project`.`admins` (
   `user_id` INT NULL,
   PRIMARY KEY (`admin_id`),
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `emailconstraint2` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
   CONSTRAINT `user_id3`
     FOREIGN KEY (`user_id`)
     REFERENCES `dac_project`.`users` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
 
-INSERT INTO `dac_project`.`admins` (`admin_id`, `fname`, `lname`, `dob`, `contact`, `email`, `address`, `user_id`) VALUES ('1', 'Shubham', 'Kale', '2000-04-09', '8007997105', 'shubhamkale1857@gmail.com', 'Naik Nagar Georai', '1');
+INSERT INTO `dac_project`.`admins` (`admin_id`, `fname`, `lname`, `gender`,`dob`, `contact`, `email`, `address`, `user_id`) VALUES ('1', 'Shubham', 'Kale','Male', '2000-04-09', '8007997105', 'shubhamkale1857@gmail.com', 'Naik Nagar Georai', '1');
 
 -- incripted password for Shubh@123
 -- $2a$10$29VXmTgHxm9mlv/sfAPCoeUUgvh1KMun44ze9WraHPN8a0BgIg3mW

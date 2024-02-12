@@ -10,7 +10,8 @@ function TrainerRegistration(){
     const init = {
         fname : {value:"",error:"",touched:false,valid:false}, 
         lname : {value:"",error:"",touched:false,valid:false}, 
-        email : {value:"",error:"",touched:false,valid:false},  
+        email : {value:"",error:"",touched:false,valid:false}, 
+        dob : {value:"",error:"",touched:false,valid:false},  
         contact : {value:"",error:"",touched:false,valid:false},
         specialization : {value:"",error:"",touched:false,valid:false}, 
         experience : {value:"",error:"",touched:false,valid:false},
@@ -44,7 +45,7 @@ function TrainerRegistration(){
                 }
                 break;               
             case 'lname':
-                var pattern = /^[A-Z]{1}[a-z]+/;
+                pattern = /^[A-Z]{1}[a-z]+/;
                 if(!pattern.test(val)){
                     valid = false;
                     error = "Last Name not valid!!!"
@@ -63,7 +64,23 @@ function TrainerRegistration(){
                     valid = false;
                     error = "email not valid!!!"
                 }
-                break;            
+                break;             
+            case 'dob':
+                var cuDate = new Date();
+                var enteredDate = new Date(val);
+                let diff = cuDate.getFullYear() - enteredDate.getFullYear();
+                if(cuDate < enteredDate){
+                    valid = false;
+                    error = "BithDate Should not be in future!!!"
+                }else if(diff < 10){
+                    console.log(diff+" hello  ")
+                    valid = false;
+                    error = "Persons age need to be above 10"
+                }else if((cuDate.getFullYear() - enteredDate.getFullYear()) > 100){
+                    valid = false;
+                    error = "Persons age need to be below 100"
+                }
+                break;           
             case 'contact':
                 pattern = /^[0-9]{10}$/;
                 if(!pattern.test(val)){
@@ -72,17 +89,16 @@ function TrainerRegistration(){
                 }
                 break;
             case 'specialization':
-                pattern = /^\w{4,50}$/;
-                if(!pattern.test(val)){
+                console.log(val);
+                if(val === ""){
                     valid = false;
-                    error = "Charecter Must be Between 4 to 50!!!";
+                    error = "Plz Select Option!!!";
                 }
                 break;
             case 'experience':
-                pattern = /^[0-9]{1,2}$/;
-                if(!pattern.test(val)){
+                if(val < 0 || val > 41){
                     valid = false;
-                    error = "Enter Valid Experience in Number";
+                    error = "Enter Valid Experience in Number between 0 to 41 years";
                 }
                 break;
             case 'password':
@@ -158,7 +174,7 @@ function TrainerRegistration(){
                 lname : customer.lname.value,
                 email : customer.email.value,
                 contact:customer.contact.value,
-                dob : date,
+                dob : customer.dob.value,
                 gender:gender,
                 specialization: customer.specialization.value,
                 experience: customer.experience.value,
@@ -184,7 +200,6 @@ function TrainerRegistration(){
 
         navigate("/login");   
     }
-    const[date,setDate] = useState("");
     const[gender,setGender] = useState("");
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
@@ -215,7 +230,8 @@ function TrainerRegistration(){
                     <div style={{display: (!customer.contact.valid && customer.contact.touched)?"block":"none"}}><p className="text-danger">{customer.contact.error}</p></div>
 
                     <label className="form-label" for="add">Enter Date of Birth</label>
-                    <input type="date" className="form-control" id="add" name="dob" onChange={(e)=>{setDate(e.target.value)}}/><br/>
+                    <input type="date" className="form-control" id="dob" name="dob" value={customer.dob.val} onChange={(e)=>{handleChange("dob",e.target.value)}} onBlur={(e)=>{handleChange("dob",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.dob.valid && customer.dob.touched)?"block":"none"}}><p className="text-danger">{customer.dob.error}</p></div>
 
                     <label className="form-check">Select Your Gender</label>
                     <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;
@@ -224,7 +240,15 @@ function TrainerRegistration(){
 
 
                     <label className="form-label" for="specialization">Enter Specialization</label>
-                    <input type="text" className="form-control" id="specialization" name="specialization" value={customer.specialization.val} onChange={(e)=>{handleChange("specialization",e.target.value)}} onBlur={(e)=>{handleChange("specialization",e.target.value)}}/><br/>
+                    <select className="form-check" value={customer.specialization.val} onChange={(e)=>{handleChange("specialization",e.target.value)}} onBlur={(e)=>{handleChange("specialization",e.target.value)}}>
+                        <option value={""} className="form-check-input">Select Specialization</option>
+                        <option value={"Nutritionist"} className="form-check-input">Nutritionist</option>
+                        <option value={"Physique & Body Building"} className="form-check-input">Physique & Body Building</option>
+                        <option value={"Yoga Trainer"} className="form-check-input">Yoga Trainer</option>
+                        <option value={"Strength & Conditioning"} className="form-check-input">Strength & Conditioning</option>
+                        <option value={"Youth Fitness"} className="form-check-input">Youth Fitness</option>
+                        <option value={"Senior Fitness"} className="form-check-input">Senior Fitness</option>
+                    </select><br/>
                     <div style={{display: (!customer.specialization.valid && customer.specialization.touched)?"block":"none"}}><p className="text-danger">{customer.specialization.error}</p></div>
 
                     <label className="form-label" for="experience">Enter Experience In Year's</label>

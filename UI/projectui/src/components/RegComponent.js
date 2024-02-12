@@ -15,6 +15,7 @@ function RegComp(){
         weight : {value:"",error:"",touched:false,valid:false}, 
         height : {value:"",error:"",touched:false,valid:false},
         address : {value:"",error:"",touched:false,valid:false},
+        dob : {value:"",error:"",touched:false,valid:false},
         username : {value:"",error:"",touched:false,valid:false}, 
         password : {value:"",error:"",touched:false,valid:false},
         repassword : {value:"",error:"",touched:false,valid:false},
@@ -44,7 +45,7 @@ function RegComp(){
                 }
                 break;               
             case 'lname':
-                var pattern = /^[A-Z]{1}[a-z]+/;
+                pattern = /^[A-Z]{1}[a-z]+/;
                 if(!pattern.test(val)){
                     valid = false;
                     error = "Last Name not valid!!!"
@@ -83,6 +84,22 @@ function RegComp(){
                 if(!pattern.test(val)){
                     valid = false;
                     error = "Enter Valid Decimal Value!!!"
+                }
+                break;             
+            case 'dob':
+                var cuDate = new Date();
+                var enteredDate = new Date(val);
+                let diff = cuDate.getFullYear() - enteredDate.getFullYear();
+                if(cuDate < enteredDate){
+                    valid = false;
+                    error = "BithDate Should not be in future!!!"
+                }else if(diff < 10){
+                    console.log(diff+" hello  ")
+                    valid = false;
+                    error = "Persons age need to be above 10"
+                }else if((cuDate.getFullYear() - enteredDate.getFullYear()) > 100){
+                    valid = false;
+                    error = "Persons age need to be below 100"
                 }
                 break;
             case 'password':
@@ -159,7 +176,7 @@ function RegComp(){
                 lname : customer.lname.value,
                 email : customer.email.value,
                 contact:customer.contact.value,
-                dob : date,
+                dob : customer.dob.value,
                 gender:gender,
                 height: customer.height.value,
                 weight: customer.weight.value,
@@ -169,7 +186,7 @@ function RegComp(){
                 goal : goal
             })
         }
-        console.log(reqOption);
+        //console.log(reqOption);
         fetch("http://localhost:8080/saveCustomer",reqOption)
         .then((res)=>{
             if(res.ok){
@@ -187,7 +204,6 @@ function RegComp(){
 
         navigate("/login");   
     }
-    const[date,setDate] = useState("");
     const[gender,setGender] = useState("");
     const[goal,setGoal] = useState("");
     return(
@@ -218,9 +234,10 @@ function RegComp(){
                     <input type="text" className="form-control" id="contact" name="contact" value={customer.contact.val} onChange={(e)=>{handleChange("contact",e.target.value)}} onBlur={(e)=>{handleChange("contact",e.target.value)}}/><br/>
                     <div style={{display: (!customer.contact.valid && customer.contact.touched)?"block":"none"}}><p className="text-danger">{customer.contact.error}</p></div>
 
-                    <label className="form-label" for="add">Enter Date of Birth</label>
-                    <input type="date" className="form-control" id="add" name="dob" onChange={(e)=>{setDate(e.target.value)}}/><br/>
-                    
+                    <label className="form-label" for="dob">Enter Date of Birth</label>
+                    <input type="date" className="form-control" id="dob" name="dob" value={customer.dob.val} onChange={(e)=>{handleChange("dob",e.target.value)}} onBlur={(e)=>{handleChange("dob",e.target.value)}}/><br/>
+                    <div style={{display: (!customer.dob.valid && customer.dob.touched)?"block":"none"}}><p className="text-danger">{customer.dob.error}</p></div>
+
                     <label className="form-check-label">Select Your Gender</label><br/>
                     <input type="radio" name="gen" value={"m"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}} />Male  &nbsp;
                     <input type="radio" name="gen" value={"f"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Female  &nbsp;
