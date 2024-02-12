@@ -11,5 +11,4 @@ import com.example.demo.services.CustomerService;
 public class CustomerController {
 	@Autowired
 	CustomerService cService;
-	
 }

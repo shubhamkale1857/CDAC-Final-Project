@@ -117,8 +117,6 @@ public class AuthController {
 	  @PostMapping("/saveCustomer")
 	   public Customer regCustomer(@RequestBody DummyCustomer dummy)
 	   {
-		  System.out.println(dummy);
-		  System.out.println("hello in saveCustomer");
 		     System.out.println(encoder.encode("Admin@123"));
 				Role r = rservice.getOneRole(2);
 				User user = new User(dummy.getUsername(), encoder.encode(dummy.getPass()),r, 1);
