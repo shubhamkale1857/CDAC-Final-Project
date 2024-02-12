@@ -67,3 +67,14 @@ CREATE TABLE `dac_project`.`trainers` (
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'Admin');
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'Customer');
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('3', 'Trainer');
+
+CREATE TABLE `dac_project`.`categories` (
+  `category_id` INT NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`category_id`),
+  UNIQUE INDEX `category_name_UNIQUE` (`category_name` ASC) VISIBLE);
+
+INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('1', 'Dairy');
+INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('2', 'Fats');
+INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('3', 'Breads');
+

@@ -43,7 +43,7 @@ function App() {
             <Link to='/login' className='nav-link' id='link'>login</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/trainerReg' className='nav-link' id='link'>Trainer Registraion</Link>
+            <Link to='/trainerReg' className='nav-link' id='link'>Trainer Registration</Link>
           </li>
         </ul> 
         </div>
