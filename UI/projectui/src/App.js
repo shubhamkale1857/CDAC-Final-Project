@@ -12,6 +12,7 @@ import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
 import TrainerRegistration from './components/TrainerRegistration';
 import { TrainerProfile } from './components/TrainerProfile';
+import { FoodDBDisplay } from './components/FoodDBDisplay';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -70,6 +71,9 @@ function App() {
                 <Link to='/contact' className='nav-link' id='link' style={{fontSize:"small"}}>contact us</Link>
                 </li>
                 <li className='nav-item'>
+                <Link to='/fooditems' className='nav-link' id='link'>FoodItems</Link>
+                </li>
+                <li className='nav-item'>
                     <Link to='/logout' className='nav-link' id='link'>logout</Link>
                 </li>
             </ul>
@@ -86,6 +90,7 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
+          <Route path='/fooditems' element={<FoodDBDisplay/>}/>
           <Route path='/trainerReg' element={<TrainerRegistration/>}/>
           <Route path='/TrainerHome' element={<TrainerProfile/>}/>
           <Route path='*' element={<h1>please check url</h1>}/>

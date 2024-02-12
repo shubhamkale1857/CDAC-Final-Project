@@ -33,6 +33,12 @@ app.get("/userinfo", function(req, res){
 	})
 })
 
+app.get("/getfoodlist",function(req, res){
+	con.query("select * from fooditems",function(err,data){
+		res.json(data);
+	})
+})
+
 
 
 app.post("/insertUserData",function(req,res){
