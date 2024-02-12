@@ -1,0 +1,12 @@
+food_id,food_name,serving_size,calories,protein,category_id
+1,Cows' milk,byvolumn,660,32,1
+2,Buttermilk,byvolumn,516,16,1
+3,Goats' milk,byvolumn,650,36,1
+4,ice cream,byweight,208,6,1
+5,Cream,byweight,170,4,1
+6,Processed cheese,byweight,416,25,1
+7,Eggs raw,byqty,72,6,1
+8,Scrambled eggs,byweight,220,13,1
+9,Yolks,byqty,60,3,2
+10,Butter,byweight,717,2,2
+11,Mayonnaise,byweight,390,2,2
