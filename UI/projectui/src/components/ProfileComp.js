@@ -8,7 +8,7 @@ export const ProfileComp = () => {
     }
     return (
         <div>
-            <h1>Profile Component</h1>
+            <h1>User Profile Component</h1>
         </div>
     );
 };

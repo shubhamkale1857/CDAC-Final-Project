@@ -53,11 +53,11 @@ export const LoginComp = () =>{
                     dispatch(login())
                     localStorage.setItem("loggedUser",JSON.stringify(data));
                     const role = data.roles[0];
-                    if(role === "Admin")
+                    if(role === "ADMIN")
                         navigate("/AdminHome");
-                    else if(role === "Customer")
+                    else if(role === "CUSTOMER")
                         navigate("/CustomerHome", { replace: true });
-                    else if(role === "Trainer")
+                    else if(role === "TRAINER")
                         navigate("/TrainerHome");
                 }                    
             })              

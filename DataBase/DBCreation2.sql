@@ -78,3 +78,6 @@ INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES (
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('2', 'Fats');
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('3', 'Breads');
 
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'ADMIN');
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'CUSTOMER');
+INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('3', 'TRAINER');
