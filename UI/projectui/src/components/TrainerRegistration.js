@@ -150,7 +150,7 @@ function TrainerRegistration(){
     }
     const[msg,setMsg] = useState("");
     const checkEmail = (val) =>{
-        fetch("http://localhost:8500/getemailidreg?email="+val) 
+        fetch("http://localhost:8500/getemailidregT?email="+val) 
         .then((res)=>{return res.json()})
         .then((data) => {
             if(data.length > 0){
@@ -161,8 +161,20 @@ function TrainerRegistration(){
                 customer.email.valid=true;
             }
         })
-
-        console.log("lenght of message: "+msg);
+    }
+    const[usenamemsg,setUserMsg] = useState("");
+    const checkUsername = (val) =>{
+        fetch("http://localhost:8500/getusername?uname="+val) 
+        .then((res)=>{return res.json()})
+        .then((data) => {
+            if(data.length > 0){
+                setUserMsg("Username Already Taken!!!")
+                customer.email.valid=false;
+            }else{
+                setUserMsg("");
+                customer.email.valid=true;
+            }
+        })
     }
     const submitData = (e)=>{
         e.preventDefault();
@@ -255,21 +267,14 @@ function TrainerRegistration(){
                     <input type="text" className="form-control" id="experience" name="experience" value={customer.experience.val} onChange={(e)=>{handleChange("experience",e.target.value)}} onBlur={(e)=>{handleChange("experience",e.target.value)}}/><br/>
                     <div style={{display: (!customer.experience.valid && customer.experience.touched)?"block":"none"}}><p className="text-danger">{customer.experience.error}</p></div>
 
-                    {/* <label className="form-label">Weight: </label>
-                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value); checkEmail(e.target.value)}}/><br/>
-                    <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
-
-                    <label className="form-label">Height:</label>
-                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value); checkEmail(e.target.value)}}/><br/>
-                    <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/> */}
-
                     <label className="form-label" for="address">Enter Address</label>
                     <textarea type="text" className="form-control" id="address" name="address" value={customer.address.val} onChange={(e)=>{handleChange("address",e.target.value)}} onBlur={(e)=>{handleChange("address",e.target.value)}}/><br/>
                     <div style={{display: (!customer.address.valid && customer.address.touched)?"block":"none"}}><p className="text-danger">{customer.address.error}</p></div>
 
                     <label className="form-label" for="uname">Enter Username</label>
-                    <input type="text" className="form-control" id="uname" name="username" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value)}}/><br/>
+                    <input type="text" className="form-control" id="uname" name="username" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value) ; checkUsername(e.target.value)}}/><br/>
                     <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
+                    <div style={{display: (true)?"block":"none"}}><p className="text-danger">{usenamemsg}</p></div>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
                     <input type="password" className="form-control" id="pass" name="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>

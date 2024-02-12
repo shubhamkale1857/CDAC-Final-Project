@@ -60,13 +60,31 @@ app.post("/insertUserData",function(req,res){
 app.get("/getusername", function(req, res){
 	var uname = req.query.uname;
 	con.query("select * from users where username= '"+uname+"'" , function(err, data){
-		res.json(data);
+		if(!err){
+			res.json(data);
+			console.log("Success username");
+		}else{
+			console.log("Error email");
+		}
 	})
 })
 
 app.get("/getemailidreg", function(req, res){
 	var email = req.query.email;
 	con.query("select * from customers where email='"+email+"'", function(err, data){
+		if(!err){
+			res.json(data);
+			console.log("Success username");
+		}else{
+			res.send("hello");
+			console.log("Error email");
+		}
+		
+	})
+})
+app.get("/getemailidregT", function(req, res){
+	var email = req.query.email;
+	con.query("select * from trainers where email='"+email+"'", function(err, data){
 		if(!err){
 			res.json(data);
 			console.log("Success email");

@@ -66,6 +66,18 @@ export const LoginComp = () =>{
         
     }
 
+    const[usenamemsg,setUserMsg] = useState("");
+    const checkUsername = (val) =>{
+        fetch("http://localhost:8500/getusername?uname="+val) 
+        .then((res)=>{return res.json()})
+        .then((data) => {
+            if(data.length == 0){
+                setUserMsg("Username Not Present!!!")
+            }else{
+                setUserMsg("");
+            }
+        })
+    }
     const[msg, setMsg]=useState("");
     const[uname,setUname]=useState("");
     const[pwd,setPwd]=useState("");
@@ -84,8 +96,9 @@ export const LoginComp = () =>{
                     <div className="row">
                         <div className="col-md-12 form-group">
                         <label for="name">UserName</label>
-                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}}/>
+                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value);checkUsername(e.target.value)}} onBlur={(e)=>{checkUsername(e.target.value)}}/>
                         </div>
+                        <div style={{display: (true)?"block":"none"}}><p className="text-danger">{usenamemsg}</p></div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-12 form-group">

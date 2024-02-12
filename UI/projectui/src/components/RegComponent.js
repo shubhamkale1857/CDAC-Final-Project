@@ -166,6 +166,18 @@ function RegComp(){
 
         console.log("lenght of message: "+msg);
     }
+    const[usenamemsg,setUserMsg] = useState("");
+    const checkUsername = (val) =>{
+        fetch("http://localhost:8500/getusername?uname="+val) 
+        .then((res)=>{return res.json()})
+        .then((data) => {
+            if(data.length > 0){
+                setUserMsg("Username Already Taken!!!")
+            }else{
+                setUserMsg("");
+            }
+        })
+    }
     const submitData = (e)=>{
         e.preventDefault();
         const reqOption = {
@@ -264,8 +276,9 @@ function RegComp(){
                     <div style={{display: (!customer.address.valid && customer.address.touched)?"block":"none"}}><p className="text-danger">{customer.address.error}</p></div>
 
                     <label className="form-label" for="uname">Enter Username</label>
-                    <input type="text" className="form-control" id="uname" name="username" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value)}}/><br/>
+                    <input type="text" className="form-control" id="uname" name="username" value={customer.username.val} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value); checkUsername(e.target.value)}}/><br/>
                     <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
+                    <div style={{display: (true)?"block":"none"}}><p className="text-danger">{usenamemsg}</p></div>
 
                     <label className="form-label" for="pass">Enter Your Password</label>
                     <input type="password" className="form-control" id="pass" name="pass" onChange={(e)=>{handleChange("password",e.target.value)}} onBlur={(e)=>{handleChange("password",e.target.value)}}/><br/>
