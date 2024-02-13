@@ -5,21 +5,6 @@ import { useNavigate } from "react-router-dom";
 export const FoodDBDisplay = () =>{
 
     const navigate = useNavigate();
-    const servings = (f)=>
-    {
-        if(f.serving_size==="byqty")
-        {
-            return "1";
-        }
-        else if(f.serving_size==="byweight")
-        {
-            return "100gm";
-        }
-        else if(f.serving_size==="byvolumn")
-        {
-            return "1lt";
-        }
-    }
 
     const[food,setFood]=useState([]);
 
@@ -31,7 +16,7 @@ export const FoodDBDisplay = () =>{
     },[])
 
     return(
-        <div>
+        <div className="innercomps">
             <h1>Foods</h1>
 
 <table className="table table-bordered" >
@@ -49,9 +34,7 @@ export const FoodDBDisplay = () =>{
             return(
             <tr>
                 <td>{f.food_name}</td>
-                <td>
-                    {servings(f)}
-                </td>
+                <td>{f.qty}&nbsp;{f.unit}</td>
                 <td>{f.calories}</td>
                 <td>{f.protein}</td>
                 

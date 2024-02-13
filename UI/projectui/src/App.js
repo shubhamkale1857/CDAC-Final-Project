@@ -15,6 +15,7 @@ import { TrainerProfile } from './components/TrainerProfile';
 import { FoodDBDisplay } from './components/FoodDBDisplay';
 import { AdminHome } from './components/AdminHomeComp';
 import { ErrorPage } from './components/ErrorPage';
+import { CustomerSidebar } from './components/CustomerSidebar';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -85,7 +86,7 @@ function App() {
           <Route path='/' element={<HomeComp/>}/>
           <Route path='/login' element={<LoginComp/>}/>
           <Route path='/register' element={<RegComp/>}/>
-          <Route path='/CustomerHome' element={<CustomerHome/>}/>
+          {/* <Route path='/CustomerHome' element={<CustomerHome/>}/> */}
           <Route path='/logout' element={<LogoutComp/>}/>
           <Route path='/profile' element={<ProfileComp/>}/>
           <Route path='/updatepass' element={<UpdatePassComp/>}/>
@@ -93,10 +94,15 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/ErrorPage' element={<ErrorPage/>}/>
-          <Route path='/fooditems' element={<FoodDBDisplay/>}/>
+          {/* <Route path='/fooditems' element={<FoodDBDisplay/>}/> */}
           <Route path='/trainerReg' element={<TrainerRegistration/>}/>
           <Route path='/TrainerHome' element={<TrainerProfile/>}/>
           <Route path='/AdminHome' element={<AdminHome/>}/>
+
+          <Route path='/Customer' element={<CustomerSidebar/>}>
+              <Route path='fooditems' element={<FoodDBDisplay/>}/>
+              <Route path='CustomerHome' element={<CustomerHome/>}/>
+          </Route>
           <Route path='*' element={<h1>please check url</h1>}/>
         </Routes>
     </div>

@@ -56,7 +56,7 @@ export const LoginComp = () =>{
                     if(role === "ADMIN")
                         navigate("/AdminHome");
                     else if(role === "CUSTOMER")
-                        navigate("/CustomerHome", { replace: true });
+                        navigate("/Customer/CustomerHome", { replace: true });
                     else if(role === "TRAINER")
                         navigate("/TrainerHome");
                 }                    
