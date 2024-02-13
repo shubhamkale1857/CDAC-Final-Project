@@ -73,7 +73,9 @@ export const LoginComp = () =>{
         .then((data) => {
             if(data.length == 0){
                 setUserMsg("Username Not Present!!!")
+                setFlag(true);
             }else{
+                setFlag(false);
                 setUserMsg("");
             }
         })
@@ -111,7 +113,7 @@ export const LoginComp = () =>{
                     <p style={{float:"right"}}>don't have an account? <Link to='/register'>register</Link></p>
                     <div className="row">
                         <div className="col-md-5 form-group">
-                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} />
+                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} disabled={flag} />
                         </div>
                     </div>
                 </form>
