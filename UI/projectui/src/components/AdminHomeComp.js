@@ -5,8 +5,7 @@ export const AdminHome = () => {
     const navigate = useNavigate();
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     return (
-        <div>
-            <AdminSidebar/>
+        <div className="innercomps">
             <h1>Welcome {data.username}!!!!You are Admin</h1>
 
             

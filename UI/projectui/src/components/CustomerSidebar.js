@@ -16,17 +16,17 @@ export const CustomerSidebar = ({ children }) => {
       name: "Foods"
     },
     {
-      path: "/Customer/analytics",
-      name: "Analytics"
+      path: "/Customer/Mealhistory",
+      name: "Meal history"
     },
     {
-      path: "/comment",
-      name: "Comment"
+      path: "/Customer/Selecttrainer",
+      name: "Select trainer"
     },
     {
-      path: "/product",
-      name: "Product"
-    },
+      path: "/Customer/Profile",
+      name: "Profile"
+    }
   ];
   const myState = useSelector((state) => state.logged);
   return (

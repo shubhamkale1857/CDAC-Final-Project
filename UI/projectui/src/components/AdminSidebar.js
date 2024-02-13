@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // Assuming you're using react-router-dom
+import { NavLink, Outlet } from "react-router-dom"; // Assuming you're using react-router-dom
 import "../App.css";
 import { useSelector } from "react-redux";
 
@@ -8,25 +8,26 @@ export const AdminSidebar = ({ children }) => {
   // const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: "Admin/AdminHome",
+      path: "/Admin/AdminHome",
       name: "Dashboard"
     },
     {
-      path: "/trainerReg",
+      path: "/Admin/trainerReg",
       name: "Add Trainer"
     },
     {
-      path: "/analytics",
-      name: "Analytics"
+      path: "/Admin/AddFood",
+      name: "Add Food"
     },
     {
-      path: "/comment",
-      name: "Comment"
+      path: "/Admin/UpdateFood",
+      name: "Update Food"
     },
     {
-      path: "/product",
-      name: "Product"
-    },
+      path: "/Admin/Profile",
+      name: "Profile"
+    }
+
   ];
   const myState = useSelector((state) => state.logged);
   return (
@@ -46,7 +47,7 @@ export const AdminSidebar = ({ children }) => {
           </NavLink>
         ))}
       </div>
-      <main>{children}</main>
+      <Outlet/>
     </div>
   );
 };

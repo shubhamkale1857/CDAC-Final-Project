@@ -54,11 +54,11 @@ export const LoginComp = () =>{
                     localStorage.setItem("loggedUser",JSON.stringify(data));
                     const role = data.roles[0];
                     if(role === "ADMIN")
-                        navigate("/AdminHome");
+                        navigate("/Admin/AdminHome");
                     else if(role === "CUSTOMER")
                         navigate("/Customer/CustomerHome", { replace: true });
                     else if(role === "TRAINER")
-                        navigate("/TrainerHome");
+                        navigate("/Trainer/TrainerHome");
                 }                    
             })              
             .catch(() => navigate("/ErrorPage")

@@ -11,11 +11,21 @@ import { CustomerHome } from './components/CustHomeComp';
 import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
 import TrainerRegistration from './components/TrainerRegistration';
-import { TrainerProfile } from './components/TrainerProfile';
+import { TrainerHome} from './components/TrainerHomeComp';
 import { FoodDBDisplay } from './components/FoodDBDisplay';
 import { AdminHome } from './components/AdminHomeComp';
 import { ErrorPage } from './components/ErrorPage';
 import { CustomerSidebar } from './components/CustomerSidebar';
+import { TrainerSidebar } from './components/TrainerSidebar';
+import { AdminSidebar } from './components/AdminSidebar';
+import { AddFood } from './components/AddFoodComp';
+import { UpdateFood } from './components/UpdateFoodComp';
+import { MealHistory } from './components/MealHistoryComp';
+import { SelectTrainer } from './components/SelectTrainerComp';
+import { ClientList } from './components/ClientListComp';
+import { CustomerProfile } from './components/CustomerProfileComp';
+import { TrainerProfile } from './components/TrainerProfileComp';
+import { AdminProfile } from './components/AdminProfileComp';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -36,7 +46,7 @@ function App() {
         </a> 
         
       </header>*/}
-      <div style={{display: myState.loggedIn?"none":"block"}}>
+      <div style={{display: myState.loggedIn?"none":"block"}} className='header'>
       <ul className='nav navbar' style={{backgroundColor:"black"}}>
           <li className='nav-item'>
             <Link to='/register' className='nav-link' id='link'>register</Link>
@@ -52,30 +62,10 @@ function App() {
           </li> */}
         </ul> 
         </div>
-        <div style={{display: myState.loggedIn?"block":"none"}}>
+        <div style={{display: myState.loggedIn?"block":"none"}} className='header'>
         <ul className='nav navbar' style={{backgroundColor:"black"}}>
-                <li className='nav-item'>
-                    <Link to='/profile' className='nav-link' id='link'>profile</Link>
-                </li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li className="nav-item">
-                <Link to='/blog' className='nav-link' id='link' style={{fontSize:"small"}}>blog</Link> 
-                </li>
-                <li className="nav-item">
-                <Link to='/about' className='nav-link' id='link' style={{fontSize:"small"}}>about</Link>
-                </li>
-                <li className="nav-item">
-                <Link to='/contact' className='nav-link' id='link' style={{fontSize:"small"}}>contact us</Link>
-                </li>
-                <li className='nav-item'>
-                <Link to='/fooditems' className='nav-link' id='link'>FoodItems</Link>
-                </li>
+                <li><span style={{color:'white'}}>APP NAME</span></li>
+                
                 <li className='nav-item'>
                     <Link to='/logout' className='nav-link' id='link'>logout</Link>
                 </li>
@@ -95,14 +85,33 @@ function App() {
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/ErrorPage' element={<ErrorPage/>}/>
           {/* <Route path='/fooditems' element={<FoodDBDisplay/>}/> */}
-          <Route path='/trainerReg' element={<TrainerRegistration/>}/>
-          <Route path='/TrainerHome' element={<TrainerProfile/>}/>
+          {/* <Route path='/trainerReg' element={<TrainerRegistration/>}/>
+          <Route path='/TrainerHome' element={<TrainerProfile/>}/> */}
           <Route path='/AdminHome' element={<AdminHome/>}/>
 
           <Route path='/Customer' element={<CustomerSidebar/>}>
               <Route path='fooditems' element={<FoodDBDisplay/>}/>
               <Route path='CustomerHome' element={<CustomerHome/>}/>
+              <Route path='Mealhistory' element={<MealHistory/>}/>
+              <Route path='Selecttrainer' element={<SelectTrainer/>}/>
+              <Route path='Profile' element={<CustomerProfile/>}/>
           </Route>
+
+          <Route path='/Trainer' element={<TrainerSidebar/>}>
+              <Route path='TrainerHome' element={<TrainerHome/>}/>
+              <Route path='ClientList' element={<ClientList/>}/>
+              <Route path='Profile' element={<TrainerProfile/>}/>
+          </Route>
+
+          <Route path='/Admin' element={<AdminSidebar/>}>
+              <Route path='AdminHome' element={<AdminHome/>}/>
+              <Route path='trainerReg' element={<TrainerRegistration/>}/>
+              <Route path='UpdateFood' element={<UpdateFood/>}/>
+              <Route path='AddFood' element={<AddFood/>}/>
+              <Route path='Profile' element={<AdminProfile/>}/>
+          </Route>
+
+
           <Route path='*' element={<h1>please check url</h1>}/>
         </Routes>
     </div>

@@ -216,12 +216,12 @@ function TrainerRegistration(){
     return(
         // style={{background:url('https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png') center center no-repeat}}
         
-        <div>
-            <div className="container-fluid custom-bg" style={{height: "40vh"}}>
+        <div className="innercomps">
+            <div className="container-fluid">
             <h1 style={{fontFamily:"Antic Didone"}}>TRAINER REGISTER</h1>
             </div>
             <div className="row justify-content-center">
-            <div className="col-md-4 mt-5"> 
+            <div className="col-md-6 mt-5"> 
             <form>
                     <label className="form-label" for="fname">Enter First Name</label>
                     <input type="text" className="form-control" id="fname" name="fname" value={customer.fname.val} onChange={(e)=>{handleChange("fname",e.target.value)}} onBlur={(e)=>{handleChange("fname",e.target.value)}}/><br/>
