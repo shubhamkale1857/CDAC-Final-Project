@@ -11,7 +11,7 @@ app.listen(8500, function() {
 var con = ms.createConnection({
 	host:"localhost",
 	user:"root",
-	password:"sql123",
+	password:"saruna",
 	database:"dac_project"
 });
 con.connect(function(err){
@@ -56,21 +56,21 @@ app.get("/getsearchfoodlist",function(req, res){
 
 
 
-app.post("/insertUserData",function(req,res){
-	console.log(req.body.name,req.body.email,req.body.password,req.body.date,req.body.gender,req.body.height,req.body.weight,req.body.role);
-	console.log((req.body.date).toString());
-    let qry = "insert into users(username,email,pass,dob,gender,height,weight,rolee) values('"+req.body.name+"','"+req.body.email+"','"+req.body.password+"','"+req.body.date+"','"+req.body.gender+"',"+req.body.height+","+req.body.weight+","+req.body.role+")";
-	//[req.body.name,req.body.email,req.body.password,(req.body.date).toString(),req.body.gender,req.body.height,req.body.weight,req.body.role]
-    con.query(qry,function(err){
-        if(!err){
-            res.send("Success!!!");
-            console.log("Success!!!")
-        }else{
-            res.send("Error in Post query!!!");
-            console.log("Error in Post query!!!")
-        }
-    });
-})
+// app.post("/insertUserData",function(req,res){
+// 	console.log(req.body.name,req.body.email,req.body.password,req.body.date,req.body.gender,req.body.height,req.body.weight,req.body.role);
+// 	console.log((req.body.date).toString());
+//     let qry = "insert into users(username,email,pass,dob,gender,height,weight,rolee) values('"+req.body.name+"','"+req.body.email+"','"+req.body.password+"','"+req.body.date+"','"+req.body.gender+"',"+req.body.height+","+req.body.weight+","+req.body.role+")";
+// 	//[req.body.name,req.body.email,req.body.password,(req.body.date).toString(),req.body.gender,req.body.height,req.body.weight,req.body.role]
+//     con.query(qry,function(err){
+//         if(!err){
+//             res.send("Success!!!");
+//             console.log("Success!!!")
+//         }else{
+//             res.send("Error in Post query!!!");
+//             console.log("Error in Post query!!!")
+//         }
+//     });
+// })
 
 app.get("/getusername", function(req, res){
 	var uname = req.query.uname;

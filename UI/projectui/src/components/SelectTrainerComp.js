@@ -54,6 +54,7 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
+                                <td><button className="btn btn-primary">REQUEST</button></td>
                             </tr>
                         </tbody>
                 )

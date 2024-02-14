@@ -2,15 +2,22 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export const InsertFood = ()=>{
-    const[flag1, setFlag1]=useState(true);
-    const[flag2, setFlag2]=useState(true);
+    const[items, setItems]=useState([]);
     const[food,setFood]=useState([]);
     const[f1,setF1]=useState("");
-    const[f2,setF2]=useState("");
-    const[f3,setF3]=useState("");
+    const[q1,setQ1]=useState(0);
 
+    const additem = ()=>{
+        const newitem = {"food":f1 , "qty":q1 };
+        setItems([...items, newitem]);
+
+    }
 
     const navigate = useNavigate();
+
+    const submitfood = ()=>{
+
+    }
 
     useEffect(()=>{
         fetch("http://localhost:8080/getfoodlist")
@@ -22,7 +29,7 @@ export const InsertFood = ()=>{
 
     return(
         <div className="innercomps">
-            <h3>Insert Food Component</h3>
+            <h3>Insert Food</h3>
             
             <form>
                 <table className="table table-borderless">
@@ -35,58 +42,34 @@ export const InsertFood = ()=>{
                 </thead>
                 <tbody>
                 <tr>
-                <td><input type="text" className="form-control" list="foods" onChange={(e)=>setF1(e.target.value)}/></td>
-                <td><input type="number" className="form-control"/></td>
-                <td><input type="button" className="btn btn-primary" value={"add"}/></td>
+                <td><select className="form-control" onChange={(e)=>setF1(e.target.value)}>
+                    <option value="">Choose a food...</option>
+                    {
+                        food.map((f)=>{
+                            return(
+                                <option value={f.food_id}>{f.food_name}</option>
+                            )
+                        })
+                    }
+                    </select></td>
+                <td><input type="number" className="form-control" onChange={(e)=>setQ1(e.target.value)}/></td>
+                <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
                 </tr>
-                </tbody>
-            </table>
-            {f1}
-            <table className="table table-borderless">
-                <thead>
-                <tr>
-                <td><label >Enter food</label></td>
-                <td><label>Enter quantity</label></td>
-                <td></td>
+                <tr style={{textAlign:"center"}}>
+                <td colSpan={2}><input type="reset" className="btn btn-outline-primary" value={"add more"} /></td>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><input type="text" className="form-control" list="trainersList" id="trainerInput" disabled={flag1}/></td>
-                <td><input type="number" className="form-control" disabled={flag1}/></td>
-                <td><input type="button" className="btn btn-primary" value={"add"} disabled={flag1}/></td>
-                </tr>
-                </tbody>
-            </table>
+                
 
-            <table className="table table-borderless">
-                <thead>
-                <tr>
-                <td><label >Enter food</label></td>
-                <td><label>Enter quantity</label></td>
-                <td></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><input type="text" className="form-control" list="trainersList" id="trainerInput" disabled={flag2}/></td>
-                <td><input type="number" className="form-control" disabled={flag2}/></td>
-                <td><input type="button" className="btn btn-primary" value={"add"} disabled={flag2}/></td>
-                </tr>
                 </tbody>
             </table>
+            {JSON.stringify(items)}<br/>
+            
 
+            
+
+            <input type="button" className="btn btn-primary" value={"Submit"} onClick={submitfood} />
             </form>
-
-                <datalist id="foods">
-                {
-                    food.map((f)=>{
-                        return(
-                            <option value={f.food_name}/>
-                        )
-                    })
-                }
-                </datalist>
+            
 
 
         </div>
