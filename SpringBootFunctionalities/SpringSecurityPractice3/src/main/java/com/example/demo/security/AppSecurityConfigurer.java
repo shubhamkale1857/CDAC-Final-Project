@@ -93,6 +93,10 @@ public class AppSecurityConfigurer {
 			authorize.requestMatchers("/saveCustomer").permitAll();
 			authorize.requestMatchers("/saveTrainer").permitAll();
 			authorize.requestMatchers("/getfoodlist").permitAll();
+
+			authorize.requestMatchers("/getAllSps").permitAll();
+			authorize.requestMatchers("/getCustomer").permitAll();
+
 			authorize.requestMatchers("/uploadimg/**").permitAll();
 			authorize.requestMatchers("/dotnetapi").permitAll();
 			authorize.requestMatchers("/getRegRequests").hasAuthority("ADMIN");

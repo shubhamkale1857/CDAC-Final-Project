@@ -14,4 +14,8 @@ public class CustomerService {
 	public Customer save(Customer cust) {
 		return cRepo.save(cust);
 	}
+	
+	public Customer findByUid(int uid) {
+		return cRepo.findByUid(uid);
+	}
 }

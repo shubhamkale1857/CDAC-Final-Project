@@ -27,6 +27,7 @@ import { ClientList } from './components/ClientListComp';
 import { CustomerProfile } from './components/CustomerProfileComp';
 import { TrainerProfile } from './components/TrainerProfileComp';
 import { AdminProfile } from './components/AdminProfileComp';
+import { UpdateCustProfile } from './components/UpdateCustProfileComp';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -96,6 +97,7 @@ function App() {
               <Route path='Mealhistory' element={<MealHistory/>}/>
               <Route path='Selecttrainer' element={<SelectTrainer/>}/>
               <Route path='Profile' element={<CustomerProfile/>}/>
+              <Route path='UpdateProfile' element={<UpdateCustProfile/>}/>
           </Route>
 
           <Route path='/Trainer' element={<TrainerSidebar/>}>
