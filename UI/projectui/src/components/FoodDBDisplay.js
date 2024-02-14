@@ -9,7 +9,7 @@ export const FoodDBDisplay = () =>{
     const[food,setFood]=useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:8500/getfoodlist")
+        fetch("http://localhost:8080/getfoodlist")
         .then(resp => resp.json())
         .then(data => setFood(data))
         .catch(() => navigate("/ErrorPage"))

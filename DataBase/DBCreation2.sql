@@ -93,7 +93,8 @@ CREATE TABLE `dac_project`.`admins` (
 
 INSERT INTO `dac_project`.`admins` (`admin_id`, `fname`, `lname`, `gender`,`dob`, `contact`, `email`, `address`, `user_id`) VALUES ('1', 'Shubham', 'Kale','Male', '2000-04-09', '8007997105', 'shubhamkale1857@gmail.com', 'Naik Nagar Georai', '1');
 
-
+-- incripted password for Shubh@123
+-- $2a$10$29VXmTgHxm9mlv/sfAPCoeUUgvh1KMun44ze9WraHPN8a0BgIg3mW
 
 CREATE TABLE `dac_project`.`categories` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
@@ -104,4 +105,37 @@ CREATE TABLE `dac_project`.`categories` (
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('1', 'Dairy');
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('2', 'Fats');
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('3', 'Breads');
+
+
+CREATE TABLE `dac_project`.`dailymeals` (
+  `meal_id` INT NOT NULL AUTO_INCREMENT,
+  `customer_id` INT NULL,
+  `date` DATETIME NULL,
+  `calories` INT NULL,
+  PRIMARY KEY (`meal_id`),
+  INDEX `customer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `dac_project`.`customers` (`customer_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE);
+
+
+CREATE TABLE `dac_project`.`mealfooditemtransaction` (
+  `meal_id` INT NOT NULL,
+  `food_id` INT NOT NULL,
+  `qty` INT NULL,
+  PRIMARY KEY (`meal_id`, `food_id`),
+  INDEX `fooditem_id_idx` (`food_id` ASC) VISIBLE,
+  CONSTRAINT `meal_id`
+    FOREIGN KEY (`meal_id`)
+    REFERENCES `dac_project`.`dailymeals` (`meal_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fooditem_id`
+    FOREIGN KEY (`food_id`)
+    REFERENCES `dac_project`.`fooditems` (`food_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 

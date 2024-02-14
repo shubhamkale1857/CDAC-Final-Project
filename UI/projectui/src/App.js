@@ -11,7 +11,8 @@ import { CustomerHome } from './components/CustHomeComp';
 import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
 import TrainerRegistration from './components/TrainerRegistration';
-import { TrainerHome} from './components/TrainerHomeComp';
+
+import { TrainerProfile } from './components/TrainerProfileComp';
 import { FoodDBDisplay } from './components/FoodDBDisplay';
 import { AdminHome } from './components/AdminHomeComp';
 import { ErrorPage } from './components/ErrorPage';

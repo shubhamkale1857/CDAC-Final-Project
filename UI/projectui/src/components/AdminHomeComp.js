@@ -7,8 +7,6 @@ export const AdminHome = () => {
     return (
         <div className="innercomps">
             <h1>Welcome {data.username}!!!!You are Admin</h1>
-
-            
         </div>
     );
 };
