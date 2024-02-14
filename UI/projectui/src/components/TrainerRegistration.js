@@ -208,9 +208,10 @@ function TrainerRegistration(){
         .then((msg)=>{
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/trainerReg"))
+        .catch(error => navigate("/errorpage"))
 
-        navigate("/login");   
+        alert("Trainer registered succesfully!!")
+        navigate("/Admin/AdminHome");   
     }
     const[gender,setGender] = useState("");
     return(

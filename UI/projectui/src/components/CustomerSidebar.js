@@ -16,12 +16,20 @@ export const CustomerSidebar = ({ children }) => {
       name: "Foods"
     },
     {
+      path: "/Customer/insertFood",
+      name: "Add Food"
+    },
+    {
       path: "/Customer/Mealhistory",
-      name: "Meal history"
+      name: "Trackings"
     },
     {
       path: "/Customer/Selecttrainer",
       name: "Select trainer"
+    },
+    {
+      path: "/Customer/ViewConsultation",
+      name: "Consultation"
     },
     {
       path: "/Customer/Profile",

@@ -1,11 +1,17 @@
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
-import { CustomerSidebar } from "./CustomerSidebar";
+import { useEffect, useState } from "react";
 
 
 export const CustomerHome=()=>{
-    const myState = useSelector(state => state.logged)
+    
     const data= JSON.parse(localStorage.getItem("loggedUser"));
+
+    const[user,setUser]=useState({});
+
+    useEffect(()=>{
+        fetch("http://localhost:8080/getCustomer?uid="+data.id)
+        .then(resp => resp.json())
+        .then(data => {setUser(data)})
+    },[])
 
     
     return(
@@ -13,7 +19,7 @@ export const CustomerHome=()=>{
             
             <div className="innercomps" >
             
-            <h1>Welcome {data.username}!!!!You are Customer</h1>
+            <h1>Welcome {user.fname}!!!!</h1>
             </div>
         
             

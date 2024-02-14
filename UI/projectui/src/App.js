@@ -12,7 +12,6 @@ import { LogoutComp } from './components/LogoutComp';
 import { UpdatePassComp } from './components/UpdatePassComp';
 import TrainerRegistration from './components/TrainerRegistration';
 
-import { TrainerProfile } from './components/TrainerProfileComp';
 import { FoodDBDisplay } from './components/FoodDBDisplay';
 import { AdminHome } from './components/AdminHomeComp';
 import { ErrorPage } from './components/ErrorPage';
@@ -28,6 +27,9 @@ import { CustomerProfile } from './components/CustomerProfileComp';
 import { TrainerProfile } from './components/TrainerProfileComp';
 import { AdminProfile } from './components/AdminProfileComp';
 import { UpdateCustProfile } from './components/UpdateCustProfileComp';
+import { Consultation } from './components/ConsultationComp';
+import { InsertFood } from './components/InsertFoodComp';
+import { TrainerHome } from './components/TrainerHomeComp';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -51,13 +53,13 @@ function App() {
       <div style={{display: myState.loggedIn?"none":"block"}} className='header'>
       <ul className='nav navbar' style={{backgroundColor:"black"}}>
           <li className='nav-item'>
-            <Link to='/register' className='nav-link' id='link'>register</Link>
+            <Link to='/register' className='nav-link' id='link'>Register</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/' className='nav-link' id='link'>HOME</Link>
+            <Link to='/' className='nav-link' id='link'>CALORIE_COACH</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/login' className='nav-link' id='link'>login</Link>
+            <Link to='/login' className='nav-link' id='link'>Login</Link>
           </li>
           {/* <li className='nav-item'>
             <Link to='/trainerReg' className='nav-link' id='link'>Trainer Registration</Link>
@@ -65,11 +67,11 @@ function App() {
         </ul> 
         </div>
         <div style={{display: myState.loggedIn?"block":"none"}} className='header'>
-        <ul className='nav navbar' style={{backgroundColor:"black"}}>
-                <li><span style={{color:'white'}}>APP NAME</span></li>
+          <ul className='nav navbar' style={{backgroundColor:"black"}}>
+                <li className='nav-item'><span style={{color:'white'}}>CALORIE_COACH</span></li>
                 
                 <li className='nav-item'>
-                    <Link to='/logout' className='nav-link' id='link'>logout</Link>
+                    <Link to='/logout' className='nav-link' id='link'>Logout</Link>
                 </li>
             </ul>
 
@@ -93,10 +95,12 @@ function App() {
 
           <Route path='/Customer' element={<CustomerSidebar/>}>
               <Route path='fooditems' element={<FoodDBDisplay/>}/>
+              <Route path='insertFood' element={<InsertFood/>}/>
               <Route path='CustomerHome' element={<CustomerHome/>}/>
               <Route path='Mealhistory' element={<MealHistory/>}/>
               <Route path='Selecttrainer' element={<SelectTrainer/>}/>
               <Route path='Profile' element={<CustomerProfile/>}/>
+              <Route path='ViewConsultation' element={<Consultation/>}/>
               <Route path='UpdateProfile' element={<UpdateCustProfile/>}/>
           </Route>
 

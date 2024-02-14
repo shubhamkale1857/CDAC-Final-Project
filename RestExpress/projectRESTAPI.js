@@ -40,6 +40,21 @@ app.get("/getfoodlist",function(req, res){
 })
 
 
+app.get("/getsearchfoodlist",function(req, res){
+	fname=req.query.fname;
+	con.query("select * from fooditems where food_name like '%"+fname+"%'",function(err,data){
+		if(!err){
+			res.json(data);
+			console.log("Success send");
+		}
+		else
+			console.log("cannot send");
+	})
+})
+
+
+
+
 
 app.post("/insertUserData",function(req,res){
 	console.log(req.body.name,req.body.email,req.body.password,req.body.date,req.body.gender,req.body.height,req.body.weight,req.body.role);
