@@ -8,15 +8,38 @@ export const InsertFood = ()=>{
     const[q1,setQ1]=useState(0);
 
     const additem = ()=>{
-        const newitem = {"food":f1 , "qty":q1 };
+        const newitem = [f1 ,q1 ];
         setItems([...items, newitem]);
 
     }
 
     const navigate = useNavigate();
-
-    const submitfood = ()=>{
-
+    const data= JSON.parse(localStorage.getItem("loggedUser"));
+    const submitfood = (e)=>{
+        e.preventDefault();
+        const reqOption = {
+            method : "POST",
+            headers : {"content-type":"application/json"},
+            body : JSON.stringify({
+                list : items,
+                uid : data.id
+            })
+        } 
+        console.log(reqOption.body);
+        fetch("http://localhost:8080/saveTran1",reqOption)
+        .then((res)=>{
+            if(res.ok){
+                console.log("here in react")
+                return res.text();
+            }else{
+                throw new Error("Server Error For Registration");
+            }
+        })
+        .then((msg)=>{
+            alert("Data Inserted Successfully!!!")
+            console.log("Data Inserted Successfully!!!");
+        })
+        .catch(error => navigate("/register"))
     }
 
     useEffect(()=>{
@@ -67,7 +90,7 @@ export const InsertFood = ()=>{
 
             
 
-            <input type="button" className="btn btn-primary" value={"Submit"} onClick={submitfood} />
+            <input type="button" className="btn btn-primary" value={"Submit"} onClick={(e)=>{submitfood(e)}} />
             </form>
             
 

@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,14 @@ public class FoodItemService {
 	
 	public List<Fooditem> getAllFoodItems(){
 		return frepo.findAll();
+	}
+	
+	public Fooditem getOneFoodItem(int id) {
+		try {
+			Optional<Fooditem> f = frepo.findById(id);
+			return f.get();
+		}catch (Exception e) {
+			return null;
+		}
 	}
 }

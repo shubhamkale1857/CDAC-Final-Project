@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,14 @@ public class CustomerService {
 	
 	public Customer findByUid(int uid) {
 		return cRepo.findByUid(uid);
+	}
+	
+	public Customer getOneCustomer(int id) {
+		try {
+			Optional<Customer> c = cRepo.findById(id);
+			return c.get();
+		}catch (Exception e) {
+			return null;
+		}
 	}
 }

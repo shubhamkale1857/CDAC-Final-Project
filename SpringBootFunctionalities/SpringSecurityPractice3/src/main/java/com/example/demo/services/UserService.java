@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,14 @@ public class UserService {
 	{
 		return urepo.findByUname(uname);
 	}
-	
+	public User getOneUser(int id) {
+		try {
+			Optional<User> u = urepo.findById(id);
+			return u.get();
+		}catch (Exception e) {
+			return null;
+		}
+	}
 	public User save(User u) {
 		return urepo.save(u);
 	}
