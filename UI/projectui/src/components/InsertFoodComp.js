@@ -1,16 +1,33 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export const InsertFood = ()=>{
     const[items, setItems]=useState([]);
     const[food,setFood]=useState([]);
     const[f1,setF1]=useState("");
-    const[q1,setQ1]=useState(0);
+    const[q1,setQ1]=useState("");
 
     const additem = ()=>{
         const newitem = [f1 ,q1 ];
-        setItems([...items, newitem]);
+        let flag=false;
+        let arr=items.map((s)=>{
+            if(s[0]===newitem[0])
+            {
+                flag=true;
+                return s=[s[0],String(parseInt(s[1])+parseInt(newitem[1]))]
+            }
+            else
+            {
+                return s;
+            }
+        })
+        if(!flag)
+            setItems([...items, newitem]);
+        else
+            setItems(arr);
 
+        formRef.current.reset();
+        
     }
 
     const navigate = useNavigate();
@@ -38,6 +55,7 @@ export const InsertFood = ()=>{
         .then((msg)=>{
             alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
+            setItems([]);
         })
         .catch(error => navigate("/register"))
     }
@@ -49,12 +67,13 @@ export const InsertFood = ()=>{
         .catch(() => navigate("/ErrorPage"))
     },[])
 
+    const formRef = useRef(null);
 
     return(
         <div className="innercomps">
             <h3>Insert Food</h3>
             
-            <form>
+            <form ref={formRef}>
                 <table className="table table-borderless">
                 <thead>
                 <tr>
@@ -78,15 +97,39 @@ export const InsertFood = ()=>{
                 <td><input type="number" className="form-control" onChange={(e)=>setQ1(e.target.value)}/></td>
                 <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
                 </tr>
-                <tr style={{textAlign:"center"}}>
-                <td colSpan={2}><input type="reset" className="btn btn-outline-primary" value={"add more"} /></td>
-                </tr>
                 
 
                 </tbody>
             </table>
-            {JSON.stringify(items)}<br/>
+            {/* {JSON.stringify(items)}<br/> */}
             
+            <h4>Added Food</h4>
+            <table className="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>FOOD</td>
+                        <td>QUATITY</td>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        {
+                            items.map((s)=>{
+                              return <tr>
+                                <td>{
+                                    food.map((f)=>{
+                                        if(f.food_id==s[0])
+                                            return f.food_name 
+                                    })
+                                    }</td>
+                                <td>{s[1]}</td>
+                                </tr>
+                            })
+                        }
+                        
+                   
+                </tbody>
+            </table>
 
             
 

@@ -45,7 +45,6 @@ app.get("/getsearchfoodlist",function(req, res){
 	con.query("select * from fooditems where food_name like '%"+fname+"%'",function(err,data){
 		if(!err){
 			res.json(data);
-			console.log("Success send");
 		}
 		else
 			console.log("cannot send");
@@ -54,30 +53,11 @@ app.get("/getsearchfoodlist",function(req, res){
 
 
 
-
-
-// app.post("/insertUserData",function(req,res){
-// 	console.log(req.body.name,req.body.email,req.body.password,req.body.date,req.body.gender,req.body.height,req.body.weight,req.body.role);
-// 	console.log((req.body.date).toString());
-//     let qry = "insert into users(username,email,pass,dob,gender,height,weight,rolee) values('"+req.body.name+"','"+req.body.email+"','"+req.body.password+"','"+req.body.date+"','"+req.body.gender+"',"+req.body.height+","+req.body.weight+","+req.body.role+")";
-// 	//[req.body.name,req.body.email,req.body.password,(req.body.date).toString(),req.body.gender,req.body.height,req.body.weight,req.body.role]
-//     con.query(qry,function(err){
-//         if(!err){
-//             res.send("Success!!!");
-//             console.log("Success!!!")
-//         }else{
-//             res.send("Error in Post query!!!");
-//             console.log("Error in Post query!!!")
-//         }
-//     });
-// })
-
 app.get("/getusername", function(req, res){
 	var uname = req.query.uname;
 	con.query("select * from users where username= '"+uname+"'" , function(err, data){
 		if(!err){
 			res.json(data);
-			console.log("Success username");
 		}else{
 			console.log("Error email");
 		}
@@ -89,7 +69,6 @@ app.get("/getemailidreg", function(req, res){
 	con.query("select * from customers where email='"+email+"'", function(err, data){
 		if(!err){
 			res.json(data);
-			console.log("Success username");
 		}else{
 			res.send("hello");
 			console.log("Error email");

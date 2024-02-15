@@ -31,7 +31,6 @@ export const FoodDBDisplay = () =>{
                 <input class="form-control me-2" type="search" placeholder="Search" onChange={(e)=>{setVal(e.target.value); loadFood()}}/>
                 <input class="btn btn-primary" type="button" onClick={loadFood} value={"search"}/>
             </form>
-            {val}
             <br/><br/>
 <table className="table table-bordered" >
     <thead>

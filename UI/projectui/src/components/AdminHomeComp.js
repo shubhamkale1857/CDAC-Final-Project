@@ -6,7 +6,7 @@ export const AdminHome = () => {
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     return (
         <div className="innercomps">
-            <h1>Welcome {data.username}!!!!You are Admin</h1>
+            <h1>Welcome {data.username}!</h1>
         </div>
     );
 };
