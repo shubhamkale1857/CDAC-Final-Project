@@ -6,6 +6,7 @@ export const InsertFood = ()=>{
     const[food,setFood]=useState([]);
     const[f1,setF1]=useState("");
     const[q1,setQ1]=useState("");
+    const[mt,setMt]=useState("");
 
     const additem = ()=>{
         const newitem = [f1 ,q1 ];
@@ -39,7 +40,8 @@ export const InsertFood = ()=>{
             headers : {"content-type":"application/json"},
             body : JSON.stringify({
                 list : items,
-                uid : data.id
+                uid : data.id,
+                mealtype : mt
             })
         } 
         console.log(reqOption.body);
@@ -74,30 +76,44 @@ export const InsertFood = ()=>{
             <h3>Insert Food</h3>
             
             <form ref={formRef}>
-                <table className="table table-borderless">
-                <thead>
-                <tr>
-                <td><label >Enter food</label></td>
-                <td><label>Enter quantity</label></td>
-                <td></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><select className="form-control" onChange={(e)=>setF1(e.target.value)}>
-                    <option value="">Choose a food...</option>
-                    {
-                        food.map((f)=>{
-                            return(
-                                <option value={f.food_id}>{f.food_name}</option>
-                            )
-                        })
-                    }
-                    </select></td>
-                <td><input type="number" className="form-control" onChange={(e)=>setQ1(e.target.value)}/></td>
-                <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
-                </tr>
+
                 
+                
+
+                <table className="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td><label>Enter Meal Type</label></td>
+                    </tr>
+                    <tr>
+                        <td><select className="form-control" onChange={(e)=>setMt(e.target.value)}>
+                    <option value="">Choose a meal type..</option>
+                    <option value="1">Breakfast</option>
+                    <option value="2">Lunch</option>
+                    <option value="3">Snack</option>
+                    <option value="4">Dinner</option>
+                    </select></td>
+                    </tr>
+                    <tr>
+                    <td><label >Enter food</label></td>
+                    <td><label>Enter quantity</label></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td><select className="form-control" onChange={(e)=>setF1(e.target.value)}>
+                        <option value="">Choose a food...</option>
+                        {
+                            food.map((f)=>{
+                                return(
+                                    <option value={f.food_id}>{f.food_name}&nbsp; / {f.unit} &nbsp; = {f.calories} calories  </option>
+                                )
+                            })
+                        }
+                        </select></td>
+                        
+                    <td><input type="number" className="form-control" onChange={(e)=>setQ1(e.target.value)}/></td>
+                    <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
+                    </tr>
 
                 </tbody>
             </table>
@@ -109,6 +125,7 @@ export const InsertFood = ()=>{
                     <tr>
                         <td>FOOD</td>
                         <td>QUATITY</td>
+                        <td>CALORIES</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -123,6 +140,12 @@ export const InsertFood = ()=>{
                                     })
                                     }</td>
                                 <td>{s[1]}</td>
+                                <td>{
+                                    food.map((f)=>{
+                                        if(f.food_id==s[0])
+                                            return f.calories*s[1] 
+                                    })
+                                    }</td>
                                 </tr>
                             })
                         }
@@ -136,7 +159,11 @@ export const InsertFood = ()=>{
             <input type="button" className="btn btn-primary" value={"Submit"} onClick={(e)=>{submitfood(e)}} />
             </form>
             
-
+            <datalist id="foodlist">
+                    {food.map((f) => (
+                <option key={f.food_id} value={f.food_id} >{f.food_name}</option>
+                ))}
+            </datalist>
 
         </div>
     )
