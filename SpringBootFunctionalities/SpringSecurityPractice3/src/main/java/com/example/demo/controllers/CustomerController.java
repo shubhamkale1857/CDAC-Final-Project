@@ -18,6 +18,7 @@ public class CustomerController {
 	@GetMapping("/getCustomer")
 	public Customer findByUid(@RequestParam("uid") int uid)
 	{
+		System.out.println("In getCustomer Controller");
 		return cService.findByUid(uid);
 	}
 }

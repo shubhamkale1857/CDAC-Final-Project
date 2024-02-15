@@ -233,7 +233,7 @@ function RegComp(){
                     <div style={{display: (!customer.fname.valid && customer.fname.touched)?"block":"none"}}><p className="text-danger">{customer.fname.error}</p></div>
 
                     <label className="form-label" for="lname">Enter Last Name</label>
-                    <input type="text" className="form-control" id="lname" name="lname" value={customer.fname.val} onChange={(e)=>{handleChange("lname",e.target.value)}} onBlur={(e)=>{handleChange("lname",e.target.value)}}/><br/>
+                    <input type="text" className="form-control" id="lname" name="lname" value={customer.lname.val} onChange={(e)=>{handleChange("lname",e.target.value)}} onBlur={(e)=>{handleChange("lname",e.target.value)}}/><br/>
                     <div style={{display: (!customer.lname.valid && customer.lname.touched)?"block":"none"}}><p className="text-danger">{customer.lname.error}</p></div>
 
 

@@ -43,7 +43,7 @@ public class Fooditem {
 	@Column
 	private int protein;
 	
-	@JsonIgnoreProperties("fooditems")
+	@JsonIgnoreProperties
 	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;

@@ -18,7 +18,6 @@ public class FoodItemController {
 	
 	@GetMapping("/getfoodlist")
 	public List<Fooditem> getAllFoodItems(){
-		System.out.println("in fooditemcontroller");
 		return fservice.getAllFoodItems();
 	}
 }

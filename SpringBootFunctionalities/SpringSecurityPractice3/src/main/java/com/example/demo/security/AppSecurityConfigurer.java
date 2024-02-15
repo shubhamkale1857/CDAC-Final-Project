@@ -93,7 +93,8 @@ public class AppSecurityConfigurer {
 			authorize.requestMatchers("/saveCustomer").permitAll();
 			authorize.requestMatchers("/saveTrainer").permitAll();
 			authorize.requestMatchers("/getfoodlist").permitAll();
-
+			authorize.requestMatchers("/saveTran").permitAll();
+			authorize.requestMatchers("/saveTran1").permitAll();
 			authorize.requestMatchers("/getAllSps").permitAll();
 			authorize.requestMatchers("/getCustomer").permitAll();
 			authorize.requestMatchers("/getTrainers").permitAll();

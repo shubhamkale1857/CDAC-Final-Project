@@ -1,5 +1,9 @@
 package com.example.demo.controllers;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +43,7 @@ public class DummyMealTransactionController {
 		System.out.println("here in transaction controller");
 		Customer cust = cService.getOneCustomer(dummy.getCustomer_id());
 		meal.setCustomer(cust);
-		meal.setDate(dummy.getDate());
+		meal.setDate(LocalDate.now());
 		meal.setCalories(dummy.getCalories());
 		DailyMeal savedMeal = mealService.save(meal);
 		Fooditem food = fService.getOneFoodItem(dummy.getFood_id());
@@ -50,9 +54,33 @@ public class DummyMealTransactionController {
 	}
 	
 	@PostMapping("/saveTran1")
-	public Mealfooditemtransaction saveTran(@RequestBody DummyyMealTransaction dummy) {
+	public Object saveTran(@RequestBody DummyyMealTransaction dummy) {
 		System.out.println(dummy);
 		System.out.println("hello");
-		return null;
+		int sumCalory = 0;
+		List<Fooditem> foodList = new ArrayList<>();
+		for(int i = 0 ; i < dummy.getList().size() ; i++) {
+			int foodId = (dummy.getList().get(i))[0];
+			Fooditem food = fService.getOneFoodItem(foodId);
+			foodList.add(food);
+			sumCalory += food.getCalories();
+		}
+		
+		Customer cust = cService.findByUid(dummy.getUid());
+		DailyMeal meall = new DailyMeal();
+		meall.setCustomer(cust);
+		meall.setDate(LocalDate.now());
+		meall.setCalories(sumCalory);
+		DailyMeal mealll = mealService.save(meall);
+		
+		for(int i = 0 ; i < foodList.size(); i++) {
+			Mealfooditemtransaction mealfoodd = new Mealfooditemtransaction();
+			mealfoodd.setFood(foodList.get(i));
+			mealfoodd.setMeal(mealll);
+			mealfoodd.setQty((dummy.getList().get(i))[1]);
+			mealfoodService.save(mealfoodd);
+		}
+		
+		return new String("hello");
 	}
 }
