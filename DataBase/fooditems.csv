@@ -1,754 +1,1007 @@
-food_id,food_name,qty,unit,calories,protein,category_id
-1,Cows' milk,1,litre,976,660,1
-2,Milk skim,1,litre,984,360,1
-3,Buttermilk,1,cup (approx 250gm),246,127,1
-4,Powdered milk,1,cup (approx 250gm),103,515,1
-5,Goats' milk,1,cup (approx 250gm),244,165,1
-6,Cocoa,1,cup (approx 250gm),252,235,1
-7,Ccornstarch,1,cup (approx 250gm),248,275,1
-8,Custard,1,cup (approx 250gm),248,285,1
-9,Ice cream,1,cup (approx 250gm),188,300,1
-10,Ice milk,1,cup (approx 250gm),190,275,1
-11,Cream or half-and-half,1,cup (approx 250gm),120,170,1
-12,Cheese,1,cup (approx 250gm),225,240,1
-13,"Cheddar, grated cup (approx 250gm)",1,cup (approx 250gm),56,226,1
-14,Eggs raw,1,unit,50,75,1
-15,Eggs Scrambled or fried,1,unit,64,110,1
-16,Yolks,1,unit,17,60,2
-17,Butter,1,cup (approx 250gm),112,113,2
-18,Whole-wheat Chappti,1,unit (approx 50gm),100,12,3
-19,Whole-wheat bread,1,unit,23,12,3
-20,Corn bread ground meal,1,unit,50,100,3
-21,Cornflakes,1,cup (approx 250gm),25,110,3
-22,Flour,1,cup (approx 250gm),110,460,3
-23,Wheat (all purpose),1,cup (approx 250gm),110,400,3
-24,Wheat (whole),1,cup (approx 250gm),120,390,3
-25,Macaroni,1,cup (approx 250gm),140,155,3
-26,Baked with cheese,1,cup (approx 250gm),220,475,3
-27,Muffins,1,unit,48,135,3
-28,Noodles,1,cup (approx 250gm),160,200,3
-29,Oatmeal,1,cup (approx 250gm),236,150,3
-30,Pancakes,1,unit,27,62.5,3
-31,Wheat pancakes,1,unit,27,62.5,3
-32,Pizza ,1,unit,75,180,3
-33,Popcorn salted,1,cup (approx 250gm),14,76,3
-34,Puffed rice,1,cup (approx 250gm),14,55,3
-35,Puffed wheat presweetened,1,cup (approx 250gm),28,105,3
-36,Rice,1,cup (approx 250gm),208,748,3
-37,Rolls,1,unit (approx 350gm),50,411,3
-38,Spaghetti with meat sauce,1,cup (approx 250gm),250,285,3
-39,Spanish rice,1,cup (approx 250gm),250,217,3
-40,Waffles,1,unit,75,240,3
-41,Chicken,1,100gm,165,27,4
-42,"Fried, breast or leg and thigh chicken",1,unit (approx 200gm),250,30,4
-43,Roasted chicken,1,100gm,200,25,4
-44,"Chicken livers, fried",1,unit (approx 200gm),150,15,4
-45,Lamb meat,1,100gm,264,25,4
-46,Goat meat,1,100gm,250,25,4
-47,BANANAS,1,100gm,60,0.7,5
-48,PLANTAINS,1,100gm,75,0.8,5
-49,ORANGES,1,100gm,34,0.7,5
-50,ORANGE JUICE,1,100gm,42,0.6,5
-51,ORANGE JUICE CONCENTRATED,1,100gm,159,2.4,5
-52,"TANGERINES, MANDARINES, CLEMENTINES",1,100gm,32,0.5,5
-53,TANGERINES JUICE,1,100gm,43,0.5,5
-54,LEMONS AND LIMES,1,100gm,15,0.6,5
-55,LEMON JUICE,1,100gm,22,0.5,5
-56,LEMON JUICE CONCENTRATED,1,100gm,116,2.3,5
-57,GRAPEFRUIT AND POMELO,1,100gm,16,0.3,5
-58,GRAPEFRUIT JUICE,1,100gm,39,0.5,5
-59,GRAPEFRUIT JUICE CONCENTRATED,1,100gm,146,2,5
-60,CITRUS FRUIT NES,1,100gm,26,0.5,5
-61,CITRUS FRUIT NES JUICE,1,100gm,47,0.6,5
-62,APPLES,1,100gm,48,0.1,5
-63,APPLES JUICE,1,100gm,47,0.1,5
-64,APPLES JUICE CONCENTRATED,1,100gm,166,0.5,5
-65,PEARS,1,100gm,54,0.4,5
-66,APRICOTS,1,100gm,45,1.3,5
-67,SOUR CHERRY,1,100gm,45,0.9,5
-68,CHERRIES,1,100gm,65,1.1,5
-69,PEACHES AND NECTARINES,1,100gm,33,0.5,5
-70,PLUMS,1,100gm,52,0.7,5
-71,PLUM JUICE,1,100gm,71,0.6,5
-72,PLUM JUICE CONCENTRATED,1,100gm,215,2,5
-73,STRAWBERRIES,1,100gm,28,0.6,5
-74,RASPBERRIES,1,100gm,47,0.9,5
-75,GOOSEBERRIES,1,100gm,44,0.9,5
-76,CURRANTS,1,100gm,59,1.4,5
-77,BLUEBERRIES,1,100gm,55,0.7,5
-78,CRANBERRIES,1,100gm,47,0.4,5
-79,BERRIES NES,1,100gm,49,1,5
-80,GRAPES,1,100gm,53,0.5,5
-81,GRAPE JUICE,1,100gm,61,0.6,5
-82,WATERMELONS,1,100gm,17,0.3,5
-83,MELONS,1,100gm,17,0.4,5
-84,FIGS,1,100gm,73,0.8,5
-85,MANGOES,1,100gm,45,0.4,5
-86,MANGO JUICE,1,100gm,62,0.3,5
-87,MANGO PULP,1,100gm,65,0.5,5
-88,AVOCADOS,1,100gm,119,1.5,5
-89,PINEAPPLES,1,100gm,26,0.2,5
-90,PINEAPPLES CANNED,1,100gm,78,0.4,5
-91,PINEAPPLES JUICE,1,100gm,56,0.3,5
-92,PINEAPPLES JUICE CONCENTRATED,1,100gm,179,1.3,5
-93,PERSIMMONS,1,100gm,82,0.6,5
-94,CASHEWAPPLE,1,100gm,43,0.8,5
-95,KIWI,1,100gm,52,0.9,5
-96,PAPAYAS,1,100gm,26,0.4,5
-97,FRUIT TROPICAL NES,1,100gm,41,0.5,5
-98,FRUIT NES FRESH,1,100gm,45,0.5,5
-99,FRUIT NES JUICE,1,100gm,48,0.5,5
-100,FRUIT NES PREPARED,1,100gm,36,0.5,5
-101,FLOUR OF FRUIT,1,100gm,346,3.9,5
-102,"FRUIT,NUTS,FRUIT PEEL PRESERVED BY SUGAR",1,100gm,212,0.6,5
-103,EGGPLANTS,1,100gm,21,0.9,6
-104,"CHILLIES, PEPPERS,GREEN",1,100gm,25,1.1,6
-105,"ONIONS,SHALLOTS, GREEN",1,100gm,24,1.7,6
-106,"ONIONS, DRY",1,100gm,31,1.1,6
-107,GARLIC,1,100gm,130,5.5,6
-108,LEEKS,1,100gm,37,0.7,6
-109,"BEANS, GREEN",1,100gm,50,3,6
-110,"PEAS, GREEN",1,100gm,31,2.1,6
-111,"BROAD BEANS,GREEN",1,100gm,23,2.3,6
-112,STRING BEANS,1,100gm,27,1.6,6
-113,CARROTS,1,100gm,38,0.9,6
-114,OKRA,1,100gm,31,1.6,6
-115,GREEN CORN,1,100gm,56,2.1,6
-116,SWEET CORN FROZEN,1,100gm,54,1.8,6
-117,SWEET CORN PREPARED,1,100gm,77,2.3,6
-118,MUSHROOMS,1,100gm,24,2,6
-119,MUSHROOMS CANNED,1,100gm,24,1.9,6
-120,MUSHROOMS DRIED,1,100gm,296,9.6,6
-121,CABBAGES,1,100gm,19,1,6
-122,ARTICHOKES,1,100gm,20,1.1,6
-123,ASPARAGUS,1,100gm,12,1.6,6
-124,LETTUCE,1,100gm,12,1.1,6
-125,SPINACH,1,100gm,16,2.1,6
-126,CASSAVA LEAVES,1,100gm,53,5.8,6
-127,TOMATOES,1,100gm,17,0.8,6
-128,TOMATO JUICE,1,100gm,17,0.8,6
-129,TOMATO JUICE CONCENTRATED,1,100gm,76,3.4,6
-130,TOMATO PASTE,1,100gm,84,3.8,6
-131,TOMATOES PEELED,1,100gm,19,0.9,6
-132,CAULIFLOWER,1,100gm,9,0.8,6
-133,"PUMPKINS, SQUASH, GOURDS",1,100gm,19,0.9,6
-134,"CUCUMBERS, GHERINKS",1,100gm,13,0.5,6
-135,COFFEE GREEN,1,100gm,47,6.7,7
-136,COFFEE ROASTED,1,100gm,56,8,7
-137,COFFEE SUBSTITUTES,1,100gm,56,8,7
-138,COFFEE EXTRACTS,1,100gm,129,4,7
-139,CHICORY ROOTS,1,100gm,60,1.1,7
-140,COCOA BEANS,1,100gm,414,4,7
-141,COCOA PASTE,1,100gm,472,1.7,7
-142,COCOA BUTTER,1,100gm,711,0,7
-143,COCOA POWDER,1,100gm,261,17.3,7
-144,CHOCOLATE PRODUCTS NES,1,100gm,393,4.2,7
-145,TEA,1,100gm,40,10,7
-146,EXTRACT TEA,1,100gm,18,4.5,7
-147,chicken soup,1,cup (approx 250gm),250,75,8
-148,Noodle sup,1,cup (approx 250gm),250,115,8
-149,Split-pea soup,1,cup (approx 250gm),250,147,8
-150,Tomato soup,1,cup (approx 250gm),245,175,8
-151,Vegetable soup,1,cup (approx 250gm),250,80,8
-152,Bread pudding,1,cup (approx 250gm),200,374,9
-153,Cakes,1,cup (approx 50gm),40,110,9
-154,Chocolate fudge,1,cup (approx 50gm),120,420,9
-155,cup (approx 250gm)cake,1,cup (approx 50gm),50,160,9
-156,Fruit cake,1,cup (approx 50gm),30,105,9
-157,Gingerbread,1,cup (approx 50gm),55,180,9
-158,"Plain, with no icing",1,cup (approx 50gm),55,180,9
-159,Sponge cake,1,cup (approx 50gm),40,115,9
-160,Candy,1,unit,5,25,9
-161,Chocolate creams,1,unit,15,65,9
-162,Fudge,1,unit,45,165,9
-163,Hard candies,1,unit,28,90,9
-164,Marshmallows,1,unit,6,20,9
-165,Milk chocolate,1,100gm,112,50,9
-166,Chocolate syrup,1,tbsp,20,10,9
-167,Doughnuts,1,unit,33,135,9
-168,"Gelatin, made with water",1,cup (approx 250gm),239,155,9
-169,Clams,1,unit,30,30,10
-170,Crab meat,1,100gm,112,45,10
-171,Fish sticks fried,1,100gm,112,52,10
-172,Lobster,1,100gm,100,92,10
-173,Oysters,1,100gm,40,40,10
-174,Oyster stew,1,cup (approx 250gm),85,125,10
-175,Salmon,1,100gm,27,40,10
-176,Shrimp,1,100gm,27,29,10
-177,Swordfish,1,100gm,100,180,10
-178,Tuna,1,100gm,38,59,10
-179,"BEANS, DRY",1,100gm,341,22.1,12
-180,BROAD BEANS DRY,1,100gm,343,23.4,12
-181,"PEAS, DRY",1,100gm,346,22.5,12
-182,CHICK-PEAS,1,100gm,358,20.1,12
-183,COW PEAS DRY,1,100gm,342,23.4,12
-184,PIGEON PEAS,1,100gm,343,20.9,12
-185,LENTILS,1,100gm,346,24.2,12
-186,PULSES NES,1,100gm,340,22,12
-187,FLOUR OF PULSES,1,100gm,340,22,12
-188,BRAZIL NUTS,1,100gm,315,6.9,13
-189,CASHEW NUTS,1,100gm,252,7.7,13
-190,CHESTNUTS,1,100gm,158,1.8,13
-191,ALMONDS,1,100gm,236,8,13
-192,WALNUTS,1,100gm,289,6.4,13
-193,PISTACHIOS,1,100gm,289,10.3,13
-194,KOLANUTS,1,100gm,349,9,13
-195,HAZELNUTS,1,100gm,291,6,13
-196,ARECANUTS,1,100gm,245,4.9,13
-197,BRAZILNUT SHELLED,1,100gm,656,14.3,13
-198,CASHEW NUTS SHELLED,1,100gm,574,15.3,13
-199,ALMONDS SHELLED,1,100gm,589,20,13
-200,WALNUTS SHELLED,1,100gm,642,14.3,13
-201,HAZELNUTS SHELLED,1,100gm,632,13,13
-202,NUTS NES,1,100gm,262,7,13
-203,PREPARED NUTS,1,100gm,615,15.5,13
-204,SOYBEANS,1,100gm,335,38,13
-205,APRICOTS DRIED,1,100gm,238,3.7,13
-206,PLUMS DRIED,1,100gm,208,2.3,13
-207,RAISINS,1,100gm,299,3.2,13
-208,FIGS DRIED,1,100gm,253,3,13
-209,DATES,1,100gm,156,1.5,13
-210,FRUIT TROPICAL NES DRIED,1,100gm,267,2.8,13
-211,FRUIT NES DRIED,1,100gm,267,2.8,13
-212,OIL OF RICE BRAN,1,100gm,884,0,14
-213,OIL OF MAIZE,1,100gm,884,0,14
-214,OIL OF SOYABEANS,1,100gm,884,0,14
-215,OIL OF GROUNDNUTS,1,100gm,884,0,14
-216,OIL OF COCONUTS,1,100gm,884,0,14
-217,PALM OIL,1,100gm,884,0,14
-218,OIL OF PALM KERNELS,1,100gm,884,0,14
-219,OLIVE OIL,1,100gm,884,0,14
-220,BUTTER OF KARITE NUTS,1,100gm,711,0,14
-221,OIL OF CASTOR BEANS,1,100gm,884,0,14
-222,OIL OF SUNFLOWER SEED,1,100gm,884,0,14
-223,OIL OF RAPESEED,1,100gm,884,0,14
-224,OIL OF OLIVE RESIDUES,1,100gm,884,0,14
-225,TUNG OIL,1,100gm,884,0,14
-226,OIL OF SAFFLOWER,1,100gm,884,0,14
-227,OIL OF SESAME SEED,1,100gm,884,0,14
-228,OIL OF MUSTARD SEED,1,100gm,884,0,14
-229,OIL OF POPPY SEED,1,100gm,884,0,14
-230,STILLINGIA OIL,1,100gm,884,0,14
-231,OIL OF KAPOK,1,100gm,884,0,14
-232,OIL OF COTTON SEED,1,100gm,884,0,14
-233,OIL OF LINSEED,1,100gm,884,0,14
-234,OIL OF HEMPSEED,1,100gm,884,0,14
-235,OIL OF VEGETABLE ORIGIN NES,1,100gm,884,0,14
-236,MARGARINE,1,100gm,720,0.6,14
-237,OILS BOILED,1,100gm,902,0,14
-238,OILS HYDROGENATED,1,100gm,720,0.6,14
-246,Artisan Grilled Chicken Sandwich,1,unit,380,37,11
-247,Single Bacon Smokehouse Burger,1,unit,840,46,11
-248,Double Bacon Smokehouse Burger,1,unit,1130,70,11
-249,Grilled Bacon Smokehouse Chicken Sandwich,1,unit,750,55,11
-250,Crispy Bacon Smokehouse Chicken Sandwich,1,unit,920,46,11
-251,Big Mac,1,unit,540,25,11
-252,Cheeseburger,1,unit,300,15,11
-253,Classic Chicken Sandwich,1,unit,510,25,11
-254,Double Cheeseburger,1,unit,430,25,11
-255,Double Quarter Pounder® with Cheese,1,unit,770,51,11
-256,Filet-O-Fish®,1,unit,380,15,11
-257,Garlic White Cheddar Burger,1,unit,620,32,11
-258,Grilled Garlic White Cheddar Chicken Sandwich,1,unit,530,42,11
-259,Crispy Garlic White Cheddar Chicken Sandwich,1,unit,700,33,11
-260,Hamburger,1,unit,250,13,11
-261,Lobster Roll,1,unit,290,24,11
-262,Maple Bacon Dijon 1/4 lb Burger,1,unit,640,37,11
-263,Grilled Maple Bacon Dijon Chicken Sandwich,1,unit,580,48,11
-264,Crispy Maple Bacon Dijon Chicken Sandwich,1,unit,740,39,11
-265,McChicken,1,unit,350,15,11
-266,McDouble,1,unit,380,23,11
-267,McRib,1,unit,480,25,11
-268,Pico Guacamole 1/4 lb Burger,1,unit,580,29,11
-269,Grilled Pico Guacamole Chicken Sandwich,1,unit,520,40,11
-270,Crispy Pico Guacamole Chicken Sandwich,1,unit,680,31,11
-271,Premium Buttermilk Crispy Chicken Deluxe Sandwich,1,unit,570,28,11
-272,Premium Crispy Chicken Deluxe Sandwich,1,unit,530,25,11
-273,Quarter Pounder® with Cheese,1,unit,530,31,11
-274,Signature Sriracha Burger,1,unit,670,32,11
-275,Grilled Signature Sriracha Chicken Sandwich,1,unit,560,41,11
-276,Crispy Signature Sriracha Chicken Sandwich,1,unit,730,32,11
-277,Sweet BBQ Bacon 1/4 lb Burger,1,unit,690,38,11
-278,Grilled Sweet BBQ Bacon Chicken Sandwich,1,unit,630,48,11
-279,Crispy Sweet BBQ Bacon Chicken Sandwich,1,unit,800,39,11
-280,3 piece Buttermilk Crispy Chicken Tenders,1,unit,370,28,11
-281,4 piece Buttermilk Crispy Chicken Tenders,1,unit,480,38,11
-282,6 piece Buttermilk Crispy Chicken Tenders,1,unit,760,58,11
-283,10 piece Buttermilk Crispy Chicken Tenders,1,unit,1210,94,11
-284,12 piece Buttermilk Crispy Chicken Tenders,1,unit,1510,115,11
-285,20 piece Buttermilk Crispy Chicken Tenders,1,unit,2430,186,11
-286,4 Piece Chicken McNuggets,1,unit,180,10,11
-287,6 Piece Chicken McNuggets,1,unit,270,15,11
-288,10 Piece Chicken McNuggets,1,unit,440,24,11
-289,20 Piece Chicken McNuggets,1,unit,890,49,11
-290,40 piece Chicken McNuggets,1,unit,1770,98,11
-291,4 piece Sweet N' Spicy Honey BBQ Glazed Tenders,1,unit,640,39,11
-292,6 piece Sweet N' Spicy Honey BBQ Glazed Tenders,1,unit,960,58,11
-293,10 piece Sweet N' Spicy Honey BBQ Glazed Tenders,1,unit,1600,97,11
-294,Premium Asian Salad w/o Chicken,1,unit,140,7,11
-295,Premium Asian Salad w/ Grilled Chicken,1,unit,270,31,11
-296,Premium Asian Salad w/ Crispy Chicken,1,unit,490,33,11
-297,Premium Bacon Ranch Salad w/o Chicken,1,unit,190,14,11
-298,Premium Bacon Ranch Salad w/ Grilled Chicken,1,unit,320,42,11
-299,Premium Bacon Ranch Salad w/ Crispy Chicken,1,unit,490,33,11
-300,Premium Southwest Salad w/o Chicken,1,unit,220,8,11
-301,Premium Southwest Salad w/ Grilled Chicken,1,unit,350,37,11
-302,Premium Southwest Salad w/ Crispy Chicken,1,unit,520,28,11
-303,Chargrilled Chicken Club Sandwich,1,unit,430,37,11
-304,Chargrilled Chicken Sandwich,1,unit,310,29,11
-305,Chick-n-Slider,1,unit,270,16,11
-306,1 Piece Chick-n-Strips,1,unit,120,11,11
-307,2 Piece Chick-n-Strips,1,unit,230,22,11
-308,3 Piece Chick-n-Strips,1,unit,350,28,11
-309,4 piece Chick-n-Strips,1,unit,470,37,11
-310,Chicken Deluxe,1,unit,500,31,11
-311,4 piece Chicken Nuggets,1,unit,130,14,11
-312,6 piece Chicken Nuggets,1,unit,190,21,11
-313,8 piece Chicken Nuggets,1,unit,260,28,11
-314,12 piece Chicken Nuggets,1,unit,390,41,11
-315,30 piece Chicken Nuggets,1,unit,970,103,11
-316,Chicken Salad Sandwich,1,unit,490,28,11
-317,Chicken Sandwich,1,unit,440,28,11
-318,4 Piece Grilled Chicken Nuggets,1,unit,70,13,11
-319,6 Piece Grilled Chicken Nuggets,1,unit,110,19,11
-320,8 piece Grilled Chicken Nuggets,1,unit,140,25,11
-321,12 Piece Grilled Chicken Nuggets,1,unit,210,38,11
-322,Spicy Grilled Chicken Sub Sandwich,1,unit,430,33,11
-323,Regular Grilled Chicken Sub Sandwich,1,unit,450,34,11
-324,Smokehouse BBQ Bacon Sandwich,1,unit,500,33,11
-325,Spicy Chicken Sandwich,1,unit,450,29,11
-326,Spicy Deluxe,1,unit,540,34,11
-327,Chargrilled Chicken Cool Wrap,1,unit,350,37,11
-328,Chicken Enchiladas Meal Kit,1,unit,860,39,11
-329,Chicken Parmesan Meal Kit,1,unit,720,48,11
-330,Hatch Green Chile Cheeseburger,1,unit,710,35,11
-331,Jalapeno Burger,1,unit,640,31,11
-332,Jr. Burger,1,unit,340,15,11
-333,Jr. Chili Cheeseburger,1,unit,410,20,11
-334,Jr. Deluxe Burger,1,unit,380,15,11
-335,Jr. Deluxe Cheeseburger,1,unit,450,19,11
-336,Jr. Double Cheeseburger,1,unit,600,31,11
-337,Sonic Bacon Cheeseburger (w/mayo),1,unit,870,39,11
-338,Sonic Burger W/ Mustard,1,unit,640,31,11
-339,Sonic Burger W/ Ketchup,1,unit,650,32,11
-340,Sonic Burger W/ Mayonnaise,1,unit,740,31,11
-341,Sonic Cheeseburger W/ Mustard,1,unit,710,35,11
-342,Sonic Cheeseburger W/ Ketchup,1,unit,720,35,11
-343,Sonic Cheeseburger W/ Mayonnaise,1,unit,800,35,11
-344,Super Sonic Bacon Double Cheeseburger (w/mayo),1,unit,1280,67,11
-345,Super Sonic Double Cheeseburger W/ Mustard,1,unit,1120,63,11
-346,Super Sonic Double Cheeseburger W/ Ketchup,1,unit,1130,63,11
-347,Super Sonic Double Cheeseburger W/ Mayo,1,unit,1220,63,11
-348,Super Sonic Jalapeno Double Cheeseburger,1,unit,1120,63,11
-349,Veggie Burger W/ Ketchup,1,unit,450,15,11
-350,Veggie Burger With Mustard,1,unit,450,15,11
-351,Veggie Burger W/ Mustard,1,unit,450,15,11
-352,Grilled Asiago Caesar Chicken Club Sandwich,1,unit,610,40,11
-353,Crispy Asiago Caesar Chicken Club Sandwich,1,unit,680,31,11
-354,Grilled Chicken Sandwich,1,unit,430,28,11
-355,Crispy Chicken Sandwich,1,unit,570,23,11
-356,Chicken Strip Sandwich,1,unit,450,19,11
-357,3 Piece Crispy Chicken Tender Dinner,1,unit,280,22,11
-358,5 Piece Crispy Chicken Tender Dinner,1,unit,470,37,11
-359,Deluxe Ultimate Chicken Sandwich,1,unit,740,33,11
-360,Buffalo Dunked Ultimate Chicken Sandwich,1,unit,1000,23,11
-361,Garlic Parmesan Dunked Ultimate Chicken Sandwich,1,unit,1350,23,11
-362,unit (approx 100gm) Jumbo Popcorn Chicken,1,unit,380,18,11
-363,unit (approx 350gm) Jumbo Popcorn Chicken,1,unit,560,27,11
-364,unit (approx 100gm) Spicy Jumbo Popcorn Chicken,1,unit,350,21,11
-365,unit (approx 350gm) Spicy Jumbo Popcorn Chicken,1,unit,610,36,11
-366,3 Piece Super Crunch Chicken Strip Dinner,1,unit,970,30,11
-367,4 Piece Super Crunch Chicken Strip Dinner,1,unit,1080,37,11
-368,5 Piece Super Crunch Chicken Strip Dinner,1,unit,1190,44,11
-369,3 Piece Super Crunch Chicken Strips,1,unit,330,22,11
-370,4 Piece Super Crunch Chicken Strips,1,unit,440,29,11
-371,5 Piece Super Crunch Chicken Strips,1,unit,550,36,11
-372,Traditional Ultimate Chicken Sandwich,1,unit,730,32,11
-373,Ultimate Chicken Club,1,unit,100,39,11
-374,"All Beef All-american Style Dog – 6""",1,unit,370,12,11
-375,"All Beef Chicago Dog – 6""",1,unit,430,14,11
-376,"All Beef Chili Cheese Coney – 6""",1,unit,410,17,11
-377,"All Beef New York Dog – 6""",1,unit,340,13,11
-378,"All Beef Regular Hot Dog – 6""",1,unit,320,11,11
-379,Cheesy Bacon Pretzel Dog - 6 In.,1,unit,500,15,11
-380,Corn Dog,1,unit,210,6,11
-381,Footlong Quarter Pound Coney,1,unit,830,30,11
-382,The Original Pretzel Dog,1,unit,320,11,11
-383,Arby's Melt,1,unit,330,18,11
-384,Arby-Q Sandwich,1,unit,400,18,11
-385,Beef 'n Cheddar Classic,1,unit,450,23,11
-386,Beef 'n Cheddar Mid,1,unit,630,39,11
-387,Bourbon BBQ Brisket Sandwich,1,unit,650,38,11
-388,Bourbon BBQ Chicken Sandwich,1,unit,690,38,11
-389,Bourbon BBQ Steak Sandwich,1,unit,690,38,11
-390,Buttermilk Buffalo Chicken Sandwich,1,unit,540,29,11
-391,Buttermilk Chicken Bacon & Swiss,1,unit,650,39,11
-392,Buttermilk Chicken Cordon Bleu Sandwich,1,unit,690,41,11
-393,Buttermilk Crispy Chicken Sandwich,1,unit,550,29,11
-394,Classic French Dip & Swiss/Au Jus,1,unit,540,35,11
-395,Classic Roast Beef,1,unit,360,23,11
-396,Double Roast Beef,1,unit,510,38,11
-397,Fire-Roasted Philly Steak,1,unit,640,42,11
-398,Grand Turkey Club,1,unit,480,30,11
-399,Greek Gyro,1,unit,710,23,11
-400,Half Pound Beef 'n Cheddar Sandwich,1,unit,740,49,11
-401,Half Pound French Dip & Swiss,1,unit,750,55,11
-402,Half Pound Roast Beef Sandwich,1,unit,610,48,11
-403,Ham & Swiss Melt,1,unit,300,18,11
-404,Loaded Italian Sandwich,1,unit,680,32,11
-405,Pecan Chicken Salad Flatbread,1,unit,710,22,11
-406,Pecan Chicken Salad Sandwich,1,unit,840,33,11
-407,2 piece Prime-Cut Chicken Tenders,1,unit,240,16,11
-408,3 piece Prime-Cut Chicken Tenders,1,unit,360,23,11
-409,5 piece Prime-Cut Chicken Tenders,1,unit,600,39,11
-410,Reuben Sandwich,1,unit,680,37,11
-411,Roast Beef Gyro,1,unit,550,24,11
-412,Roast Turkey & Swiss Sandwich,1,unit,710,38,11
-413,Roast Turkey & Swiss Wrap,1,unit,520,30,11
-414,"Roast Turkey, Ranch & Bacon Sandwich",1,unit,800,45,11
-415,"Roast Turkey, Ranch & Bacon Wrap",1,unit,620,37,11
-416,Smoke Mountain w/ Beef Short Rib,1,unit,740,43,11
-417,Smokehouse Beef Short Rib Sandwich,1,unit,590,26,11
-418,Smokehouse Brisket,1,unit,600,33,11
-419,Super Roast Beef,1,unit,430,23,11
-420,Three Cheese Steak Sandwich,1,unit,650,30,11
-421,Triple Decker Sandwich,1,unit,1030,62,11
-422,Turkey Avocado Club,1,unit,730,41,11
-423,Turkey Gyro,1,unit,470,25,11
-424,Ultimate BLT,1,unit,980,43,11
-425,Buffalo Chicken Slider,1,unit,290,12,11
-426,Chicken Tender 'n Cheese Slider,1,unit,290,15,11
-427,Corned Beef 'n Cheese Slider,1,unit,220,14,11
-428,Ham 'n Cheese Slider,1,unit,210,13,11
-429,Jalapeno Roast Beef 'n Cheese Slider,1,unit,240,14,11
-430,Pizza Slider,1,unit,300,13,11
-431,Roast Beef 'n Cheese Slider,1,unit,240,14,11
-432,Turkey 'n Cheese Slider,1,unit,200,14,11
-433,Chopped Side Salad,1,unit,70,5,11
-434,Crispy Chicken Farmhouse Salad,1,unit,430,28,11
-435,Greek Gyro Salad,1,unit,420,10,11
-436,Roast Turkey Farmhouse Salad,1,unit,230,22,11
-437,Super Greek Salad,1,unit,720,22,11
-438,American Brewhouse King,1,unit,1550,134,11
-439,Bacon & Swiss Sourdough King,1,unit,1000,56,11
-440,Bacon Cheeseburger,1,unit,330,18,11
-441,Bacon Cheeseburger Deluxe,1,unit,290,12,11
-442,Bacon King,1,unit,1040,57,11
-443,Bacon King Jr,1,unit,730,32,11
-444,BBQ Bacon King,1,unit,1100,57,11
-445,Cheeseburger,1,unit,300,16,11
-446,Double Bacon Cheeseburger,1,unit,520,31,11
-447,Double Cheeseburger,1,unit,450,26,11
-448,Double Hamburger,1,unit,360,22,11
-449,Double Quarter Pound King,1,unit,900,56,11
-450,Extra Long Cheeseburger,1,unit,580,26,11
-451,Farmhouse King,1,unit,1220,NA,11
-452,Hamburger,1,unit,260,13,11
-453,Homestyle Cheeseburger,1,unit,550,30,11
-454,Jalapeno King Sandwich,1,unit,990,55,11
-455,Mushroom & Swiss King,1,unit,940,49,11
-456,Rodeo Burger,1,unit,310,9,11
-457,Rodeo King,1,unit,1250,60,11
-458,Sourdough King Single,1,unit,730,35,11
-459,Sourdough King Double,1,unit,970,55,11
-460,Steakhouse King,1,unit,1100,50,11
-461,Bacon & Cheese Whopper,1,unit,770,29,11
-462,DOUBLE WHOPPER w/o Cheese,1,unit,900,47,11
-463,DOUBLE WHOPPER w/ Cheese,1,unit,990,52,11
-464,WHOPPER w/o Cheese,1,unit,660,28,11
-465,WHOPPER w/ Cheese,1,unit,760,33,11
-466,WHOPPER JR. w/o Cheese,1,unit,340,14,11
-467,WHOPPER JR. w/ Cheese,1,unit,380,16,11
-468,Bacon Cheddar Ranch Chicken Salad w/ grilled Chicken & Dressing,1,unit,590,42,11
-469,Bacon Cheddar Ranch Chicken Salad w/ crispy Chicken & Dressing,1,unit,720,36,11
-470,Chicken BLT Salad w/ Grilled Chicken,1,unit,550,36,11
-471,Chicken BLT Salad w/ Crispy Chicken,1,unit,690,35,11
-472,Chicken Caesar Salad w/ Grilled Chicken,1,unit,530,35,11
-473,Chicken Caesar Salad w/ Crispy Chicken,1,unit,670,34,11
-474,"Chicken, Apple & Cranberry Salad w/ Grilled Chicken",1,unit,560,29,11
-475,"Chicken, Apple & Cranberry Salad w/ Crispy Chicken",1,unit,700,28,11
-476,"Garden Grilled Chicken Salad w/ Grilled Chicken, no dressing",1,unit,320,36,11
-477,"Garden Grilled Chicken Salad w/ Crispy Chicken, no dressing",1,unit,450,29,11
-478,Side Caesar Salad with dressing,1,unit,220,6,11
-479,Side Garden Salad and Avocado Ranch Dressing,1,unit,230,5,11
-480,Bacon Cheddar Ranch Crispy Chicken Sandwich,1,unit,830,34,11
-481,BBQ Bacon Crispy Chicken Sandwich,1,unit,440,7,11
-482,Big Fish Sandwich,1,unit,530,17,11
-483,BK VEGGIE Burger,1,unit,410,22,11
-484,Chicken Burger,1,unit,480,22,11
-485,Chicken Cordon Bleu Sandwich,1,unit,730,32,11
-486,Chicken Fries,1,unit,290,16,11
-487,4 Piece Chicken Nuggets,1,unit,190,10,11
-488,6 Piece Chicken Nuggets,1,unit,290,15,11
-489,20 Piece Chicken Nuggets,1,unit,950,51,11
-490,Chicken Nuggets (10pc),1,unit,470,21,11
-491,Chicken Parmesan Sandwich,1,unit,570,32,11
-492,Crispy Buffalo Chicken Melt,1,unit,580,30,11
-493,Crispy Chicken Jr.,1,unit,430,12,11
-494,Crispy Chicken Sandwich,1,unit,670,23,11
-495,Grilled Chicken Sandwich,1,unit,470,37,11
-496,Grilled Chili Cheese Dog,1,unit,330,14,11
-497,Grilled Hot Dog,1,unit,310,11,11
-498,Jalapeno Chicken Fries,1,unit,300,15,11
-499,Original Chicken Sandwich,1,unit,630,24,11
-500,Pretzel Chicken Fries,1,unit,340,16,11
-501,Rodeo Crispy Chicken Sandwich,1,unit,410,12,11
-502,Sourdough Chicken Club,1,unit,840,32,11
-503,4 Piece Spicy Chicken Nuggets,1,unit,210,8,11
-504,Spicy Chicken Nuggets,1,unit,530,20,11
-505,Spicy Crispy Chicken Jr.,1,unit,410,12,11
-506,Spicy Crispy Chicken Sandwich,1,unit,700,25,11
-507,Spicy Crispy Jalapeno Chicken Sandwich,1,unit,760,32,11
-508,1/2 lb. FlameThrower® GrillBurger,1,unit,1000,46,11
-509,1/2 lb. GrillBurger with Cheese,1,unit,800,40,11
-510,1/4 lb. Bacon Cheese GrillBurger,1,unit,630,30,11
-511,1/4 lb. GrillBurger with Cheese,1,unit,540,23,11
-512,1/4 lb. Mushroom Swiss GrillBurger,1,unit,570,24,11
-513,Original Cheeseburger,1,unit,400,19,11
-514,Original Double Cheeseburger,1,unit,630,34,11
-515,4 Piece Chicken Strip Basket w/ Country Gravy,1,unit,1030,35,11
-516,6 Piece Chicken Strip Basket w/ Country Gravy,1,unit,1260,49,11
-517,Bacon Cheese Dog,1,unit,420,19,11
-518,Cheese Dog,1,unit,390,16,11
-519,Chili Cheese Dog,1,unit,380,16,11
-520,Chili Dog,1,unit,330,13,11
-521,Hot Dog,1,unit,290,11,11
-522,Relish Dog,1,unit,350,13,11
-523,Barbecue Pork Sandwich,1,unit,310,17,11
-524,Breaded Mushrooms,1,unit,250,7,11
-525,Regular Cheese Curds,1,unit,550,35,11
-526,unit (approx 350gm) Cheese Curds,1,unit,1050,43,11
-527,Chili Cheese Mega Dog,1,unit,760,32,11
-528,Corn Dog,1,unit,260,6,11
-529,Crispy Fish Sandwich,1,unit,470,17,11
-530,Deluxe Cheeseburger,1,unit,400,20,11
-531,Deluxe Double Cheeseburger,1,unit,640,34,11
-532,Deluxe Double Hamburger,1,unit,540,29,11
-533,Deluxe Hamburger,1,unit,350,17,11
-534,DQ Ultimate® Burger,1,unit,780,41,11
-535,Pork Tenderloin Sandwich,1,unit,580,19,11
-536,Steak Finger Basket,1,unit,910,23,11
-537,3 chicken strips Chicken Strips,1,unit,350,22,11
-538,Chicken Bacon Ranch Sandwich,1,unit,500,33,11
-539,Chicken Mozzarella Sandwich,1,unit,640,34,11
-540,Crispy Chicken BLT Salad,1,unit,520,37,11
-541,Crispy Chicken Garden Greens Salad,1,unit,280,17,11
-542,Crispy Chicken Sandwich,1,unit,600,24,11
-543,Crispy Chicken Wrap,1,unit,350,12,11
-544,Grilled Chicken BLT Salad,1,unit,380,42,11
-545,Grilled Chicken Garden Greens Salad,1,unit,150,23,11
-546,Grilled Chicken Sandwich,1,unit,360,25,11
-547,Grilled Chicken Wrap,1,unit,280,15,11
-548,Side Salad,1,unit,20,1,11
-549,Turkey BLT Sandwich,1,unit,550,30,11
-550,"6"" B.L.T.",1,unit,320,15,11
-551,Footlong B.L.T.,1,unit,640,30,11
-552,"6"" BBQ Rib Sandwich",1,unit,430,19,11
-553,Footlong BBQ Rib Sandwich,1,unit,860,38,11
-554,"6"" Big Hot Pastrami",1,unit,580,29,11
-555,Footlong Big Hot Pastrami,1,unit,1160,58,11
-556,"6"" Big Philly Cheesesteak",1,unit,500,38,11
-557,Footlong Big Philly Cheesesteak,1,unit,1000,76,11
-558,Kids Mini Sub Black Forest Ham,1,unit,180,10,11
-559,"6"" Black Forest Ham",1,unit,290,18,11
-560,Footlong Black Forest Ham,1,unit,580,36,11
-561,"6"" Carved Turkey",1,unit,330,25,11
-562,Footlong Carved Turkey,1,unit,660,50,11
-563,"6"" Carved Turkey & Bacon w/ Cheese",1,unit,570,33,11
-564,Footlong Carved Turkey & Bacon w/ Cheese,1,unit,1140,66,11
-565,"6"" Chicken & Bacon Ranch Melt",1,unit,570,35,11
-566,Footlong Chicken & Bacon Ranch Melt,1,unit,1140,70,11
-567,"6"" Chicken Pizziola Melt",1,unit,460,32,11
-568,Footlong Chicken Pizziola Melt,1,unit,920,64,11
-569,"6"" Cold Cut Combo",1,unit,370,18,11
-570,Footlong Cold Cut Combo,1,unit,740,36,11
-571,"6"" Corned Beef Reuben",1,unit,470,39,11
-572,Footlong Corned Beef Reuben,1,unit,940,78,11
-573,"6"" Italian B.M.T.",1,unit,410,20,11
-574,Footlong Italian B.M.T.,1,unit,820,40,11
-575,"6"" Italian Hero",1,unit,550,26,11
-576,Footlong Italian Hero,1,unit,1100,52,11
-577,"6"" Meatball Marinara",1,unit,480,21,11
-578,Footlong Meatball Marinara,1,unit,960,42,11
-579,"6"" Oven Roasted Chicken",1,unit,320,23,11
-580,Footlong Oven Roasted Chicken,1,unit,640,46,11
-581,Kids Mini Sub Roast Beef,1,unit,200,14,11
-582,"6"" Roast Beef",1,unit,320,24,11
-583,Footlong Roast Beef,1,unit,640,48,11
-584,"6"" Rotisserie Style Chicken",1,unit,350,29,11
-585,Footlong Rotisserie Style Chicken,1,unit,700,58,11
-586,"6"" Spicy Italian",1,unit,480,20,11
-587,Footlong Spicy Italian,1,unit,960,40,11
-588,"6"" Steak and Cheese",1,unit,380,26,11
-589,Footlong Steak and Cheese,1,unit,760,52,11
-590,"6"" Subway Club",1,unit,310,23,11
-591,Footlong Subway Club,1,unit,620,46,11
-592,"6"" Subway Melt (includes cheese)",1,unit,370,23,11
-593,Footlong Subway Melt (includes cheese),1,unit,740,46,11
-594,"6"" Subway Seafood Sensation",1,unit,420,13,11
-595,Footlong Subway Seafood Sensation,1,unit,840,26,11
-596,"6"" Sweet Onion Chicken Teriyaki",1,unit,380,26,11
-597,Footlong Sweet Onion Chicken Teriyaki,1,unit,760,52,11
-598,"6"" Tuna",1,unit,470,20,11
-599,Footlong Tuna,1,unit,940,40,11
-600,"6"" Turkey & Bacon Avocado",1,unit,390,22,11
-601,Footlong Turkey & Bacon Avocado,1,unit,780,44,11
-602,Kids Mini Sub Turkey Breast,1,unit,180,10,11
-603,"6"" Turkey Breast",1,unit,280,18,11
-604,Footlong Turkey Breast,1,unit,560,36,11
-605,"6"" Turkey Breast & Ham",1,unit,280,18,11
-606,Footlong Turkey Breast & Ham,1,unit,560,36,11
-607,"6"" Turkey Italiano Melt (with Provolone)",1,unit,490,24,11
-608,Footlong Turkey Italiano Melt (with Provolone),1,unit,980,48,11
-609,Kids Mini Sub Veggie Delite,1,unit,150,6,11
-610,"6"" Veggie Delite",1,unit,230,8,11
-611,Footlong Veggie Delite,1,unit,460,16,11
-612,"6"" Veggie Patty",1,unit,390,23,11
-613,Footlong Veggie Patty,1,unit,780,46,11
-614,Autumn Carved Turkey Salad,1,unit,300,25,11
-615,B.L.T. Salad,1,unit,150,10,11
-616,Big Hot Pastrami Melt Salad,1,unit,400,23,11
-617,Big Philly Cheesesteak Salad,1,unit,330,32,11
-618,Black Forest Ham Salad,1,unit,110,12,11
-619,Buffalo Chicken Salad (with Ranch dressing),1,unit,360,20,11
-620,Carved Turkey & Bacon w/ Cheese Salad,1,unit,280,28,11
-621,Carved Turkey Salad,1,unit,150,19,11
-622,Chicken & Bacon Ranch Melt Salad (includes Ranch dressing),1,unit,510,30,11
-623,Cold Cut Combo Salad,1,unit,180,12,11
-624,Double Chicken Salad,1,unit,220,36,11
-625,Italian B.M.T.® Salad,1,unit,230,14,11
-626,Italian Hero Salad,1,unit,230,14,11
-627,Meatball Marinara Salad,1,unit,310,16,11
-628,Oven Roasted Chicken Salad,1,unit,140,19,11
-629,Roast Beef Salad,1,unit,140,18,11
-630,Spicy Italian Salad,1,unit,310,15,11
-631,Steak & Cheese Salad,1,unit,210,20,11
-632,Subway Club Salad,1,unit,140,17,11
-633,Subway Melt® Salad,1,unit,200,18,11
-634,Sweet Onion Chicken Teriyaki Salad,1,unit,200,20,11
-635,Tuna Salad,1,unit,310,15,11
-636,Turkey Breast & Ham Salad,1,unit,110,12,11
-637,Turkey Breast Salad,1,unit,110,12,11
-638,Veggie Delite Salad,1,unit,50,3,11
-639,Chipotle Southwest Steak & Cheese Wrap,1,unit,760,43,11
-640,Rotisserie-Style Chicken Caesar Wrap,1,unit,730,55,11
-641,"Turkey, Bacon & Guacamole Wrap",1,unit,810,43,11
-642,Cheese & Veggies Pizza,1,unit,740,36,11
-643,Cheese Pizza,1,unit,680,32,11
-644,Pepperoni Pizza,1,unit,790,38,11
-645,Sausage Pizza,1,unit,820,39,11
-646,1/2 lb.* Cheesy Potato Burrito,1,unit,540,19,11
-647,1/2 lb.* Combo Burrito,1,unit,460,21,11
-648,7-Layer Burrito,1,unit,510,16,11
-649,Bean Burrito,1,unit,370,13,11
-650,Beefy 5-Layer Burrito,1,unit,550,19,11
-651,Beefy Fritos® Burrito,1,unit,440,13,11
-652,Black Bean Burrito,1,unit,410,14,11
-653,Burrito Supreme® – Beef,1,unit,420,16,11
-654,Burrito Supreme® - Chicken,1,unit,390,19,11
-655,Burrito Supreme® - Steak,1,unit,390,17,11
-656,Cantina Power Burrito - Chicken,1,unit,760,32,11
-657,Cantina Power Burrito - Steak,1,unit,780,33,11
-658,Cantina Power Burrito - Veggie,1,unit,740,20,11
-659,Cheesy Bean and Rice Burrito,1,unit,420,11,11
-660,Chili Cheese Burrito,1,unit,380,16,11
-661,Chicken Crunchy Cheesy Core Burrito,1,unit,610,25,11
-662,Steak Crunchy Cheesy Core Burrito,1,unit,610,25,11
-663,Beef Crunchy Cheesy Core Burrito,1,unit,630,22,11
-664,Loaded Taco Burrito,1,unit,550,20,11
-665,Chicken Quesarito,1,unit,620,24,11
-666,Steak Quesarito,1,unit,630,25,11
-667,Beef Quesarito,1,unit,650,22,11
-668,Shredded Chicken Burrito,1,unit,400,16,11
-669,Smothered Burrito - Beef,1,unit,710,28,11
-670,Smothered Burrito - Shredded Chicken,1,unit,650,34,11
-671,Smothered Burrito - Steak,1,unit,670,35,11
-672,Chicken Spicy Cheesy Core Burrito,1,unit,540,24,11
-673,Steak Spicy Cheesy Core Burrito,1,unit,550,24,11
-674,Beef Spicy Cheesy Core Burrito,1,unit,570,22,11
-675,Triple Melt Burrito,1,unit,410,15,11
-676,XXL Grilled Stuft Burrito - Beef,1,unit,880,31,11
-677,XXL Grilled Stuft Burrito - Chicken,1,unit,830,37,11
-678,XXL Grilled Stuft Burrito - Steak,1,unit,820,33,11
-679,Chicken Soft Taco,1,unit,170,12,11
-680,Cool Ranch® Doritos® Double Decker® Taco,1,unit,320,13,11
-681,Cool Ranch® Doritos® Locos Taco,1,unit,160,8,11
-682,Cool Ranch® Doritos® Locos Taco Supreme,1,unit,200,9,11
-683,Crunchy Taco,1,unit,170,8,11
-684,Crunchy Taco Supreme®,1,unit,200,9,11
-685,Double Decker® Taco,1,unit,320,13,11
-686,DOUBLE DECKER® Taco Supreme®,1,unit,350,14,11
-687,Spicy Sweet Double Stacked Taco,1,unit,340,12,11
-688,Cool Ranch Habanero Double Stacked Taco,1,unit,350,13,11
-689,Nacho Crunch Double Stacked Taco,1,unit,380,13,11
-690,Fiery Doritos® Double Decker® Taco,1,unit,320,14,11
-691,Fiery Doritos® Locos Taco,1,unit,170,8,11
-692,Fiery Doritos® Locos Taco Supreme,1,unit,200,9,11
-693,Grilled Steak Soft Taco,1,unit,250,11,11
-694,Nacho Cheese Doritos® Double Decker® Taco,1,unit,320,14,11
-695,Nacho Cheese Doritos® Locos Tacos,1,unit,170,8,11
-696,Nacho Cheese Doritos® Locos Tacos Supreme,1,unit,200,9,11
-697,Soft Taco Supreme® – Beef,1,unit,230,10,11
-698,Soft Taco-Beef,1,unit,200,10,11
-699,Spicy Potato Soft Taco,1,unit,250,6,11
-700,Chalupa Supreme® - Chicken,1,unit,340,16,11
-701,Chalupa Supreme® - Steak,1,unit,340,14,11
-702,Chalupa Supreme®–Beef,1,unit,370,13,11
-703,Double Chalupa,1,unit,600,21,11
-704,Wild Naked Chicken Chalupa,1,unit,420,19,11
-705,Mild Naked Chicken Chalupa,1,unit,440,20,11
-706,Spicy Double Chalupa,1,unit,600,21,11
-707,Fresco Bean Burrito,1,unit,350,11,11
-708,Fresco Burrito Supreme® – Chicken,1,unit,340,17,11
-709,Fresco Burrito Supreme® – Steak,1,unit,340,15,11
-710,Fresco Chicken Soft Taco,1,unit,150,11,11
-711,Fresco Crunchy Taco,1,unit,140,6,11
-712,Fresco Grilled Steak Soft Taco,1,unit,150,9,11
-713,Fresco Soft Taco,1,unit,170,8,11
-714,Cheesy Gordita Crunch,1,unit,490,20,11
-715,Doritos® Cheesy Gordita Crunch - Cool Ranch,1,unit,490,20,11
-716,Doritos® Cheesy Gordita Crunch - Fiery,1,unit,490,20,11
-717,Doritos® Cheesy Gordita Crunch - Nacho Cheese,1,unit,490,20,11
-718,Double Cheesy Gordita Crunch,1,unit,570,25,11
-719,Gordita Supreme® – Beef,1,unit,300,13,11
-720,Gordita Supreme® - Chicken,1,unit,270,16,11
-721,Gordita Supreme® - Steak,1,unit,270,14,11
-722,Nacho Fries Bellgrande,1,unit,710,13,11
-723,Nachos BellGrande®,1,unit,760,18,11
-724,Nachos Supreme,1,unit,430,12,11
-725,Triple Layer Nachos,1,unit,320,7,11
-726,Triple Melt Nachos,1,unit,260,10,11
-727,Beefy Cheddar Crunchwrap Slider,1,unit,410,14,11
-728,Beefy Mini Quesadilla,1,unit,210,9,11
-729,Beefy Nacho Griller,1,unit,420,12,11
-730,BLT Crunchwrap Slider,1,unit,430,12,11
-731,Cantina Power Bowl - Chicken,1,unit,560,26,11
-732,Cantina Power Bowl - Steak,1,unit,580,27,11
-733,Cantina Power Bowl - Veggie,1,unit,540,14,11
-734,Cheese Quesadilla,1,unit,480,19,11
-735,Cheese Roll-Up,1,unit,190,9,11
-736,Chicken Quesadilla,1,unit,520,27,11
-737,Chickstar,1,unit,620,17,11
-738,Chili Cheese Burrito,1,unit,380,16,11
-739,Chipotle Crispy Chicken Griller,1,unit,290,9,11
-740,Crispy Chicken Quesadilla,1,unit,650,26,11
-741,Crunchwrap Supreme®,1,unit,540,16,11
-742,Double Tostada,1,unit,270,12,11
-743,Express Taco Salad w/ Chips,1,unit,580,23,11
-744,Loaded Potato Griller,1,unit,470,13,11
-745,Mexican Pizza,1,unit,540,20,11
-746,MexiMelt®,1,unit,270,14,11
-747,Steak Quesalupa,1,unit,440,22,11
-748,Chicken Quesalupa,1,unit,440,22,11
-749,Beef Quesalupa,1,unit,460,19,11
-750,Shredded Chicken Mini Quesadilla,1,unit,180,12,11
-751,Spicy Chicken Crunchwrap Slider,1,unit,400,15,11
-752,Spicy Tostada,1,unit,200,7,11
-753,Stacker,1,unit,390,18,11
-754,Steak Quesadilla,1,unit,520,25,11
-755,Original Triple Double Crunchwrap,1,unit,700,23,11
-756,Spicy Triple Double Crunchwrap,1,unit,780,23,11
-757,Express Taco Salad w/ Chips,1,unit,580,23,11
-758,Fiesta Taco Salad-Beef,1,unit,780,26,11
-759,Fiesta Taco Salad-Chicken,1,unit,720,32,11
-760,Fiesta Taco Salad-Steak,1,unit,720,28,11
+food_id,food_name,unit,calories,protein,category_id
+1,"COW MILK, WHOLE FRESH",100ml,61,3.3,1
+2,STANDARDIZED MILK,100ml,48,3.3,1
+3,"CREAM, FRESH",100gms,195,2.7,1
+4,WHOLE COW MILK EVAPORATED,100ml,134,6.8,1
+5,WHOLE COW MILK CONDENSED,100ml,321,7.9,1
+6,WHOLE COW MILK DRY,100ml,496,26.3,1
+7,SKIM MILK OF COWS,100ml,35,3.4,1
+8,SKIM MILK EVAPORATED,100ml,78,7.6,1
+9,SKIM MILK CONDENSED,100ml,271,10,1
+10,SKIM MILK DRY,100ml,362,36.2,1
+11,BUTTERMILK CURDLED,100ml,75,3,1
+12,BUTTERMILK DRY,100ml,387,34.3,1
+13,YOGHURT,100gms,61,3.5,1
+14,YOGHURT CONCENTRATED,100gms,82,4.7,1
+15,RECONSTITUTED MILK,100ml,61,1.8,1
+16,CHEESE WHOLE COW MILK,100ml,387,25,1
+17,CHEESE SKIM COW MILK,100ml,247,46,1
+18,WHEY CHEESE,100gms,72,12.4,1
+19,PROCESSED CHEESE,100gms,103,12.5,1
+20,WHEY FRESH,100gms,26,0.8,1
+21,WHEY CONDENSED,100gms,26,0.9,1
+22,WHEY DRY,100gms,346,12.3,1
+23,CASEIN,100gms,427,100,1
+24,BUFFALO MILK,100ml,97,3.8,1
+25,SKIM MILK OF BUFFALO,100ml,41,4.3,1
+26,CHEESE BUFFALO MILK,100ml,269,16.9,1
+27,SHEEP MILK,100ml,94,5.9,1
+28,CHEESE SHEEP MILK,100ml,310,23.2,1
+29,SKIM MILK OF SHEEP,100ml,48,6.1,1
+30,GOAT MILK,100ml,69,3.6,1
+31,CHEESE GOAT MILK,100ml,280,16,1
+32,SKIM MILK OF GOAT,100ml,35,3.4,1
+33,CAMEL MILK,100ml,73,3.8,1
+34,FAT OF CATTLE,100gms,847,2,2
+35,CATTLE BUTCHER FAT,100gms,847,2,2
+36,BUTTER OF COW MILK,100ml,717,0.9,2
+37,GHEE FROM COW MILK,100ml,873,0.3,2
+38,FAT OF BUFFALO,100gms,847,2,2
+39,BUTTER OF BUFFALO MILK,100ml,717,0.9,2
+40,GHEE FROM BUFFALO MILK,100ml,873,0.3,2
+41,FAT OF SHEEP,100gms,902,0,2
+42,BUTTER OF SHEEP MILK,100ml,716,0.6,2
+43,FAT OF GOATS,100gms,847,2,2
+44,BUTTER OF GOAT MILK,100ml,717,0.9,2
+45,FAT OF PIGS,100gms,712,4.7,2
+46,PIG BUTCHER FAT,100gms,712,4.7,2
+47,LARD,100gms,902,0,2
+48,FAT OF POULTRY,100gms,629,3.7,2
+49,FAT OF POULTRY RENDERED,100gms,901,0,2
+50,FAT OF CAMELS,100gms,847,2,2
+51,FAT OF OTHER CAMELIDS,100gms,847,2,2
+52,ANIMAL OILS AND FATS NES,100gms,902,0,2
+53,TALLOW,100gms,884,0,2
+54,FATS PREPARATION NES,100gms,720,0.6,2
+55,FRESHWATER DIADROMOUS FISH BODY OIL,100gms,902,0,2
+56,FRESHWATER DIADROMOUS FISH LIVER OIL,100gms,902,0,2
+57,DEMERSAL FISH BODY OIL,100gms,902,0,2
+58,DEMERSAL FISH LIVER OIL,100gms,902,0,2
+59,PELAGIC FISH BODY OIL,100gms,902,0,2
+60,PELAGIC FISH LIVER OIL,100gms,902,0,2
+61,MARINE FISH NES BODY OIL,100gms,902,0,2
+62,MARINE FISH L221NES LIVER OIL,100gms,902,0,2
+63,AQUATIC MAMMALS OILS,100gms,902,0,2
+64,WHEAT,100gms,334,12.2,3
+65,FLOUR OF WHEAT,100gms,364,10.9,3
+66,BRAN OF WHEAT,100gms,213,12.1,3
+67,MACARONI,100gms,367,11,3
+68,GERM OF WHEAT,100gms,382,29.1,3
+69,BREAD,100gms,249,8.2,3
+70,BULGUR WHOLEMEAL,100gms,345,12.3,3
+71,PASTRY,100gms,369,7.4,3
+72,WHEAT STARCH,100gms,362,0.5,3
+73,WHEAT GLUTEN,100gms,380,95,3
+74,RICE PADDY,100gms,280,6,3
+75,RICE HUSKED,100gms,357,7.5,3
+76,RICE MILLED,100gms,360,6.7,3
+77,RICE BROKEN,100gms,360,6.7,3
+78,RICE FLOUR,100gms,366,6.4,3
+79,RICE GLUTEN,100gms,380,95,3
+80,RICE STARCH,100gms,362,0.5,3
+81,BRAN OF RICE,100gms,276,13.3,3
+82,BARLEY,100gms,332,11,3
+83,POT BARLEY,100gms,348,9.6,3
+84,BARLEY PEARLED,100gms,346,9,3
+85,BARLEY FLOUR AND GRITS,100gms,343,9.2,3
+86,MALT OF BARLEY,100gms,368,13.1,3
+87,MALT EXTRACTS,100gms,367,6,3
+88,MAIZE,100gms,356,9.5,3
+89,GERM OF MAIZE,100gms,373,11.1,3
+90,FLOUR OF MAIZE,100gms,363,8.4,3
+91,MAIZE GLUTEN,100gms,380,95,3
+92,STARCH OF MAIZE,100gms,362,0.5,3
+93,POP CORN,100gms,356,9.5,3
+94,RYE,100gms,319,11,3
+95,FLOUR OF RYE,100gms,341,9,3
+96,OATS,100gms,385,13,3
+97,OATS ROLLED,100gms,384,16,3
+98,MILLET,100gms,340,9.7,3
+99,FLOUR OF MILLET,100gms,340,9.7,3
+100,SORGHUM,100gms,343,10.1,3
+101,FLOUR OF SORGHM,100gms,343,10.1,3
+102,BUCKWHEAT,100gms,330,11,3
+103,FLOUR OF BUCKWHEAT,100gms,344,6.4,3
+104,QUINOA,100gms,342,12,3
+105,FONIO,100gms,338,8,3
+106,FLOUR OF FONIO,100gms,355,9,3
+107,TRITICALE,100gms,327,11.6,3
+108,FLOUR OF TRITICALE,100gms,341,11.4,3
+109,CANARY SEED,100gms,388,16,3
+110,MIXED GRAIN,100gms,340,8,3
+111,FLOUR OF MIXED GRAIN,100gms,364,10,3
+112,CEREALS NES,100gms,340,8,3
+113,WAFERS,100gms,439,9.2,3
+114,FLOUR OF CEREALS,100gms,364,10,3
+115,BREAKFAST CEREALS,100gms,389,7.4,3
+116,CEREALS PREPARED NES,100gms,364,10,3
+117,MIXES AND DOUGHS,100gms,393,6.2,3
+118,FOOD PREPARATIONS FLOUR,100gms,377,7.5,3
+119,BEEF BONELESS,100gms,150,18.5,4
+120,BEEF DRIED SALTED SMOKED,100gms,203,34.3,4
+121,MEAT EXTRACTS,100gms,238,16,4
+122,BEEF SAUSAGES,100gms,313,11.7,4
+123,BEEF PREPARATIONS,100gms,233,25,4
+124,BEEF CANNED,100gms,233,25,4
+125,HOMOGENIZED MEAT PREPARED,100gms,110,13.7,4
+126,LIVER PREPARATIONS,100gms,315,13.6,4
+127,OFFALS OF CATTLE,100gms,105,18.4,4
+128,BUFFALO MEAT,100gms,77,11.3,4
+129,OFFALS OF BUFFALO,100gms,105,18.4,4
+130,MUTTON AND LAMB,100gms,263,13.5,4
+131,OFFALS OF SHEEP,100gms,117,14.6,4
+132,GOAT MEAT,100gms,123,14,4
+133,OFFALS OF GOATS,100gms,117,14.6,4
+134,PIGMEAT,100gms,326,11,4
+135,PORK,100gms,220,13.4,4
+136,BACON - HAM OF PIGS,100gms,362,13.1,4
+137,PIG MEAT SAUSAGES,100gms,417,11.7,4
+138,PIG MEAT PREPARATIONS,100gms,239,16.1,4
+139,OFFALS OF PIGS,100gms,113,18.3,4
+140,CHICKEN MEAT,100gms,122,12.3,4
+141,CHICKEN MEAT CANNED,100gms,165,21.8,4
+142,OFFAL OF CHICKENS,100gms,125,18,4
+143,FAT LIVER PREPARATIONS,100gms,462,11.4,4
+144,DUCK MEAT,100gms,291,8.3,4
+145,OFFALS LIVER DUCKS,100gms,136,18.7,4
+146,GOOSE MEAT,100gms,301,12.9,4
+147,OFFALS LIVER GEESE,100gms,133,16.4,4
+148,TURKEY MEAT,100gms,126,16.1,4
+149,OFFALS LIVER TURKEYS,100gms,137,20,4
+150,PIGEONS OTHER BIRDS,100gms,226,14.2,4
+151,POULTRY MEAT,100gms,185,17.1,4
+152,HORSEMEAT,100gms,85,15.5,4
+153,OFFALS OF HORSES,100gms,105,18.4,4
+154,MEAT OF ASSES,100gms,94,15,4
+155,MEAT OF MULES,100gms,94,15,4
+156,MEAT OF CAMELS,100gms,174,12.7,4
+157,OFFALS OF CAMELS,100gms,105,18.4,4
+158,RABBIT MEAT,100gms,118,17,4
+159,MEAT OF OTHER RODENTS,100gms,81,16.2,4
+160,MEAT OF OTHER CAMELIDS,100gms,143,14.6,4
+161,OFFALS OF OTHER CAMELIDS,100gms,105,18.4,4
+162,GAME MEAT,100gms,104,18,4
+163,MEAT NES,100gms,126,16.4,4
+164,MEAT NES DRIED,100gms,250,55.4,4
+165,MEAT PREPARED NES,100gms,242,20.6,4
+166,OFFALS NES,100gms,105,18.4,4
+167,SNAILS NOT SEA,100gms,42,6.3,4
+168,,100gms,,,4
+169,EGGS,100gms,,,4
+170,HEN EGGS,100gms,139,10.7,4
+171,EGGS LIQUID HEN,100gms,158,12.1,4
+172,EGGS DRY HEN,100gms,594,45.8,4
+173,EGG ALBUMINE,100gms,49,10.1,4
+174,EGGS EXCLUDING HEN EGGS,100gms,163,11.3,4
+175,BANANAS,100gms,60,0.7,5
+176,PLANTAINS,100gms,75,0.8,5
+177,ORANGES,100gms,34,0.7,5
+178,ORANGE JUICE,100gms,42,0.6,5
+179,ORANGE JUICE CONCENTRATED,100gms,159,2.4,5
+180,"TANGERINES, MANDARINES, CLEMENTINES",100gms,32,0.5,5
+181,TANGERINES JUICE,100gms,43,0.5,5
+182,LEMONS AND LIMES,100gms,15,0.6,5
+183,LEMON JUICE,100gms,22,0.5,5
+184,LEMON JUICE CONCENTRATED,100gms,116,2.3,5
+185,GRAPEFRUIT AND POMELO,100gms,16,0.3,5
+186,GRAPEFRUIT JUICE,100gms,39,0.5,5
+187,GRAPEFRUIT JUICE CONCENTRATED,100gms,146,2,5
+188,CITRUS FRUIT NES,100gms,26,0.5,5
+189,CITRUS FRUIT NES JUICE,100gms,47,0.6,5
+190,CITRUS FRUIT NES JUICE CONCENTRATED,100gms,157,2.1,5
+191,APPLES,100gms,48,0.1,5
+192,APPLES JUICE,100gms,47,0.1,5
+193,APPLES JUICE CONCENTRATED,100gms,166,0.5,5
+194,PEARS,100gms,54,0.4,5
+195,QUINCES,100gms,35,0.2,5
+196,APRICOTS,100gms,45,1.3,5
+197,SOUR CHERRY,100gms,45,0.9,5
+198,CHERRIES,100gms,65,1.1,5
+199,PEACHES AND NECTARINES,100gms,33,0.5,5
+200,PLUMS,100gms,52,0.7,5
+201,PLUM JUICE,100gms,71,0.6,5
+202,PLUM JUICE CONCENTRATED,100gms,215,2,5
+203,STONE FRUIT NES,100gms,52,0.9,5
+204,POME FRUIT NES,100gms,48,0.4,5
+205,CAROBS,100gms,111,1.6,5
+206,STRAWBERRIES,100gms,28,0.6,5
+207,RASPBERRIES,100gms,47,0.9,5
+208,GOOSEBERRIES,100gms,44,0.9,5
+209,CURRANTS,100gms,59,1.4,5
+210,BLUEBERRIES,100gms,55,0.7,5
+211,CRANBERRIES,100gms,47,0.4,5
+212,BERRIES NES,100gms,49,1,5
+213,GRAPES,100gms,53,0.5,5
+214,GRAPE JUICE,100gms,61,0.6,5
+215,WATERMELONS,100gms,17,0.3,5
+216,MELONS,100gms,17,0.4,5
+217,FIGS,100gms,73,0.8,5
+218,MANGOES,100gms,45,0.4,5
+219,MANGO JUICE,100gms,62,0.3,5
+220,MANGO PULP,100gms,65,0.5,5
+221,AVOCADOS,100gms,119,1.5,5
+222,PINEAPPLES,100gms,26,0.2,5
+223,PINEAPPLES CANNED,100gms,78,0.4,5
+224,PINEAPPLES JUICE,100gms,56,0.3,5
+225,PINEAPPLES JUICE CONCENTRATED,100gms,179,1.3,5
+226,PERSIMMONS,100gms,82,0.6,5
+227,CASHEWAPPLE,100gms,43,0.8,5
+228,KIWI,100gms,52,0.9,5
+229,PAPAYAS,100gms,26,0.4,5
+230,FRUIT TROPICAL NES,100gms,41,0.5,5
+231,FRUIT NES FRESH,100gms,45,0.5,5
+232,FRUIT NES JUICE,100gms,48,0.5,5
+233,FRUIT NES PREPARED,100gms,36,0.5,5
+234,FLOUR OF FRUIT,100gms,346,3.9,5
+235,"FRUIT,NUTS,FRUIT PEEL PRESERVED BY SUGAR",100gms,212,0.6,5
+236,POTATOES,100gms,67,1.6,6
+237,FLOUR OF POTATOES,100gms,349,8.5,6
+238,POTATOES FROZEN,100gms,73,1.2,6
+239,POTATO STARCH,100gms,362,0.5,6
+240,POTATO TAPIOCA,100gms,362,0.5,6
+241,SWEET POTATOES,100gms,92,0.7,6
+242,CASSAVA,100gms,109,0.9,6
+243,FLOUR OF CASSAVA,100gms,338,1.5,6
+244,CASSAVA TAPIOCA,100gms,362,0.5,6
+245,CASSAVA DRIED,100gms,255,2.8,6
+246,CASSAVA STARCH,100gms,362,0.5,6
+247,YAUTIA (COCOYAM),100gms,109,1.7,6
+248,TARO (COCOYAM),100gms,86,1.5,6
+249,YAMS,100gms,101,1.3,6
+250,"ROOTS, TUBERS NES",100gms,91,1.6,6
+251,FLOUR OF ROOTS AND TUBERS,100gms,282,5,6
+252,"ROOTS, TUBERS DRIED",100gms,282,5,6
+253,CABBAGES,100gms,19,1,6
+254,ARTICHOKES,100gms,20,1.1,6
+255,ASPARAGUS,100gms,12,1.6,6
+256,LETTUCE,100gms,12,1.1,6
+257,SPINACH,100gms,16,2.1,6
+258,CASSAVA LEAVES,100gms,53,5.8,6
+259,TOMATOES,100gms,17,0.8,6
+260,TOMATO JUICE,100gms,17,0.8,6
+261,TOMATO JUICE CONCENTRATED,100gms,76,3.4,6
+262,TOMATO PASTE,100gms,84,3.8,6
+263,TOMATOES PEELED,100gms,19,0.9,6
+264,CAULIFLOWER,100gms,9,0.8,6
+265,"PUMPKINS, SQUASH, GOURDS",100gms,19,0.9,6
+266,"CUCUMBERS, GHERINKS",100gms,13,0.5,6
+267,FRUIT COOKED HOMOGENIZED,100gms,59,0.3,6
+268,EGGPLANTS,100gms,21,0.9,6
+269,"CHILLIES, PEPPERS,GREEN",100gms,25,1.1,6
+270,"ONIONS,SHALLOTS, GREEN",100gms,24,1.7,6
+271,"ONIONS, DRY",100gms,31,1.1,6
+272,GARLIC,100gms,130,5.5,6
+273,LEEKS,100gms,37,0.7,6
+274,"BEANS, GREEN",100gms,50,3,6
+275,"PEAS, GREEN",100gms,31,2.1,6
+276,"BROAD BEANS,GREEN",100gms,23,2.3,6
+277,STRING BEANS,100gms,27,1.6,6
+278,CARROTS,100gms,38,0.9,6
+279,OKRA,100gms,31,1.6,6
+280,GREEN CORN,100gms,56,2.1,6
+281,SWEET CORN FROZEN,100gms,54,1.8,6
+282,SWEET CORN PREPARED,100gms,77,2.3,6
+283,MUSHROOMS,100gms,24,2,6
+284,MUSHROOMS CANNED,100gms,24,1.9,6
+285,MUSHROOMS DRIED,100gms,296,9.6,6
+286,VEGETABLES NES FRESH,100gms,22,1.4,6
+287,VEGETABLES NES DRIED,100gms,176,11.2,6
+288,VEGETABLES NES CANNED,100gms,36,1.4,6
+289,VEGETABLES NES JUICE,100gms,19,0.6,6
+290,VEGETABLES DEHYDRATED,100gms,341,6.6,6
+291,VEGETABLES PREPARED BY VINEGAR,100gms,29,1.4,6
+292,VEGETABLES PREPARED NES,100gms,38,2.1,6
+293,VEGETABLES FROZEN,100gms,71,3.3,6
+294,VEGETABLES PROVISIONALLY PRESERVED,100gms,65,3.3,6
+295,VEGETABLES PREPARED OR PRES.FROZEN,100gms,54,2.4,6
+296,HOMOGENIZED VEGETABLES PREPARED,100gms,41,1.2,6
+297,COFFEE GREEN,100gms,47,6.7,7
+298,COFFEE ROASTED,100gms,56,8,7
+299,COFFEE SUBSTITUTES,100gms,56,8,7
+300,COFFEE EXTRACTS,100gms,129,4,7
+301,CHICORY ROOTS,100gms,60,1.1,7
+302,COCOA BEANS,100gms,414,4,7
+303,COCOA PASTE,100gms,472,1.7,7
+304,COCOA BUTTER,100gms,711,0,7
+305,COCOA POWDER,100gms,261,17.3,7
+306,CHOCOLATE PRODUCTS NES,100gms,393,4.2,7
+307,TEA,100gms,40,10,7
+308,EXTRACT TEA,100gms,18,4.5,7
+309,TEA NES,100gms,40,10,7
+310,MATE,100gms,40,10,7
+311,WHEAT FERMENTED BEVERAGE,100gms,60,1.9,7
+312,RICE FERMENTED BEVERAGE,100gms,133,0.3,7
+313,BEER BARLEY,100gms,49,0.5,7
+314,BEER MAIZE,100gms,40,0.4,7
+315,BEER MILLET,100gms,40,0.4,7
+316,BEER SORGHUM,100gms,40,0.4,7
+317,"FERMENTED BEVERAGES, CIDER ETC.",100gms,47,0.1,7
+318,MUST OF GRAPES,100gms,61,0.6,7
+319,WINE,100gms,68,0,7
+320,VERMOUTHS AND SIMILAR,100gms,137,0.1,7
+321,BEVERAGES DIST. ALCOHOL,100gms,295,0,7
+322,BEVERAGES NON-ALCOHOLIC,100gms,39,0,7
+323,chicken soup,cup (approx 250gm),250,75,8
+324,Noodle sup,cup (approx 250gm),250,115,8
+325,Split-pea soup,cup (approx 250gm),250,147,8
+326,Tomato soup,cup (approx 250gm),245,175,8
+327,Vegetable soup,cup (approx 250gm),250,80,8
+328,SUGAR CANE,100gms,30,0.2,9
+329,SUGAR BEETS,100gms,70,1.3,9
+330,SUGAR CROPS NES,100gms,390,0,9
+331,"SUGAR, CENTRIFUGAL RAW",100gms,373,0,9
+332,SUGAR REFINED,100gms,387,0,9
+333,"SUGAR, NONCENTRIFUGAL",100gms,351,1,9
+334,MOLASSES,100gms,232,0,9
+335,MAPLE SUGAR,100gms,348,0,9
+336,SUGAR AND SYRUP NES,100gms,310,0,9
+337,SUGAR CONFECTIONERY,100gms,310,0,9
+338,SUGARS FLAVOURED,100gms,310,0,9
+339,GLUCOSE AND DEXTROSE,100gms,368,0,9
+340,LACTOSE,100gms,387,0,9
+341,ISOGLUCOSE,100gms,318,0,9
+342,FRUCTOSE CHEMICAL,100gms,375,0,9
+343,OTHER FRUCTOSE,100gms,298,0.3,9
+344,MALTOSE CHEMICAL,100gms,375,0,9
+345,HONEY,100gms,298,0.4,9
+346,ICE CREAM,100gms,149,2,9
+347,FISH AND FISHERIES PRODUCTS,100gms,,,10
+348,FRESHWATER DIADROMOUS FISH FRESH,100gms,69,10.9,10
+349,FRESHWATER DIADROMOUS FISH FILLET,100gms,127,20.3,10
+350,FRESHWATER DIADROMOUS FISH CURED,100gms,199,31.3,10
+351,FRESHWATER DIADROMOUS FISH CANNED,100gms,161,19.8,10
+352,FRESHWATER DIADROM. FISH PREPARED NES,100gms,262,26.9,10
+353,DEMERSAL FISH FRESH,100gms,42,8.3,10
+354,DEMERSAL FISH FILLET,100gms,90,17.9,10
+355,DEMERSAL FISH CURED,100gms,186,37.9,10
+356,DEMERSAL FISH CANNED,100gms,173,25,10
+357,DEMERSAL FISH PREPARED NES,100gms,320,25,10
+358,PELAGIC FISH FRESH,100gms,86,12.6,10
+359,PELAGIC FISH FILLET,100gms,141,20.2,10
+360,PELAGIC FISH CURED,100gms,156,26.4,10
+361,PELAGIC FISH CANNED,100gms,185,20.8,10
+362,PELAGIC FISH PREPARED NES,100gms,318,44.2,10
+363,MARINE FISH NES FRESH,100gms,64,10.3,10
+364,MARINE FISH NES FILLET,100gms,115,19,10
+365,MARINE FISH NES CURED,100gms,169,32.1,10
+366,MARINE FISH NES CANNED,100gms,179,22.9,10
+367,MARINE FISH PREPARED NES,100gms,132,17.5,10
+368,CRUSTACEANS FRESH,100gms,47,9.3,10
+369,CRUSTACEANS FROZEN,100gms,91,18.4,10
+370,CRUSTACEANS CURED,100gms,149,25.4,10
+371,CRUSTACEANS CANNED,100gms,98,19.8,10
+372,CRUSTACEANS PREPARED NES,100gms,113,19.5,10
+373,MOLLUSCS FRESH,100gms,15,2.3,10
+374,MOLLUSCS FROZEN,100gms,71,10.5,10
+375,MOLLUSCS CURED,100gms,345,49.4,10
+376,MOLLUSCS CANNED,100gms,98,14.9,10
+377,CEPHALOPODS FRESH,100gms,66,13.5,10
+378,CEPHALOPODS FROZEN,100gms,74,15.1,10
+379,CEPHALOPODS CURED,100gms,341,61.6,10
+380,CEPHALOPODS CANNED,100gms,137,20.8,10
+381,CEPHALOPODS PREPARED NES,100gms,130,20.8,10
+382,AQUATIC MAMMALS MEAT,100gms,136,21,10
+383,AQUATIC MAMMALS PREPARED NES,100gms,156,20.6,10
+384,AQUATIC ANIMALS NES FRESH,100gms,30,4,10
+385,AQUATIC ANIMALS NES CURED,100gms,33,5.5,10
+386,AQUATIC ANIMALS PREPARED NES,100gms,168,11.5,10
+387,AQUATIC PLANTS,100gms,54,2.8,10
+388,AQUATIC PLANTS DRIED,100gms,215,16.4,10
+389,AQUATIC PLANTS PREPARED NES,100gms,312,1.3,10
+390,Artisan Grilled Chicken Sandwich,unit,380,37,11
+391,Single Bacon Smokehouse Burger,unit,840,46,11
+392,Double Bacon Smokehouse Burger,unit,1130,70,11
+393,Grilled Bacon Smokehouse Chicken Sandwich,unit,750,55,11
+394,Crispy Bacon Smokehouse Chicken Sandwich,unit,920,46,11
+395,Big Mac,unit,540,25,11
+396,Cheeseburger,unit,300,15,11
+397,Classic Chicken Sandwich,unit,510,25,11
+398,Double Cheeseburger,unit,430,25,11
+399,Double Quarter Pounder® with Cheese,unit,770,51,11
+400,Filet-O-Fish®,unit,380,15,11
+401,Garlic White Cheddar Burger,unit,620,32,11
+402,Grilled Garlic White Cheddar Chicken Sandwich,unit,530,42,11
+403,Crispy Garlic White Cheddar Chicken Sandwich,unit,700,33,11
+404,Hamburger,unit,250,13,11
+405,Lobster Roll,unit,290,24,11
+406,Maple Bacon Dijon 1/4 lb Burger,unit,640,37,11
+407,Grilled Maple Bacon Dijon Chicken Sandwich,unit,580,48,11
+408,Crispy Maple Bacon Dijon Chicken Sandwich,unit,740,39,11
+409,McChicken,unit,350,15,11
+410,McDouble,unit,380,23,11
+411,McRib,unit,480,25,11
+412,Pico Guacamole 1/4 lb Burger,unit,580,29,11
+413,Grilled Pico Guacamole Chicken Sandwich,unit,520,40,11
+414,Crispy Pico Guacamole Chicken Sandwich,unit,680,31,11
+415,Premium Buttermilk Crispy Chicken Deluxe Sandwich,unit,570,28,11
+416,Premium Crispy Chicken Deluxe Sandwich,unit,530,25,11
+417,Quarter Pounder® with Cheese,unit,530,31,11
+418,Signature Sriracha Burger,unit,670,32,11
+419,Grilled Signature Sriracha Chicken Sandwich,unit,560,41,11
+420,Crispy Signature Sriracha Chicken Sandwich,unit,730,32,11
+421,Sweet BBQ Bacon 1/4 lb Burger,unit,690,38,11
+422,Grilled Sweet BBQ Bacon Chicken Sandwich,unit,630,48,11
+423,Crispy Sweet BBQ Bacon Chicken Sandwich,unit,800,39,11
+424,3 piece Buttermilk Crispy Chicken Tenders,unit,370,28,11
+425,4 piece Buttermilk Crispy Chicken Tenders,unit,480,38,11
+426,6 piece Buttermilk Crispy Chicken Tenders,unit,760,58,11
+427,10 piece Buttermilk Crispy Chicken Tenders,unit,1210,94,11
+428,12 piece Buttermilk Crispy Chicken Tenders,unit,1510,115,11
+429,20 piece Buttermilk Crispy Chicken Tenders,unit,2430,186,11
+430,4 Piece Chicken McNuggets,unit,180,10,11
+431,6 Piece Chicken McNuggets,unit,270,15,11
+432,10 Piece Chicken McNuggets,unit,440,24,11
+433,20 Piece Chicken McNuggets,unit,890,49,11
+434,40 piece Chicken McNuggets,unit,1770,98,11
+435,4 piece Sweet N' Spicy Honey BBQ Glazed Tenders,unit,640,39,11
+436,6 piece Sweet N' Spicy Honey BBQ Glazed Tenders,unit,960,58,11
+437,10 piece Sweet N' Spicy Honey BBQ Glazed Tenders,unit,1600,97,11
+438,Premium Asian Salad w/o Chicken,unit,140,7,11
+439,Premium Asian Salad w/ Grilled Chicken,unit,270,31,11
+440,Premium Asian Salad w/ Crispy Chicken,unit,490,33,11
+441,Premium Bacon Ranch Salad w/o Chicken,unit,190,14,11
+442,Premium Bacon Ranch Salad w/ Grilled Chicken,unit,320,42,11
+443,Premium Bacon Ranch Salad w/ Crispy Chicken,unit,490,33,11
+444,Premium Southwest Salad w/o Chicken,unit,220,8,11
+445,Premium Southwest Salad w/ Grilled Chicken,unit,350,37,11
+446,Premium Southwest Salad w/ Crispy Chicken,unit,520,28,11
+447,Chargrilled Chicken Club Sandwich,unit,430,37,11
+448,Chargrilled Chicken Sandwich,unit,310,29,11
+449,Chick-n-Slider,unit,270,16,11
+450,1 Piece Chick-n-Strips,unit,120,11,11
+451,2 Piece Chick-n-Strips,unit,230,22,11
+452,3 Piece Chick-n-Strips,unit,350,28,11
+453,4 piece Chick-n-Strips,unit,470,37,11
+454,Chicken Deluxe,unit,500,31,11
+455,4 piece Chicken Nuggets,unit,130,14,11
+456,6 piece Chicken Nuggets,unit,190,21,11
+457,8 piece Chicken Nuggets,unit,260,28,11
+458,12 piece Chicken Nuggets,unit,390,41,11
+459,30 piece Chicken Nuggets,unit,970,103,11
+460,Chicken Salad Sandwich,unit,490,28,11
+461,Chicken Sandwich,unit,440,28,11
+462,4 Piece Grilled Chicken Nuggets,unit,70,13,11
+463,6 Piece Grilled Chicken Nuggets,unit,110,19,11
+464,8 piece Grilled Chicken Nuggets,unit,140,25,11
+465,12 Piece Grilled Chicken Nuggets,unit,210,38,11
+466,Spicy Grilled Chicken Sub Sandwich,unit,430,33,11
+467,Regular Grilled Chicken Sub Sandwich,unit,450,34,11
+468,Smokehouse BBQ Bacon Sandwich,unit,500,33,11
+469,Spicy Chicken Sandwich,unit,450,29,11
+470,Spicy Deluxe,unit,540,34,11
+471,Chargrilled Chicken Cool Wrap,unit,350,37,11
+472,Chicken Enchiladas Meal Kit,unit,860,39,11
+473,Chicken Parmesan Meal Kit,unit,720,48,11
+474,Hatch Green Chile Cheeseburger,unit,710,35,11
+475,Jalapeno Burger,unit,640,31,11
+476,Jr. Burger,unit,340,15,11
+477,Jr. Chili Cheeseburger,unit,410,20,11
+478,Jr. Deluxe Burger,unit,380,15,11
+479,Jr. Deluxe Cheeseburger,unit,450,19,11
+480,Jr. Double Cheeseburger,unit,600,31,11
+481,Sonic Bacon Cheeseburger (w/mayo),unit,870,39,11
+482,Sonic Burger W/ Mustard,unit,640,31,11
+483,Sonic Burger W/ Ketchup,unit,650,32,11
+484,Sonic Burger W/ Mayonnaise,unit,740,31,11
+485,Sonic Cheeseburger W/ Mustard,unit,710,35,11
+486,Sonic Cheeseburger W/ Ketchup,unit,720,35,11
+487,Sonic Cheeseburger W/ Mayonnaise,unit,800,35,11
+488,Super Sonic Bacon Double Cheeseburger (w/mayo),unit,1280,67,11
+489,Super Sonic Double Cheeseburger W/ Mustard,unit,1120,63,11
+490,Super Sonic Double Cheeseburger W/ Ketchup,unit,1130,63,11
+491,Super Sonic Double Cheeseburger W/ Mayo,unit,1220,63,11
+492,Super Sonic Jalapeno Double Cheeseburger,unit,1120,63,11
+493,Veggie Burger W/ Ketchup,unit,450,15,11
+494,Veggie Burger With Mustard,unit,450,15,11
+495,Veggie Burger W/ Mustard,unit,450,15,11
+496,Grilled Asiago Caesar Chicken Club Sandwich,unit,610,40,11
+497,Crispy Asiago Caesar Chicken Club Sandwich,unit,680,31,11
+498,Grilled Chicken Sandwich,unit,430,28,11
+499,Crispy Chicken Sandwich,unit,570,23,11
+500,Chicken Strip Sandwich,unit,450,19,11
+501,3 Piece Crispy Chicken Tender Dinner,unit,280,22,11
+502,5 Piece Crispy Chicken Tender Dinner,unit,470,37,11
+503,Deluxe Ultimate Chicken Sandwich,unit,740,33,11
+504,Buffalo Dunked Ultimate Chicken Sandwich,unit,1000,23,11
+505,Garlic Parmesan Dunked Ultimate Chicken Sandwich,unit,1350,23,11
+506,unit (approx 100gm) Jumbo Popcorn Chicken,unit,380,18,11
+507,unit (approx 350gm) Jumbo Popcorn Chicken,unit,560,27,11
+508,unit (approx 100gm) Spicy Jumbo Popcorn Chicken,unit,350,21,11
+509,unit (approx 350gm) Spicy Jumbo Popcorn Chicken,unit,610,36,11
+510,3 Piece Super Crunch Chicken Strip Dinner,unit,970,30,11
+511,4 Piece Super Crunch Chicken Strip Dinner,unit,1080,37,11
+512,5 Piece Super Crunch Chicken Strip Dinner,unit,1190,44,11
+513,3 Piece Super Crunch Chicken Strips,unit,330,22,11
+514,4 Piece Super Crunch Chicken Strips,unit,440,29,11
+515,5 Piece Super Crunch Chicken Strips,unit,550,36,11
+516,Traditional Ultimate Chicken Sandwich,unit,730,32,11
+517,Ultimate Chicken Club,unit,100,39,11
+518,"All Beef All-american Style Dog – 6""",unit,370,12,11
+519,"All Beef Chicago Dog – 6""",unit,430,14,11
+520,"All Beef Chili Cheese Coney – 6""",unit,410,17,11
+521,"All Beef New York Dog – 6""",unit,340,13,11
+522,"All Beef Regular Hot Dog – 6""",unit,320,11,11
+523,Cheesy Bacon Pretzel Dog - 6 In.,unit,500,15,11
+524,Corn Dog,unit,210,6,11
+525,Footlong Quarter Pound Coney,unit,830,30,11
+526,The Original Pretzel Dog,unit,320,11,11
+527,Arby's Melt,unit,330,18,11
+528,Arby-Q Sandwich,unit,400,18,11
+529,Beef 'n Cheddar Classic,unit,450,23,11
+530,Beef 'n Cheddar Mid,unit,630,39,11
+531,Bourbon BBQ Brisket Sandwich,unit,650,38,11
+532,Bourbon BBQ Chicken Sandwich,unit,690,38,11
+533,Bourbon BBQ Steak Sandwich,unit,690,38,11
+534,Buttermilk Buffalo Chicken Sandwich,unit,540,29,11
+535,Buttermilk Chicken Bacon & Swiss,unit,650,39,11
+536,Buttermilk Chicken Cordon Bleu Sandwich,unit,690,41,11
+537,Buttermilk Crispy Chicken Sandwich,unit,550,29,11
+538,Classic French Dip & Swiss/Au Jus,unit,540,35,11
+539,Classic Roast Beef,unit,360,23,11
+540,Double Roast Beef,unit,510,38,11
+541,Fire-Roasted Philly Steak,unit,640,42,11
+542,Grand Turkey Club,unit,480,30,11
+543,Greek Gyro,unit,710,23,11
+544,Half Pound Beef 'n Cheddar Sandwich,unit,740,49,11
+545,Half Pound French Dip & Swiss,unit,750,55,11
+546,Half Pound Roast Beef Sandwich,unit,610,48,11
+547,Ham & Swiss Melt,unit,300,18,11
+548,Loaded Italian Sandwich,unit,680,32,11
+549,Pecan Chicken Salad Flatbread,unit,710,22,11
+550,Pecan Chicken Salad Sandwich,unit,840,33,11
+551,2 piece Prime-Cut Chicken Tenders,unit,240,16,11
+552,3 piece Prime-Cut Chicken Tenders,unit,360,23,11
+553,5 piece Prime-Cut Chicken Tenders,unit,600,39,11
+554,Reuben Sandwich,unit,680,37,11
+555,Roast Beef Gyro,unit,550,24,11
+556,Roast Turkey & Swiss Sandwich,unit,710,38,11
+557,Roast Turkey & Swiss Wrap,unit,520,30,11
+558,"Roast Turkey, Ranch & Bacon Sandwich",unit,800,45,11
+559,"Roast Turkey, Ranch & Bacon Wrap",unit,620,37,11
+560,Smoke Mountain w/ Beef Short Rib,unit,740,43,11
+561,Smokehouse Beef Short Rib Sandwich,unit,590,26,11
+562,Smokehouse Brisket,unit,600,33,11
+563,Super Roast Beef,unit,430,23,11
+564,Three Cheese Steak Sandwich,unit,650,30,11
+565,Triple Decker Sandwich,unit,1030,62,11
+566,Turkey Avocado Club,unit,730,41,11
+567,Turkey Gyro,unit,470,25,11
+568,Ultimate BLT,unit,980,43,11
+569,Buffalo Chicken Slider,unit,290,12,11
+570,Chicken Tender 'n Cheese Slider,unit,290,15,11
+571,Corned Beef 'n Cheese Slider,unit,220,14,11
+572,Ham 'n Cheese Slider,unit,210,13,11
+573,Jalapeno Roast Beef 'n Cheese Slider,unit,240,14,11
+574,Pizza Slider,unit,300,13,11
+575,Roast Beef 'n Cheese Slider,unit,240,14,11
+576,Turkey 'n Cheese Slider,unit,200,14,11
+577,Chopped Side Salad,unit,70,5,11
+578,Crispy Chicken Farmhouse Salad,unit,430,28,11
+579,Greek Gyro Salad,unit,420,10,11
+580,Roast Turkey Farmhouse Salad,unit,230,22,11
+581,Super Greek Salad,unit,720,22,11
+582,American Brewhouse King,unit,1550,134,11
+583,Bacon & Swiss Sourdough King,unit,1000,56,11
+584,Bacon Cheeseburger,unit,330,18,11
+585,Bacon Cheeseburger Deluxe,unit,290,12,11
+586,Bacon King,unit,1040,57,11
+587,Bacon King Jr,unit,730,32,11
+588,BBQ Bacon King,unit,1100,57,11
+589,Cheeseburger,unit,300,16,11
+590,Double Bacon Cheeseburger,unit,520,31,11
+591,Double Cheeseburger,unit,450,26,11
+592,Double Hamburger,unit,360,22,11
+593,Double Quarter Pound King,unit,900,56,11
+594,Extra Long Cheeseburger,unit,580,26,11
+595,Farmhouse King,unit,1220,NA,11
+596,Hamburger,unit,260,13,11
+597,Homestyle Cheeseburger,unit,550,30,11
+598,Jalapeno King Sandwich,unit,990,55,11
+599,Mushroom & Swiss King,unit,940,49,11
+600,Rodeo Burger,unit,310,9,11
+601,Rodeo King,unit,1250,60,11
+602,Sourdough King Single,unit,730,35,11
+603,Sourdough King Double,unit,970,55,11
+604,Steakhouse King,unit,1100,50,11
+605,Bacon & Cheese Whopper,unit,770,29,11
+606,DOUBLE WHOPPER w/o Cheese,unit,900,47,11
+607,DOUBLE WHOPPER w/ Cheese,unit,990,52,11
+608,WHOPPER w/o Cheese,unit,660,28,11
+609,WHOPPER w/ Cheese,unit,760,33,11
+610,WHOPPER JR. w/o Cheese,unit,340,14,11
+611,WHOPPER JR. w/ Cheese,unit,380,16,11
+612,Bacon Cheddar Ranch Chicken Salad w/ grilled Chicken & Dressing,unit,590,42,11
+613,Bacon Cheddar Ranch Chicken Salad w/ crispy Chicken & Dressing,unit,720,36,11
+614,Chicken BLT Salad w/ Grilled Chicken,unit,550,36,11
+615,Chicken BLT Salad w/ Crispy Chicken,unit,690,35,11
+616,Chicken Caesar Salad w/ Grilled Chicken,unit,530,35,11
+617,Chicken Caesar Salad w/ Crispy Chicken,unit,670,34,11
+618,"Chicken, Apple & Cranberry Salad w/ Grilled Chicken",unit,560,29,11
+619,"Chicken, Apple & Cranberry Salad w/ Crispy Chicken",unit,700,28,11
+620,"Garden Grilled Chicken Salad w/ Grilled Chicken, no dressing",unit,320,36,11
+621,"Garden Grilled Chicken Salad w/ Crispy Chicken, no dressing",unit,450,29,11
+622,Side Caesar Salad with dressing,unit,220,6,11
+623,Side Garden Salad and Avocado Ranch Dressing,unit,230,5,11
+624,Bacon Cheddar Ranch Crispy Chicken Sandwich,unit,830,34,11
+625,BBQ Bacon Crispy Chicken Sandwich,unit,440,7,11
+626,Big Fish Sandwich,unit,530,17,11
+627,BK VEGGIE Burger,unit,410,22,11
+628,Chicken Burger,unit,480,22,11
+629,Chicken Cordon Bleu Sandwich,unit,730,32,11
+630,Chicken Fries,unit,290,16,11
+631,4 Piece Chicken Nuggets,unit,190,10,11
+632,6 Piece Chicken Nuggets,unit,290,15,11
+633,20 Piece Chicken Nuggets,unit,950,51,11
+634,Chicken Nuggets (10pc),unit,470,21,11
+635,Chicken Parmesan Sandwich,unit,570,32,11
+636,Crispy Buffalo Chicken Melt,unit,580,30,11
+637,Crispy Chicken Jr.,unit,430,12,11
+638,Crispy Chicken Sandwich,unit,670,23,11
+639,Grilled Chicken Sandwich,unit,470,37,11
+640,Grilled Chili Cheese Dog,unit,330,14,11
+641,Grilled Hot Dog,unit,310,11,11
+642,Jalapeno Chicken Fries,unit,300,15,11
+643,Original Chicken Sandwich,unit,630,24,11
+644,Pretzel Chicken Fries,unit,340,16,11
+645,Rodeo Crispy Chicken Sandwich,unit,410,12,11
+646,Sourdough Chicken Club,unit,840,32,11
+647,4 Piece Spicy Chicken Nuggets,unit,210,8,11
+648,Spicy Chicken Nuggets,unit,530,20,11
+649,Spicy Crispy Chicken Jr.,unit,410,12,11
+650,Spicy Crispy Chicken Sandwich,unit,700,25,11
+651,Spicy Crispy Jalapeno Chicken Sandwich,unit,760,32,11
+652,1/2 lb. FlameThrower® GrillBurger,unit,1000,46,11
+653,1/2 lb. GrillBurger with Cheese,unit,800,40,11
+654,1/4 lb. Bacon Cheese GrillBurger,unit,630,30,11
+655,1/4 lb. GrillBurger with Cheese,unit,540,23,11
+656,1/4 lb. Mushroom Swiss GrillBurger,unit,570,24,11
+657,Original Cheeseburger,unit,400,19,11
+658,Original Double Cheeseburger,unit,630,34,11
+659,4 Piece Chicken Strip Basket w/ Country Gravy,unit,1030,35,11
+660,6 Piece Chicken Strip Basket w/ Country Gravy,unit,1260,49,11
+661,Bacon Cheese Dog,unit,420,19,11
+662,Cheese Dog,unit,390,16,11
+663,Chili Cheese Dog,unit,380,16,11
+664,Chili Dog,unit,330,13,11
+665,Hot Dog,unit,290,11,11
+666,Relish Dog,unit,350,13,11
+667,Barbecue Pork Sandwich,unit,310,17,11
+668,Breaded Mushrooms,unit,250,7,11
+669,Regular Cheese Curds,unit,550,35,11
+670,unit (approx 350gm) Cheese Curds,unit,1050,43,11
+671,Chili Cheese Mega Dog,unit,760,32,11
+672,Corn Dog,unit,260,6,11
+673,Crispy Fish Sandwich,unit,470,17,11
+674,Deluxe Cheeseburger,unit,400,20,11
+675,Deluxe Double Cheeseburger,unit,640,34,11
+676,Deluxe Double Hamburger,unit,540,29,11
+677,Deluxe Hamburger,unit,350,17,11
+678,DQ Ultimate® Burger,unit,780,41,11
+679,Pork Tenderloin Sandwich,unit,580,19,11
+680,Steak Finger Basket,unit,910,23,11
+681,3 chicken strips Chicken Strips,unit,350,22,11
+682,Chicken Bacon Ranch Sandwich,unit,500,33,11
+683,Chicken Mozzarella Sandwich,unit,640,34,11
+684,Crispy Chicken BLT Salad,unit,520,37,11
+685,Crispy Chicken Garden Greens Salad,unit,280,17,11
+686,Crispy Chicken Sandwich,unit,600,24,11
+687,Crispy Chicken Wrap,unit,350,12,11
+688,Grilled Chicken BLT Salad,unit,380,42,11
+689,Grilled Chicken Garden Greens Salad,unit,150,23,11
+690,Grilled Chicken Sandwich,unit,360,25,11
+691,Grilled Chicken Wrap,unit,280,15,11
+692,Side Salad,unit,20,1,11
+693,Turkey BLT Sandwich,unit,550,30,11
+694,"6"" B.L.T.",unit,320,15,11
+695,Footlong B.L.T.,unit,640,30,11
+696,"6"" BBQ Rib Sandwich",unit,430,19,11
+697,Footlong BBQ Rib Sandwich,unit,860,38,11
+698,"6"" Big Hot Pastrami",unit,580,29,11
+699,Footlong Big Hot Pastrami,unit,1160,58,11
+700,"6"" Big Philly Cheesesteak",unit,500,38,11
+701,Footlong Big Philly Cheesesteak,unit,1000,76,11
+702,Kids Mini Sub Black Forest Ham,unit,180,10,11
+703,"6"" Black Forest Ham",unit,290,18,11
+704,Footlong Black Forest Ham,unit,580,36,11
+705,"6"" Carved Turkey",unit,330,25,11
+706,Footlong Carved Turkey,unit,660,50,11
+707,"6"" Carved Turkey & Bacon w/ Cheese",unit,570,33,11
+708,Footlong Carved Turkey & Bacon w/ Cheese,unit,1140,66,11
+709,"6"" Chicken & Bacon Ranch Melt",unit,570,35,11
+710,Footlong Chicken & Bacon Ranch Melt,unit,1140,70,11
+711,"6"" Chicken Pizziola Melt",unit,460,32,11
+712,Footlong Chicken Pizziola Melt,unit,920,64,11
+713,"6"" Cold Cut Combo",unit,370,18,11
+714,Footlong Cold Cut Combo,unit,740,36,11
+715,"6"" Corned Beef Reuben",unit,470,39,11
+716,Footlong Corned Beef Reuben,unit,940,78,11
+717,"6"" Italian B.M.T.",unit,410,20,11
+718,Footlong Italian B.M.T.,unit,820,40,11
+719,"6"" Italian Hero",unit,550,26,11
+720,Footlong Italian Hero,unit,1100,52,11
+721,"6"" Meatball Marinara",unit,480,21,11
+722,Footlong Meatball Marinara,unit,960,42,11
+723,"6"" Oven Roasted Chicken",unit,320,23,11
+724,Footlong Oven Roasted Chicken,unit,640,46,11
+725,Kids Mini Sub Roast Beef,unit,200,14,11
+726,"6"" Roast Beef",unit,320,24,11
+727,Footlong Roast Beef,unit,640,48,11
+728,"6"" Rotisserie Style Chicken",unit,350,29,11
+729,Footlong Rotisserie Style Chicken,unit,700,58,11
+730,"6"" Spicy Italian",unit,480,20,11
+731,Footlong Spicy Italian,unit,960,40,11
+732,"6"" Steak and Cheese",unit,380,26,11
+733,Footlong Steak and Cheese,unit,760,52,11
+734,"6"" Subway Club",unit,310,23,11
+735,Footlong Subway Club,unit,620,46,11
+736,"6"" Subway Melt (includes cheese)",unit,370,23,11
+737,Footlong Subway Melt (includes cheese),unit,740,46,11
+738,"6"" Subway Seafood Sensation",unit,420,13,11
+739,Footlong Subway Seafood Sensation,unit,840,26,11
+740,"6"" Sweet Onion Chicken Teriyaki",unit,380,26,11
+741,Footlong Sweet Onion Chicken Teriyaki,unit,760,52,11
+742,"6"" Tuna",unit,470,20,11
+743,Footlong Tuna,unit,940,40,11
+744,"6"" Turkey & Bacon Avocado",unit,390,22,11
+745,Footlong Turkey & Bacon Avocado,unit,780,44,11
+746,Kids Mini Sub Turkey Breast,unit,180,10,11
+747,"6"" Turkey Breast",unit,280,18,11
+748,Footlong Turkey Breast,unit,560,36,11
+749,"6"" Turkey Breast & Ham",unit,280,18,11
+750,Footlong Turkey Breast & Ham,unit,560,36,11
+751,"6"" Turkey Italiano Melt (with Provolone)",unit,490,24,11
+752,Footlong Turkey Italiano Melt (with Provolone),unit,980,48,11
+753,Kids Mini Sub Veggie Delite,unit,150,6,11
+754,"6"" Veggie Delite",unit,230,8,11
+755,Footlong Veggie Delite,unit,460,16,11
+756,"6"" Veggie Patty",unit,390,23,11
+757,Footlong Veggie Patty,unit,780,46,11
+758,Autumn Carved Turkey Salad,unit,300,25,11
+759,B.L.T. Salad,unit,150,10,11
+760,Big Hot Pastrami Melt Salad,unit,400,23,11
+761,Big Philly Cheesesteak Salad,unit,330,32,11
+762,Black Forest Ham Salad,unit,110,12,11
+763,Buffalo Chicken Salad (with Ranch dressing),unit,360,20,11
+764,Carved Turkey & Bacon w/ Cheese Salad,unit,280,28,11
+765,Carved Turkey Salad,unit,150,19,11
+766,Chicken & Bacon Ranch Melt Salad (includes Ranch dressing),unit,510,30,11
+767,Cold Cut Combo Salad,unit,180,12,11
+768,Double Chicken Salad,unit,220,36,11
+769,Italian B.M.T.® Salad,unit,230,14,11
+770,Italian Hero Salad,unit,230,14,11
+771,Meatball Marinara Salad,unit,310,16,11
+772,Oven Roasted Chicken Salad,unit,140,19,11
+773,Roast Beef Salad,unit,140,18,11
+774,Spicy Italian Salad,unit,310,15,11
+775,Steak & Cheese Salad,unit,210,20,11
+776,Subway Club Salad,unit,140,17,11
+777,Subway Melt® Salad,unit,200,18,11
+778,Sweet Onion Chicken Teriyaki Salad,unit,200,20,11
+779,Tuna Salad,unit,310,15,11
+780,Turkey Breast & Ham Salad,unit,110,12,11
+781,Turkey Breast Salad,unit,110,12,11
+782,Veggie Delite Salad,unit,50,3,11
+783,Chipotle Southwest Steak & Cheese Wrap,unit,760,43,11
+784,Rotisserie-Style Chicken Caesar Wrap,unit,730,55,11
+785,"Turkey, Bacon & Guacamole Wrap",unit,810,43,11
+786,Cheese & Veggies Pizza,unit,740,36,11
+787,Cheese Pizza,unit,680,32,11
+788,Pepperoni Pizza,unit,790,38,11
+789,Sausage Pizza,unit,820,39,11
+790,1/2 lb.* Cheesy Potato Burrito,unit,540,19,11
+791,1/2 lb.* Combo Burrito,unit,460,21,11
+792,7-Layer Burrito,unit,510,16,11
+793,Bean Burrito,unit,370,13,11
+794,Beefy 5-Layer Burrito,unit,550,19,11
+795,Beefy Fritos® Burrito,unit,440,13,11
+796,Black Bean Burrito,unit,410,14,11
+797,Burrito Supreme® – Beef,unit,420,16,11
+798,Burrito Supreme® - Chicken,unit,390,19,11
+799,Burrito Supreme® - Steak,unit,390,17,11
+800,Cantina Power Burrito - Chicken,unit,760,32,11
+801,Cantina Power Burrito - Steak,unit,780,33,11
+802,Cantina Power Burrito - Veggie,unit,740,20,11
+803,Cheesy Bean and Rice Burrito,unit,420,11,11
+804,Chili Cheese Burrito,unit,380,16,11
+805,Chicken Crunchy Cheesy Core Burrito,unit,610,25,11
+806,Steak Crunchy Cheesy Core Burrito,unit,610,25,11
+807,Beef Crunchy Cheesy Core Burrito,unit,630,22,11
+808,Loaded Taco Burrito,unit,550,20,11
+809,Chicken Quesarito,unit,620,24,11
+810,Steak Quesarito,unit,630,25,11
+811,Beef Quesarito,unit,650,22,11
+812,Shredded Chicken Burrito,unit,400,16,11
+813,Smothered Burrito - Beef,unit,710,28,11
+814,Smothered Burrito - Shredded Chicken,unit,650,34,11
+815,Smothered Burrito - Steak,unit,670,35,11
+816,Chicken Spicy Cheesy Core Burrito,unit,540,24,11
+817,Steak Spicy Cheesy Core Burrito,unit,550,24,11
+818,Beef Spicy Cheesy Core Burrito,unit,570,22,11
+819,Triple Melt Burrito,unit,410,15,11
+820,XXL Grilled Stuft Burrito - Beef,unit,880,31,11
+821,XXL Grilled Stuft Burrito - Chicken,unit,830,37,11
+822,XXL Grilled Stuft Burrito - Steak,unit,820,33,11
+823,Chicken Soft Taco,unit,170,12,11
+824,Cool Ranch® Doritos® Double Decker® Taco,unit,320,13,11
+825,Cool Ranch® Doritos® Locos Taco,unit,160,8,11
+826,Cool Ranch® Doritos® Locos Taco Supreme,unit,200,9,11
+827,Crunchy Taco,unit,170,8,11
+828,Crunchy Taco Supreme®,unit,200,9,11
+829,Double Decker® Taco,unit,320,13,11
+830,DOUBLE DECKER® Taco Supreme®,unit,350,14,11
+831,Spicy Sweet Double Stacked Taco,unit,340,12,11
+832,Cool Ranch Habanero Double Stacked Taco,unit,350,13,11
+833,Nacho Crunch Double Stacked Taco,unit,380,13,11
+834,Fiery Doritos® Double Decker® Taco,unit,320,14,11
+835,Fiery Doritos® Locos Taco,unit,170,8,11
+836,Fiery Doritos® Locos Taco Supreme,unit,200,9,11
+837,Grilled Steak Soft Taco,unit,250,11,11
+838,Nacho Cheese Doritos® Double Decker® Taco,unit,320,14,11
+839,Nacho Cheese Doritos® Locos Tacos,unit,170,8,11
+840,Nacho Cheese Doritos® Locos Tacos Supreme,unit,200,9,11
+841,Soft Taco Supreme® – Beef,unit,230,10,11
+842,Soft Taco-Beef,unit,200,10,11
+843,Spicy Potato Soft Taco,unit,250,6,11
+844,Chalupa Supreme® - Chicken,unit,340,16,11
+845,Chalupa Supreme® - Steak,unit,340,14,11
+846,Chalupa Supreme®–Beef,unit,370,13,11
+847,Double Chalupa,unit,600,21,11
+848,Wild Naked Chicken Chalupa,unit,420,19,11
+849,Mild Naked Chicken Chalupa,unit,440,20,11
+850,Spicy Double Chalupa,unit,600,21,11
+851,Fresco Bean Burrito,unit,350,11,11
+852,Fresco Burrito Supreme® – Chicken,unit,340,17,11
+853,Fresco Burrito Supreme® – Steak,unit,340,15,11
+854,Fresco Chicken Soft Taco,unit,150,11,11
+855,Fresco Crunchy Taco,unit,140,6,11
+856,Fresco Grilled Steak Soft Taco,unit,150,9,11
+857,Fresco Soft Taco,unit,170,8,11
+858,Cheesy Gordita Crunch,unit,490,20,11
+859,Doritos® Cheesy Gordita Crunch - Cool Ranch,unit,490,20,11
+860,Doritos® Cheesy Gordita Crunch - Fiery,unit,490,20,11
+861,Doritos® Cheesy Gordita Crunch - Nacho Cheese,unit,490,20,11
+862,Double Cheesy Gordita Crunch,unit,570,25,11
+863,Gordita Supreme® – Beef,unit,300,13,11
+864,Gordita Supreme® - Chicken,unit,270,16,11
+865,Gordita Supreme® - Steak,unit,270,14,11
+866,Nacho Fries Bellgrande,unit,710,13,11
+867,Nachos BellGrande®,unit,760,18,11
+868,Nachos Supreme,unit,430,12,11
+869,Triple Layer Nachos,unit,320,7,11
+870,Triple Melt Nachos,unit,260,10,11
+871,Beefy Cheddar Crunchwrap Slider,unit,410,14,11
+872,Beefy Mini Quesadilla,unit,210,9,11
+873,Beefy Nacho Griller,unit,420,12,11
+874,BLT Crunchwrap Slider,unit,430,12,11
+875,Cantina Power Bowl - Chicken,unit,560,26,11
+876,Cantina Power Bowl - Steak,unit,580,27,11
+877,Cantina Power Bowl - Veggie,unit,540,14,11
+878,Cheese Quesadilla,unit,480,19,11
+879,Cheese Roll-Up,unit,190,9,11
+880,Chicken Quesadilla,unit,520,27,11
+881,Chickstar,unit,620,17,11
+882,Chili Cheese Burrito,unit,380,16,11
+883,Chipotle Crispy Chicken Griller,unit,290,9,11
+884,Crispy Chicken Quesadilla,unit,650,26,11
+885,Crunchwrap Supreme®,unit,540,16,11
+886,Double Tostada,unit,270,12,11
+887,Express Taco Salad w/ Chips,unit,580,23,11
+888,Loaded Potato Griller,unit,470,13,11
+889,Mexican Pizza,unit,540,20,11
+890,MexiMelt®,unit,270,14,11
+891,Steak Quesalupa,unit,440,22,11
+892,Chicken Quesalupa,unit,440,22,11
+893,Beef Quesalupa,unit,460,19,11
+894,Shredded Chicken Mini Quesadilla,unit,180,12,11
+895,Spicy Chicken Crunchwrap Slider,unit,400,15,11
+896,Spicy Tostada,unit,200,7,11
+897,Stacker,unit,390,18,11
+898,Steak Quesadilla,unit,520,25,11
+899,Original Triple Double Crunchwrap,unit,700,23,11
+900,Spicy Triple Double Crunchwrap,unit,780,23,11
+901,Express Taco Salad w/ Chips,unit,580,23,11
+902,Fiesta Taco Salad-Beef,unit,780,26,11
+903,Fiesta Taco Salad-Chicken,unit,720,32,11
+904,Fiesta Taco Salad-Steak,unit,720,28,11
+905,"BEANS, DRY",100gms,341,22.1,12
+906,BROAD BEANS DRY,100gms,343,23.4,12
+907,"PEAS, DRY",100gms,346,22.5,12
+908,CHICK-PEAS,100gms,358,20.1,12
+909,COW PEAS DRY,100gms,342,23.4,12
+910,PIGEON PEAS,100gms,343,20.9,12
+911,LENTILS,100gms,346,24.2,12
+912,BAMBARA BEANS,100gms,365,17.7,12
+913,VETCHES,100gms,325,31.5,12
+914,LUPINS,100gms,390,40,12
+915,PULSES NES,100gms,340,22,12
+916,FLOUR OF PULSES,100gms,340,22,12
+917,BRAZIL NUTS,100gms,315,6.9,13
+918,CASHEW NUTS,100gms,252,7.7,13
+919,CHESTNUTS,100gms,158,1.8,13
+920,ALMONDS,100gms,236,8,13
+921,WALNUTS,100gms,289,6.4,13
+922,PISTACHIOS,100gms,289,10.3,13
+923,KOLANUTS,100gms,349,9,13
+924,HAZELNUTS,100gms,291,6,13
+925,ARECANUTS,100gms,245,4.9,13
+926,BRAZILNUT SHELLED,100gms,656,14.3,13
+927,CASHEW NUTS SHELLED,100gms,574,15.3,13
+928,ALMONDS SHELLED,100gms,589,20,13
+929,WALNUTS SHELLED,100gms,642,14.3,13
+930,HAZELNUTS SHELLED,100gms,632,13,13
+931,NUTS NES,100gms,262,7,13
+932,PREPARED NUTS,100gms,615,15.5,13
+933,SOYBEANS,100gms,335,38,13
+934,CAKE OF SOYA BEANS,100gms,261,46,13
+935,SOYA SAUCE,100gms,56,5.5,13
+936,SOYA PASTE,100gms,114,11,13
+937,SOYA CURD,100gms,58,6.3,13
+938,GROUNDNUTS IN SHELL,100gms,414,18.7,13
+939,GROUNDNUTS SHELLED,100gms,567,25.7,13
+940,CAKE OF GROUNDNUTS,100gms,363,41.7,13
+941,GROUNDNUTS PREPARED,100gms,580,26.8,13
+942,PEANUT BUTTER,100gms,589,24.3,13
+943,COCONUTS,100gms,184,1.7,13
+944,COCONUTS DESICCATED,100gms,660,6.9,13
+945,COPRA,100gms,636,6,13
+946,OIL PALM FRUIT,100gms,158,0.3,13
+947,PALM KERNELS,100gms,514,7.3,13
+948,OLIVES,100gms,175,1.3,13
+949,"OLIVES,PRESERVED",100gms,109,1.1,13
+950,KARITE NUTS,100gms,579,6.8,13
+951,SUNFLOWER SEED,100gms,308,12.3,13
+952,RAPESEED,100gms,494,19.6,13
+953,SAFFLOWER,100gms,314,9.7,13
+954,SESAME SEED,100gms,573,17.7,13
+955,CAKE OF SESAME SEED,100gms,376,40.7,13
+956,MUSTARD SEED,100gms,469,24.9,13
+957,FLOUR OF MUSTARD SEED,100gms,469,26.4,13
+958,POPPY SEED,100gms,533,18,13
+959,MELONSEED,100gms,400,18.2,13
+960,COTTONSEED,100gms,253,17.3,13
+961,LINSEED,100gms,498,18,13
+962,OILSEEDS NES,100gms,387,14.7,13
+963,FLOUR/MEAL OF OILSEEDS,100gms,393,37.2,13
+964,APRICOTS DRIED,100gms,238,3.7,13
+965,PLUMS DRIED,100gms,208,2.3,13
+966,RAISINS,100gms,299,3.2,13
+967,FIGS DRIED,100gms,253,3,13
+968,DATES,100gms,156,1.5,13
+969,FRUIT TROPICAL NES DRIED,100gms,267,2.8,13
+970,FRUIT NES DRIED,100gms,267,2.8,13
+971,VEGETABLE OILS,100gms,,,14
+972,OIL OF RICE BRAN,100gms,884,0,14
+973,OIL OF MAIZE,100gms,884,0,14
+974,OIL OF SOYABEANS,100gms,884,0,14
+975,OIL OF GROUNDNUTS,100gms,884,0,14
+976,OIL OF COCONUTS,100gms,884,0,14
+977,PALM OIL,100gms,884,0,14
+978,OIL OF PALM KERNELS,100gms,884,0,14
+979,OLIVE OIL,100gms,884,0,14
+980,BUTTER OF KARITE NUTS,100gms,711,0,14
+981,OIL OF CASTOR BEANS,100gms,884,0,14
+982,OIL OF SUNFLOWER SEED,100gms,884,0,14
+983,OIL OF RAPESEED,100gms,884,0,14
+984,OIL OF OLIVE RESIDUES,100gms,884,0,14
+985,TUNG OIL,100gms,884,0,14
+986,OIL OF SAFFLOWER,100gms,884,0,14
+987,OIL OF SESAME SEED,100gms,884,0,14
+988,OIL OF MUSTARD SEED,100gms,884,0,14
+989,OIL OF POPPY SEED,100gms,884,0,14
+990,STILLINGIA OIL,100gms,884,0,14
+991,OIL OF KAPOK,100gms,884,0,14
+992,OIL OF COTTON SEED,100gms,884,0,14
+993,OIL OF LINSEED,100gms,884,0,14
+994,OIL OF HEMPSEED,100gms,884,0,14
+995,OIL OF VEGETABLE ORIGIN NES,100gms,884,0,14
+996,MARGARINE,100gms,720,0.6,14
+997,OILS BOILED,100gms,902,0,14
+998,OILS HYDROGENATED,100gms,720,0.6,14
+999,PEPPER WHITE/LONG/BLACK,100gms,276,10.7,15
+1000,PIMENTO,100gms,318,12,15
+1001,CINNAMON,100gms,261,3.9,15
+1002,CLOVES,100gms,323,6,15
+1003,NUTMEG,100gms,525,5.8,15
+1004,ANISE,100gms,345,15.8,15
+1005,GINGER,100gms,347,9.1,15
+1006,SPICES NES,100gms,337,11.3,15
