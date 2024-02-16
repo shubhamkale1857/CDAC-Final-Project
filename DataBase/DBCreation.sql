@@ -118,6 +118,7 @@ INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES (
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('12', 'Pulses');
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('13', 'Dried Fruits');
 INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('14', 'Vegetable Oils');
+INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES ('15', 'Spices');
 
 
 CREATE TABLE `dac_project`.`dailymeals` (
