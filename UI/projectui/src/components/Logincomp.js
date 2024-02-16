@@ -90,7 +90,7 @@ export const LoginComp = () =>{
     return(
         <div>
             <div className="container-fluid custom-bg" style={{ height: "40vh"}}>
-            <h1 style={{fontFamily:"Antic Didone"}}>LOGIN</h1>
+            <h1 style={{fontFamily:"Antic Didone", marginTop:100}}className='titlehome'>LOGIN</h1>
             </div>
 
             <div className="row justify-content-center">

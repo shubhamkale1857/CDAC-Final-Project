@@ -75,25 +75,22 @@ export const InsertFood = ()=>{
         <div className="innercomps">
             <h3>Insert Food</h3>
             
-            <form ref={formRef}>
-
-                
-                
-
-                <table className="table table-borderless">
-                <tbody>
-                    <tr>
-                        <td><label>Enter Meal Type</label></td>
-                    </tr>
-                    <tr>
-                        <td><select className="form-control" onChange={(e)=>setMt(e.target.value)}>
+            <br/>
+                    <label>Enter Meal Type</label>
+                    <select className="form-control" onChange={(e)=>setMt(e.target.value)}>
                     <option value="">Choose a meal type..</option>
                     <option value="1">Breakfast</option>
                     <option value="2">Lunch</option>
                     <option value="3">Snack</option>
                     <option value="4">Dinner</option>
-                    </select></td>
-                    </tr>
+                    </select>
+                    <br></br>
+
+
+            <form ref={formRef}>
+                <table className="table table-borderless">
+                <tbody>
+                    
                     <tr>
                     <td><label >Enter food</label></td>
                     <td><label>Enter quantity</label></td>
@@ -118,6 +115,7 @@ export const InsertFood = ()=>{
                 </tbody>
             </table>
             {/* {JSON.stringify(items)}<br/> */}
+            
             
             <h4>Added Food</h4>
             <table className="table table-bordered">

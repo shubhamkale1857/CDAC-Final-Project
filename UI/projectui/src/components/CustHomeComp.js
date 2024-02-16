@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 export const CustomerHome=()=>{
     
     const data= JSON.parse(localStorage.getItem("loggedUser"));
+    const calCalorie = ()=>{
+        
+    }
 
     const[user,setUser]=useState({});
 
@@ -15,13 +18,22 @@ export const CustomerHome=()=>{
 
     
     return(
-        <div>
+        <div className="innercomps" >
+            <h2>Welcome {user.fname}!!</h2>
+            <br/><br/>
+            <table className="table table-bordered">
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
             
-            <div className="innercomps" >
-            
-            <h1>Welcome {user.fname}!!!!</h1>
-            </div>
-        
             
         </div>
         

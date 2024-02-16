@@ -18,24 +18,12 @@ export const HomeComp = () => {
 
   return (
     <div>
-      <div className="container-fluid custom-bg">
-        <div  style={{
-            fontFamily: 'Antic Didone',
-            color: 'black',
-            textShadow: '2px 2px 4px white',
-            backgroundColor: 'rgba(255, 255, 255, 0.2)'
-            
-          }}>
-        <h1>
+      <div className="container-fluid custom-bg" style={{borderRadius:" 0 0 70% 70%"}}>
+        
+        <h1 className='titlehome'>
           BODY POSITIVITY IS A MYTH
-        </h1></div>
-
+        </h1>
         
-        
-
-
-
-
       </div>
       <br/>
       <div style={{marginLeft:490}}>
@@ -99,8 +87,9 @@ export const HomeComp = () => {
                 </tr>
               </tbody>
          </table> 
-         
       </div>
+
+      
          <div style={{backgroundColor:'grey', height:150}}></div>
     </div>
     
