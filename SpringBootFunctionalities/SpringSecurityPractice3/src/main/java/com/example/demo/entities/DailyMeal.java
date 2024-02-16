@@ -36,4 +36,6 @@ public class DailyMeal {
 	private LocalDate date;
 	@Column
 	private int calories;
+	@Column
+	private int mealtype;
 }

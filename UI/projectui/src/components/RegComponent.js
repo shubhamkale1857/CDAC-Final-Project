@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 //import pic from "https://cdn.pixabay.com/photo/2023/11/10/01/47/homeless-8378586_640.png"
 
 
-
+//UpdateCustProfile
+//UpdateCustProfile
 function RegComp(){
     let navigate = useNavigate();
     const init = {
@@ -256,19 +257,19 @@ function RegComp(){
                     <input type="radio" name="gen" value={"o"} className="form-check-input" onChange={(e)=>{setGender(e.target.value)}}/>Other <br/><br/>
 
                     <label className="form-label">Weight (in kg) </label>
-                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value); checkEmail(e.target.value)}}/><br/>
+                    <input type="text" name="weight" className="form-field" onChange={(e)=>{handleChange("weight",e.target.value)}} onBlur={(e)=>{handleChange("weight",e.target.value);}}/><br/>
                     <div style={{display: (!customer.weight.valid && customer.weight.touched)?"block":"none"}}><p className="text-danger">{customer.weight.error}</p></div>
 
                     <label className="form-label">Height (in cm) </label>
-                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value); checkEmail(e.target.value)}}/><br/>
+                    <input type="text" name="height" className="form-field" onChange={(e)=>{handleChange("height",e.target.value)}} onBlur={(e)=>{handleChange("height",e.target.value);}}/><br/>
                     <div style={{display: (!customer.height.valid && customer.height.touched)?"block":"none"}}><p className="text-danger">{customer.height.error}</p></div><br/>
 
                     <label className="form-label">Goal</label><br/>
                     <input type="radio" name="goal" value={"Maintain"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
                     <label className="form-check-label">Maintain</label>&nbsp;&nbsp;
-                    <input type="radio" name="goal" value={"Lose Weight"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
+                    <input type="radio" name="goal" value={"Lose"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
                     <label className="form-check-label">Lose Weight</label>&nbsp;&nbsp;
-                    <input type="radio" name="goal" value={"Gain Weight"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
+                    <input type="radio" name="goal" value={"Gain"} className="form-check-label" onChange={(e)=>{setGoal(e.target.value)}}/>
                     <label className="form-check-label">Gain Weight</label>&nbsp;&nbsp;
                     <br/><br/>
                     <label className="form-label" for="address">Enter Address</label>

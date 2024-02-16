@@ -26,7 +26,7 @@ import { ClientList } from './components/ClientListComp';
 import { CustomerProfile } from './components/CustomerProfileComp';
 import { TrainerProfile } from './components/TrainerProfileComp';
 import { AdminProfile } from './components/AdminProfileComp';
-import { UpdateCustProfile } from './components/UpdateCustProfileComp';
+import  UpdateCustProfile  from './components/UpdateCustProfileComp';
 import { Consultation } from './components/ConsultationComp';
 import { InsertFood } from './components/InsertFoodComp';
 import { TrainerHome } from './components/TrainerHomeComp';

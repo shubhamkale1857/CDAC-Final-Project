@@ -99,6 +99,7 @@ public class AppSecurityConfigurer {
 			authorize.requestMatchers("/getCustomer").permitAll();
 			authorize.requestMatchers("/getTrainers").permitAll();
 			authorize.requestMatchers("/uploadimg/**").permitAll();
+			authorize.requestMatchers("/updateCustomer").permitAll();
 			authorize.requestMatchers("/dotnetapi").permitAll();
 			authorize.requestMatchers("/getRegRequests").hasAuthority("ADMIN");
 			authorize.requestMatchers("/approve").hasAuthority("ADMIN");

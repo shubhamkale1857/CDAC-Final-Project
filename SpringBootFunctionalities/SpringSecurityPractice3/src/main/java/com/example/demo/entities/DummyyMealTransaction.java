@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class DummyyMealTransaction {
 	private List<int[]> list;
 	private int uid;
+	private int mealtype;
 	@Override
 	public String toString() {
 		for(int i = 0 ; i < list.size() ;i++) {

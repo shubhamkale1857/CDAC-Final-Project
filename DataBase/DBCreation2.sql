@@ -111,6 +111,7 @@ CREATE TABLE `dac_project`.`dailymeals` (
   `meal_id` INT NOT NULL AUTO_INCREMENT,
   `customer_id` INT NULL,
   `date` DATETIME NULL,
+  `mealtype` INT NULL,
   `calories` INT NULL,
   PRIMARY KEY (`meal_id`),
   INDEX `customer_id_idx` (`customer_id` ASC) VISIBLE,
