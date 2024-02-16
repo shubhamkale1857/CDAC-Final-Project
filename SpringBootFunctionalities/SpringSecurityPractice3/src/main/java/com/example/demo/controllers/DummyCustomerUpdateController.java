@@ -24,8 +24,6 @@ public class DummyCustomerUpdateController {
 	
 	@PostMapping("/updateCustomer")
 	public String updateCust(@RequestBody DummyUpdateCustomer dummy) {
-			System.out.println(dummy);
-			System.out.println("edhar to aaa gayaa");
 			Customer cust = cservice.getOneCustomer(dummy.getCustomer_id());
 			cust.setFname(dummy.getFname());
 			cust.setLname(dummy.getLname());

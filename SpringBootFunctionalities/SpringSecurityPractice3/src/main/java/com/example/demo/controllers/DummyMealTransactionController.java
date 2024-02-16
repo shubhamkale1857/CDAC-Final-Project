@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class DummyMealTransactionController {
 		System.out.println("here in transaction controller");
 		Customer cust = cService.getOneCustomer(dummy.getCustomer_id());
 		meal.setCustomer(cust);
-		meal.setDate(LocalDate.now());
+		meal.setDate(LocalDateTime.now());
 		meal.setCalories(dummy.getCalories());
 		DailyMeal savedMeal = mealService.save(meal);
 		Fooditem food = fService.getOneFoodItem(dummy.getFood_id());
@@ -70,7 +70,7 @@ public class DummyMealTransactionController {
 		Customer cust = cService.findByUid(dummy.getUid());
 		DailyMeal meall = new DailyMeal();
 		meall.setCustomer(cust);
-		meall.setDate(LocalDate.now());
+		meall.setDate(LocalDateTime.now());
 		meall.setCalories(sumCalory);
 		meall.setMealtype(dummy.getMealtype());
 		DailyMeal mealll = mealService.save(meall);

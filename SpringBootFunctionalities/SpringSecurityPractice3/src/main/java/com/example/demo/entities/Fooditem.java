@@ -32,9 +32,6 @@ public class Fooditem {
 	private String food_name;
 	
 	@Column
-	private int qty;
-	
-	@Column
 	private String unit;
 	
 	@Column 
