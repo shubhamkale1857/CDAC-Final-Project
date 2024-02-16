@@ -26,4 +26,8 @@ public class FoodItemService {
 			return null;
 		}
 	}
+	
+	public Fooditem save(Fooditem f) {
+		return frepo.save(f);
+	}
 }

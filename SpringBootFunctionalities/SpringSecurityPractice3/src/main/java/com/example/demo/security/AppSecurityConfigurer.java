@@ -89,6 +89,9 @@ public class AppSecurityConfigurer {
 		http.addFilterBefore(authTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 		http.authorizeHttpRequests(authorize -> {
 			authorize.requestMatchers("/").permitAll();
+			authorize.requestMatchers("/getCategories").permitAll();
+			authorize.requestMatchers("/saveFoodItem").permitAll();
+			authorize.requestMatchers("/getAdminDetails").permitAll();
 			authorize.requestMatchers("/login").permitAll();
 			authorize.requestMatchers("/saveCustomer").permitAll();
 			authorize.requestMatchers("/saveTrainer").permitAll();
