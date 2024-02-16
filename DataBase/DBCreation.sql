@@ -124,7 +124,7 @@ INSERT INTO `dac_project`.`categories` (`category_id`, `category_name`) VALUES (
 CREATE TABLE `dac_project`.`dailymeals` (
   `meal_id` INT NOT NULL AUTO_INCREMENT,
   `customer_id` INT NULL,
-  `date` DATETIME NULL,
+  `date` DATE NULL,
   `mealtype` INT NULL,
   `calories` INT NULL,
   PRIMARY KEY (`meal_id`),

@@ -2,7 +2,6 @@ package com.example.demo.entities;
 
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
@@ -34,7 +33,7 @@ public class DailyMeal {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	@Column
-	private LocalDateTime date;
+	private LocalDate date;
 	@Column
 	private int calories;
 	@Column

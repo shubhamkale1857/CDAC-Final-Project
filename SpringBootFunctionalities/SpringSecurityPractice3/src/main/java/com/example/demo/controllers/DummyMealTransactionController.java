@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.entities.Customer;
 import com.example.demo.entities.DailyMeal;
 import com.example.demo.entities.DummyMealTransaction;
@@ -43,7 +43,7 @@ public class DummyMealTransactionController {
 		System.out.println("here in transaction controller");
 		Customer cust = cService.getOneCustomer(dummy.getCustomer_id());
 		meal.setCustomer(cust);
-		meal.setDate(LocalDateTime.now());
+		meal.setDate(LocalDate.now());
 		meal.setCalories(dummy.getCalories());
 		DailyMeal savedMeal = mealService.save(meal);
 		Fooditem food = fService.getOneFoodItem(dummy.getFood_id());
@@ -70,7 +70,7 @@ public class DummyMealTransactionController {
 		Customer cust = cService.findByUid(dummy.getUid());
 		DailyMeal meall = new DailyMeal();
 		meall.setCustomer(cust);
-		meall.setDate(LocalDateTime.now());
+		meall.setDate(LocalDate.now());
 		meall.setCalories(sumCalory);
 		meall.setMealtype(dummy.getMealtype());
 		DailyMeal mealll = mealService.save(meall);
