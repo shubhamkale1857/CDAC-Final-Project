@@ -44,8 +44,6 @@ import com.example.demo.services.UserService;
 public class AuthController {
 	
 	@Autowired
-	Trainer train;
-	@Autowired
 	TrainerService tservice;
 
 	
@@ -139,6 +137,7 @@ public class AuthController {
 	  @PostMapping("/saveTrainer")
 	   public Trainer regTrainer(@RequestBody DummyTrainer dummy)
 	   {
+		  Trainer train = new Trainer();
 		  System.out.println(dummy);
 		  System.out.println("hello in saveTrainer");
 		     System.out.println(encoder.encode("Admin@123"));

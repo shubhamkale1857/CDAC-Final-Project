@@ -37,5 +37,7 @@ public class DailyMeal {
 	@Column
 	private int calories;
 	@Column
+	private int proteins;
+	@Column
 	private int mealtype;
 }

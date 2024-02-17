@@ -19,6 +19,4 @@ public class DailyMealController {
 	{
 		return dService.getTotCalories(cust_id);
 	}
-	
-
 }

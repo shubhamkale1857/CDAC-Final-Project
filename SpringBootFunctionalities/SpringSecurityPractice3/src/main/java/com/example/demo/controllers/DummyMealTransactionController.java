@@ -59,12 +59,14 @@ public class DummyMealTransactionController {
 		System.out.println(dummy.getMealtype());
 		System.out.println("************************************************");
 		int sumCalory = 0;
+		int sumProtein = 0;
 		List<Fooditem> foodList = new ArrayList<>();
 		for(int i = 0 ; i < dummy.getList().size() ; i++) {
 			int foodId = (dummy.getList().get(i))[0];
 			Fooditem food = fService.getOneFoodItem(foodId);
 			foodList.add(food);
 			sumCalory += (food.getCalories()*(dummy.getList().get(i))[1]);
+			sumProtein += (food.getProtein()*(dummy.getList().get(i))[2]);
 		}
 		
 		Customer cust = cService.findByUid(dummy.getUid());
@@ -72,6 +74,7 @@ public class DummyMealTransactionController {
 		meall.setCustomer(cust);
 		meall.setDate(LocalDate.now());
 		meall.setCalories(sumCalory);
+		meall.setProteins(sumProtein);
 		meall.setMealtype(dummy.getMealtype());
 		DailyMeal mealll = mealService.save(meall);
 		
