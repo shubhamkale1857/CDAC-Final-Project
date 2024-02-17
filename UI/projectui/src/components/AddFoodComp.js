@@ -55,12 +55,12 @@ export const AddFood = ()=>{
         navigate("/Admin/AdminHome");   
     }
     return(
-        <div>
-            <div className="container-fluid" style={{height: "10vh"}}>
-            <h1 style={{fontFamily:"Antic Didone",marginLeft:"500px"}}>Add Food Item</h1>
+        <div className="innercomps">
+            <div className="container-fluid">
+            <h1 style={{fontFamily:"Antic Didone"}}>Add Food Item</h1>
             </div>
             <div className="row justify-content-center">
-            <div className="col-md-4 mt-5"> 
+            <div className="col-md-5 mt-6"> 
             {/* <div>{JSON.stringify(cat)}</div> */}
             <form>
                     <label className="form-label" for="fname">Enter Food Name</label>

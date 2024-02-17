@@ -219,7 +219,7 @@ function TrainerRegistration(){
         
         <div className="innercomps">
             <div className="container-fluid">
-            <h1 style={{fontFamily:"Antic Didone"}}>TRAINER REGISTER</h1>
+            <h1 style={{fontFamily:"Antic Didone"}}>Trainer Registeration</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-6 mt-5"> 
@@ -286,7 +286,7 @@ function TrainerRegistration(){
                     <input type="password" className="form-control" id="rpass" onChange={(e)=>{handleChange("repassword",e.target.value)}} onBlur={(e)=>{handleChange("repassword",e.target.value)}}/><br/>
                     <div style={{display: (!customer.repassword.valid && customer.repassword.touched)?"block":"none"}}><p className="text-danger">{customer.repassword.error}</p></div>
 
-                    <p style={{float:"right"}}>already have an account? <Link to='/login'>login</Link></p><br/>
+                    
                     <input type="button" value={"Register"} className="btn btn-primary" onClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
                     {/* disabled={!customer.formValid} */}
                     <input type="reset" value={"Reset"} onClick={()=>{dispatch({type:"reset"})}} className="btn btn-danger "/>

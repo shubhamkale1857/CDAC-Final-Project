@@ -7,6 +7,7 @@ export const InsertFood = ()=>{
     const[f1,setF1]=useState("");
     const[q1,setQ1]=useState("");
     const[mt,setMt]=useState("");
+    const[msg,setMsg]=useState("");
 
     const additem = ()=>{
         const newitem = [f1 ,q1 ];
@@ -33,6 +34,7 @@ export const InsertFood = ()=>{
 
     const navigate = useNavigate();
     const data= JSON.parse(localStorage.getItem("loggedUser"));
+
     const submitfood = (e)=>{
         e.preventDefault();
         const reqOption = {
@@ -45,6 +47,10 @@ export const InsertFood = ()=>{
             })
         } 
         console.log(reqOption.body);
+        if(mt==0){
+                setMsg("please select meal type");
+        }else{
+            setMsg("");
         fetch("http://localhost:8080/saveTran1",reqOption)
         .then((res)=>{
             if(res.ok){
@@ -60,6 +66,7 @@ export const InsertFood = ()=>{
             setItems([]);
         })
         .catch(error => navigate("/register"))
+    }
     }
 
     useEffect(()=>{
@@ -78,13 +85,14 @@ export const InsertFood = ()=>{
             <br/>
                     <label>Enter Meal Type</label>
                     <select className="form-control" onChange={(e)=>setMt(e.target.value)}>
-                    <option value="">Choose a meal type..</option>
+                    <option value="0">Choose a meal type..</option>
                     <option value="1">Breakfast</option>
                     <option value="2">Lunch</option>
                     <option value="3">Snack</option>
                     <option value="4">Dinner</option>
                     </select>
-                    <br></br>
+                    
+                    <br/><span style={{color:"red"}}>{msg}</span>
 
 
             <form ref={formRef}>
@@ -108,7 +116,7 @@ export const InsertFood = ()=>{
                         }
                         </select></td>
                         
-                    <td><input type="number" className="form-control" onChange={(e)=>setQ1(e.target.value)}/></td>
+                    <td><input type="number" className="form-control"  min={0} onChange={(e)=>setQ1(e.target.value)}/></td>
                     <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
                     </tr>
 

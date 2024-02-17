@@ -21,7 +21,7 @@ export const CustomerSidebar = ({ children }) => {
     },
     {
       path: "/Customer/Mealhistory",
-      name: "Trackings"
+      name: "Meal History"
     },
     {
       path: "/Customer/Selecttrainer",

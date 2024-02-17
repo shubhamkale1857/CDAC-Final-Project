@@ -185,9 +185,9 @@ function UpdateCustProfile(){
     const[gender,setGender] = useState("");
     const[goal,setGoal] = useState("");
     return(
-        <div>
-            <div className="container-fluid custom-bg" style={{height: "40vh"}}>
-            <h1 style={{fontFamily:"Antic Didone"}}>USER REGISTER</h1>
+        <div className="innercomps">
+            <div className="container-fluid">
+            <h1 style={{fontFamily:"Antic Didone"}}>UPDATE PROFILE</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5">
