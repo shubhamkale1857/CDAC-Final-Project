@@ -44,9 +44,6 @@ import com.example.demo.services.UserService;
 public class AuthController {
 	
 	@Autowired
-	Customer cust;
-	
-	@Autowired
 	Trainer train;
 	@Autowired
 	TrainerService tservice;
@@ -117,6 +114,7 @@ public class AuthController {
 	  @PostMapping("/saveCustomer")
 	   public Customer regCustomer(@RequestBody DummyCustomer dummy)
 	   {
+		  Customer cust = new Customer();
 		     System.out.println(encoder.encode("Admin@123"));
 				Role r = rservice.getOneRole(2);
 				User user = new User(dummy.getUsername(), encoder.encode(dummy.getPass()),r, 1);
