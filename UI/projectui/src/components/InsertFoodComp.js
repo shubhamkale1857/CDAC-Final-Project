@@ -6,17 +6,27 @@ export const InsertFood = ()=>{
     const[food,setFood]=useState([]);
     const[f1,setF1]=useState("");
     const[q1,setQ1]=useState("");
+    const[p1,setP1]=useState("");
     const[mt,setMt]=useState("");
     const[msg,setMsg]=useState("");
 
+    const changePr=( fd )=>{
+        console.log(fd)
+        const temp=(food.filter((s)=>{
+            return (s.food_id==fd)
+        }))
+        setP1(String(temp[0].protein))
+
+    }
+
     const additem = ()=>{
-        const newitem = [f1 ,q1 ];
+        const newitem = [f1 ,q1 ,p1];
         let flag=false;
         let arr=items.map((s)=>{
             if(s[0]===newitem[0])
             {
                 flag=true;
-                return s=[s[0],String(parseInt(s[1])+parseInt(newitem[1]))]
+                return s=[s[0],String(parseInt(s[1])+parseInt(newitem[1])), String(parseInt(s[2])+parseInt(newitem[2]))]
             }
             else
             {
@@ -105,7 +115,7 @@ export const InsertFood = ()=>{
                     <td></td>
                     </tr>
                     <tr>
-                    <td><select className="form-control" onChange={(e)=>setF1(e.target.value)}>
+                    <td><select className="form-control" onChange={(e)=>{setF1(e.target.value); changePr(e.target.value)}}>
                         <option value="">Choose a food...</option>
                         {
                             food.map((f)=>{
@@ -116,15 +126,16 @@ export const InsertFood = ()=>{
                         }
                         </select></td>
                         
-                    <td><input type="number" className="form-control"  min={0} onChange={(e)=>setQ1(e.target.value)}/></td>
+                    <td><input type="number" className="form-control"  min={0} onChange={(e)=>{setQ1(e.target.value)}}/></td>
                     <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
                     </tr>
 
                 </tbody>
             </table>
-            {/* {JSON.stringify(items)}<br/> */}
+            {/*{JSON.stringify(items)} <br/> 
+            {JSON.stringify(food)} */}
             
-            
+            <br/>
             <h4>Added Food</h4>
             <table className="table table-bordered">
                 <thead>
@@ -132,6 +143,7 @@ export const InsertFood = ()=>{
                         <td>FOOD</td>
                         <td>QUATITY</td>
                         <td>CALORIES</td>
+                        <td>PROTEIN</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -150,6 +162,12 @@ export const InsertFood = ()=>{
                                     food.map((f)=>{
                                         if(f.food_id==s[0])
                                             return f.calories*s[1] 
+                                    })
+                                    }</td>
+                                    <td>{
+                                    food.map((f)=>{
+                                        if(f.food_id==s[0])
+                                            return f.protein*s[1] 
                                     })
                                     }</td>
                                 </tr>

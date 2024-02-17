@@ -59,7 +59,7 @@ export const CustomerHome=()=>{
                         <div className="dashboardDivs">
                             <b>Calories Remaining</b>
                             <br/><br/>
-                            <span style={{fontSize:30}}>{calCalorie2()}</span>
+                            <span style={{fontSize:30}}>{calCalorie2()-calCalorie1()}</span>
                         </div>   
                     </td>
                     <td>
