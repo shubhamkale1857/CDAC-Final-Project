@@ -6,6 +6,13 @@ import { useSelector } from "react-redux";
 export const CustomerSidebar = ({ children }) => {
   //const [isOpen, setIsOpen] = useState(false);
   // const toggle = () => setIsOpen(!isOpen);
+
+  const handlestrore = (pth)=>{
+    if(pth==="/Customer/Profile")
+    {
+      localStorage.removeItem("updates");
+    }
+  }
   const menuItem = [
     {
       path: "/Customer/CustomerHome",
@@ -46,6 +53,7 @@ export const CustomerSidebar = ({ children }) => {
             key={index}
             className="link"
             activeclassName="active"
+            onClick={()=>{handlestrore(item.path)}}
           >
             
             <div style={{ display: "block" }} className="link_text">

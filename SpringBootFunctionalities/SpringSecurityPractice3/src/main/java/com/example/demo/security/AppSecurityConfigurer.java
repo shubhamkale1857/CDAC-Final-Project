@@ -102,6 +102,7 @@ public class AppSecurityConfigurer {
 			authorize.requestMatchers("/getCustomer").permitAll();
 			authorize.requestMatchers("/getTrainers").permitAll();
 			authorize.requestMatchers("/getTotalCal").permitAll();
+			authorize.requestMatchers("/getTotalProt").permitAll();
 			authorize.requestMatchers("/uploadimg/**").permitAll();
 			authorize.requestMatchers("/updateCustomer").permitAll();
 			authorize.requestMatchers("/dotnetapi").permitAll();

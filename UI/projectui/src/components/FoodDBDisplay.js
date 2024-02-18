@@ -32,15 +32,15 @@ export const FoodDBDisplay = () =>{
                 <input class="btn btn-primary" type="button" onClick={loadFood} value={"search"}/>
             </form>
             <br/><br/>
-<table className="table table-bordered" >
-    <thead>
+    <table className="table table-bordered" >
+        <thead>
         <tr>        
             <td>NAME</td>
             <td>SERVING SIZE</td>
             <td>CALORIES</td>
             <td>PROTEIN</td>
         </tr>
-    </thead>
+        </thead>
     <tbody>
     {
         food.map((f)=>{

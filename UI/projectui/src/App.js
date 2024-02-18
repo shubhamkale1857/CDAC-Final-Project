@@ -59,7 +59,7 @@ function App() {
             <Link to='/' className='nav-link' id='link'>CALORIE_COACH</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/login' className='nav-link' id='link'>Login</Link>
+            <Link to='/login' className='nav-link' id='link' onClick={()=>{localStorage.removeItem("success");}}>Login</Link>
           </li>
           {/* <li className='nav-item'>
             <Link to='/trainerReg' className='nav-link' id='link'>Trainer Registration</Link>
@@ -116,6 +116,7 @@ function App() {
               <Route path='UpdateFood' element={<UpdateFood/>}/>
               <Route path='AddFood' element={<AddFood/>}/>
               <Route path='Profile' element={<AdminProfile/>}/>
+              <Route path='fooditems' element={<FoodDBDisplay/>}/>
           </Route>
 
 

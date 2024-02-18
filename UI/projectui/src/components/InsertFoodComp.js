@@ -9,6 +9,10 @@ export const InsertFood = ()=>{
     const[p1,setP1]=useState("");
     const[mt,setMt]=useState("");
     const[msg,setMsg]=useState("");
+    const[msg2,setMsg2]=useState("");
+    const[msg3,setMsg3]=useState("");
+    const[successmsg,setsuccessMsg]=useState("");
+    const[flag,setFlag]=useState(true);
 
     const changePr=( fd )=>{
         console.log(fd)
@@ -20,6 +24,17 @@ export const InsertFood = ()=>{
     }
 
     const additem = ()=>{
+        if(f1==="" || q1==="")
+        { setMsg2("please enter both quatity and fooditem first!!")}else if(parseInt(q1)<0){
+            setMsg2("");
+            setMsg3("Quantity cannot be negative")
+        }else if(parseInt(q1)==0){
+            setMsg2("");
+            setMsg3("Quantity cannot be zero")
+        }else{
+            setMsg2("");
+            setMsg3("");
+            setFlag(false);
         const newitem = [f1 ,q1 ,p1];
         let flag=false;
         let arr=items.map((s)=>{
@@ -39,7 +54,7 @@ export const InsertFood = ()=>{
             setItems(arr);
 
         formRef.current.reset();
-        
+    }
     }
 
     const navigate = useNavigate();
@@ -71,7 +86,7 @@ export const InsertFood = ()=>{
             }
         })
         .then((msg)=>{
-            alert("Data Inserted Successfully!!!")
+            setsuccessMsg("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
             setItems([]);
         })
@@ -125,11 +140,12 @@ export const InsertFood = ()=>{
                             })
                         }
                         </select></td>
-                        
+                       
                     <td><input type="number" className="form-control"  min={0} onChange={(e)=>{setQ1(e.target.value)}}/></td>
                     <td><input type="button" className="btn btn-primary" value={"add"} onClick={additem}/></td>
                     </tr>
-
+                    <span style={{color:"red"}}>{msg2}</span>
+                    <span style={{color:"red"}}>{msg3}</span>
                 </tbody>
             </table>
             {/*{JSON.stringify(items)} <br/> 
@@ -180,8 +196,10 @@ export const InsertFood = ()=>{
 
             
 
-            <input type="button" className="btn btn-primary" value={"Submit"} onClick={(e)=>{submitfood(e)}} />
+            <input type="button" className="btn btn-primary" value={"Submit"} disabled={flag} onClick={(e)=>{submitfood(e)}} />
             </form>
+
+            <span style={{color:"green"}}>{successmsg}</span>
             
             <datalist id="foodlist">
                     {food.map((f) => (

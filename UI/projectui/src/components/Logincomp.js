@@ -4,6 +4,8 @@ import {login} from "../isLoggedSlice";
 import { useState } from "react";
 
 export const LoginComp = () =>{
+
+    const successmessage= (localStorage.getItem("success"));
     const dispatch = useDispatch();
     const myState = useSelector((state)=> state.logged);
     const navigate = useNavigate();
@@ -95,6 +97,7 @@ export const LoginComp = () =>{
 
             <div className="row justify-content-center">
             <div className="col-md-4 mt-5">
+            <span style={{color:"green"}}>{successmessage}</span>
                 <form >
                     <div className="row">
                         <div className="col-md-12 form-group">

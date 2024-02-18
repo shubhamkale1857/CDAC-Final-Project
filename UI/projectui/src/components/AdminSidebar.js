@@ -6,6 +6,17 @@ import { useSelector } from "react-redux";
 export const AdminSidebar = ({ children }) => {
   //const [isOpen, setIsOpen] = useState(false);
   // const toggle = () => setIsOpen(!isOpen);
+
+
+  const handlestrore = (pth)=>{
+    if(pth==="/Admin/AdminHome")
+    {
+      localStorage.removeItem("tregister");
+      localStorage.removeItem("datainser");
+      localStorage.removeItem("dataupdate");
+    }
+  }
+
   const menuItem = [
     {
       path: "/Admin/AdminHome",
@@ -14,6 +25,10 @@ export const AdminSidebar = ({ children }) => {
     {
       path: "/Admin/trainerReg",
       name: "Add Trainer"
+    },
+    {
+      path: "/Admin/fooditems",
+      name: "Foods"
     },
     {
       path: "/Admin/AddFood",
@@ -39,6 +54,7 @@ export const AdminSidebar = ({ children }) => {
             key={index}
             className="link"
             activeclassName="active"
+            onClick={()=>{handlestrore(item.path)}}
           >
             
             <div style={{ display: "block" }} className="link_text">

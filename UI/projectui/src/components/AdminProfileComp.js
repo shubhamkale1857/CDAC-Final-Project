@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 export const AdminProfile = ()=>{
     const data = JSON.parse(localStorage.getItem("loggedUser"));
+   
     const navigate = useNavigate();
     const[user,setAdmin] = useState({});
     useEffect(()=>{

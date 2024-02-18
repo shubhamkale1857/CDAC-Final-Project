@@ -32,4 +32,10 @@ public class DailyMealService {
 		LocalDate date = LocalDate.now();
 		return drepo.getTotCal(cust_id, date);
 	}
+	
+	public int getTotProteins(int cust_id)
+	{
+		LocalDate date = LocalDate.now();
+		return drepo.getTotPro(cust_id, date);
+	}
 }

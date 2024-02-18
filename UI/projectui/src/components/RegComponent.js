@@ -210,11 +210,11 @@ function RegComp(){
             }
         })
         .then((msg)=>{
-            alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
         .catch(error => navigate("/register"))
 
+        localStorage.setItem("success","User Logged in successfully!!");
         navigate("/login");   
     }
     const[gender,setGender] = useState("");

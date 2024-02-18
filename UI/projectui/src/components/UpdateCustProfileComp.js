@@ -175,11 +175,12 @@ function UpdateCustProfile(){
             }
         })
         .then((msg)=>{
-            alert("Data Inserted Successfully!!!")
+            // alert("Data Updated Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
         .catch(error => navigate("/Customer/updateProfile"))
 
+        localStorage.setItem("updates","Data Updated Successfully!!");
         navigate("/Customer/Profile");   
     }
     const[gender,setGender] = useState("");

@@ -47,17 +47,18 @@ export const AddFood = ()=>{
             }
         })
         .then((msg)=>{
-            alert("Data Inserted Successfully!!!")
+            // alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
         .catch(error => navigate("/Admin/AddFood"))
 
+        localStorage.setItem("datainser","Data Inserted Successfully!!!");
         navigate("/Admin/AdminHome");   
     }
     return(
         <div className="innercomps">
             <div className="container-fluid">
-            <h1 style={{fontFamily:"Antic Didone"}}>Add Food Item</h1>
+            <h1 >Add Food Item</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-5 mt-6"> 

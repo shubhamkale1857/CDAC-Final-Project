@@ -19,4 +19,12 @@ public class DailyMealController {
 	{
 		return dService.getTotCalories(cust_id);
 	}
+	
+	@GetMapping("/getTotalProt")
+	public int getTotProteins(@RequestParam("cust_id") int cust_id)
+	{
+		return dService.getTotProteins(cust_id);
+	}
+	
+	
 }

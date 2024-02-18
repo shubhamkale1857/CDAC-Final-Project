@@ -210,7 +210,8 @@ function TrainerRegistration(){
         })
         .catch(error => navigate("/errorpage"))
 
-        alert("Trainer registered succesfully!!")
+        //alert("Trainer registered succesfully!!")
+        localStorage.setItem("tregister","Trainer registered succesfully!!");
         navigate("/Admin/AdminHome");   
     }
     const[gender,setGender] = useState("");
@@ -219,7 +220,7 @@ function TrainerRegistration(){
         
         <div className="innercomps">
             <div className="container-fluid">
-            <h1 style={{fontFamily:"Antic Didone"}}>Trainer Registeration</h1>
+            <h1 >Trainer Registeration</h1>
             </div>
             <div className="row justify-content-center">
             <div className="col-md-6 mt-5"> 

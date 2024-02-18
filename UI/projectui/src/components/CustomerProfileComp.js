@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 export const CustomerProfile = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
+    const data2= (localStorage.getItem("updates"));
     const navigate = useNavigate();
     const[user,setUser]=useState({});
 
@@ -34,6 +35,8 @@ export const CustomerProfile = ()=>{
     }
     return (
         <div className="innercomps">
+
+            
             <table className="table table-striped">
                 <tbody>
                 <tr>
@@ -42,7 +45,9 @@ export const CustomerProfile = ()=>{
                 <tr>
                 <td colSpan={2} style={{fontSize:15}}>Goal is to {user.goal} weight in a healthy way!</td>
                 </tr>
-                <tr style={{height:40}}></tr>
+                <tr style={{height:40}}> </tr>
+                 <span style={{color:"green"}}>{data2}</span>
+
                 <tr>
                     <td>NAME</td>
                     <td>{user.fname}&nbsp;{user.lname}</td>
@@ -81,7 +86,9 @@ export const CustomerProfile = ()=>{
                 </tr>
                 </tbody>
             </table>
-            <button className="btn btn-secondary" onClick={navigateUpdate}>UPDATE PROFILE</button>
+            <button className="btn btn-secondary" onClick={navigateUpdate}>UPDATE PROFILE</button><br/><br/>
+
+            
         </div>
     )
 }
