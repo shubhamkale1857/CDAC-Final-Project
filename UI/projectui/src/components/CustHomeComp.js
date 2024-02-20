@@ -53,7 +53,8 @@ export const CustomerHome=()=>{
         fetch("http://localhost:8080/getCustomer?uid="+data.id)
         .then(resp => resp.json())
         .then(data => {
-            setUser(data)})
+            setUser(data)
+            localStorage.setItem("user", JSON.stringify(data))})
     },[])
 
     

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const SelectTrainer = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
 
     const[trainers,setTrainers]=useState([]);
+    const [buttonClass, setButtonClass] = useState("btn btn-primary");
+    const buttonRefs = useRef([]);
 
     const gender=(gender)=>{
         
@@ -20,6 +22,12 @@ export const SelectTrainer = ()=>{
         {
             return "Other";
         }
+    }
+
+    const sendrequest=(id)=>{
+        const buttonElement = buttonRefs.current[id];
+        if(buttonElement)
+            setButtonClass(prevClass => prevClass === 'btn btn-primary' ? 'btn btn-warning' : 'btn btn-primary');
     }
 
     useEffect(()=>{
@@ -54,7 +62,7 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
-                                <td><button className="btn btn-primary">REQUEST</button></td>
+                                <td><button  ref={(el) => buttonRefs.current[t.trainer_id] = el} className={buttonClass} onClick={()=>{sendrequest(t.trainer_id)}}>REQUEST</button></td>
                             </tr>
                         </tbody>
                 )

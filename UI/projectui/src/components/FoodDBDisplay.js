@@ -33,7 +33,7 @@ export const FoodDBDisplay = () =>{
             </form>
             <br/><br/>
     <table className="table table-bordered" >
-        <thead>
+        <thead className="table-info">
         <tr>        
             <td>NAME</td>
             <td>SERVING SIZE</td>
