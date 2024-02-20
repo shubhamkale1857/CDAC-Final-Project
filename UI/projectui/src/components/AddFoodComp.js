@@ -9,6 +9,7 @@ export const AddFood = ()=>{
     const[calory,setcalory] = useState(0);
     const[protein,setProtein] = useState(0);
     const[cat,setCat] = useState([]);
+    const[msg,setMsg] = useState("");
     useEffect(()=>{
         fetch("http://localhost:8080/getCategories")
         .then((res)=>{
@@ -24,6 +25,8 @@ export const AddFood = ()=>{
         .catch(error => navigate("/"))
     },[])
     const submitData = (e)=>{
+        if(fname === "" || calory===0 || protein===0 || category===0 || unit == ""){ setMsg("Enter all the fields first..")}else{
+            setMsg("")
         e.preventDefault();
         const reqOption = {
             method : "POST",
@@ -54,7 +57,7 @@ export const AddFood = ()=>{
 
         localStorage.setItem("datainser","Data Inserted Successfully!!!");
         navigate("/Admin/AdminHome");   
-    }
+    }}
     return(
         <div className="innercomps">
             <div className="container-fluid">
@@ -68,7 +71,7 @@ export const AddFood = ()=>{
                     <input required type="text" className="form-control" id="fname" name="fname" maxLength={45} onChange={(e)=>{setFname(e.target.value)}}/><br/>
                     
                     <label className="form-label" for="specialization">Select Unit</label>
-                    <select className="form-check" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
+                    <select className="form-control" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
                         <option value={""}>Select Unit</option>
                         <option value={"100ml"} className="form-check-input">100ml</option>
                         <option value={"cup (approx 250gm)"} className="form-check-input">cup (approx 250gm)</option>
@@ -83,7 +86,7 @@ export const AddFood = ()=>{
                     <input required type="number" className="form-control" id="calories" name="calories" min={0} onChange={(e)=>{setcalory(e.target.value)}}/><br/>
 
                     <label className="form-label" for="calories" >Select Category</label>
-                    <select className="form-check" onChange={(e)=>{setCategory(e.target.value)}}>
+                    <select className="form-control" onChange={(e)=>{setCategory(e.target.value)}}>
                         <option value={""}>Select Category</option>
                         {
                             cat.map((v)=>{
@@ -91,6 +94,8 @@ export const AddFood = ()=>{
                             })
                         }
                     </select><br/>
+                    <span  style={{color:"red"}}>{msg}</span>
+                    <br/><br/>
 
                     <input type="button" value={"Add Item"} className="btn btn-primary" onClick={(e)=>{submitData(e)}}/>
                     {/* disabled={!customer.formValid} */}

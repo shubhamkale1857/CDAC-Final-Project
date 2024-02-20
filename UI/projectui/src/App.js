@@ -30,6 +30,7 @@ import  UpdateCustProfile  from './components/UpdateCustProfileComp';
 import { Consultation } from './components/ConsultationComp';
 import { InsertFood } from './components/InsertFoodComp';
 import { TrainerHome } from './components/TrainerHomeComp';
+import { UpdateTrainer } from './components/UpdateTrainerComp';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -117,6 +118,7 @@ function App() {
               <Route path='AddFood' element={<AddFood/>}/>
               <Route path='Profile' element={<AdminProfile/>}/>
               <Route path='fooditems' element={<FoodDBDisplay/>}/>
+              <Route path='updateTrainer' element={<UpdateTrainer/>}/>
           </Route>
 
 

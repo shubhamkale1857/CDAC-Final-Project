@@ -94,7 +94,7 @@ export const UpdateFood = ()=>{
             {/* <div>{JSON.stringify(cat)}</div> */}
             <form>
                     <label className="form-label" for="fname">Select Food Item to Update</label>
-                    <select className="form-check" required={true} onChange={(e)=>{setFoodId(e.target.value); createObj(parseInt(e.target.value)); console.log(JSON.stringify(foodObj))}}>
+                    <select className="form-control" required={true} onChange={(e)=>{setFoodId(e.target.value); createObj(parseInt(e.target.value)); console.log(JSON.stringify(foodObj))}}>
                         {
                             foodlist.map((f)=>{
                                 return <option value={f.food_id}>{f.food_name}</option>
@@ -106,7 +106,7 @@ export const UpdateFood = ()=>{
                     <input required type="text" className="form-control" defaultValue={foodObj.food_name} id="fname" name="fname" minLength={1} maxLength={45} onChange={(e)=>{setFname(e.target.value)}}/><br/>
                     
                     <label className="form-label" for="specialization">Select Unit</label>
-                    <select className="form-check" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
+                    <select className="form-control" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
                         <option value={""}>Select Unit</option>
                         <option value={"100ml"} className="form-check-input">100ml</option>
                         <option value={"cup (approx 250gm)"} className="form-check-input">cup (approx 250gm)</option>
@@ -121,7 +121,7 @@ export const UpdateFood = ()=>{
                     <input required type="number" className="form-control" id="calories" defaultValue={foodObj.calories} name="calories" min={0} onChange={(e)=>{setcalory(e.target.value)}}/><br/>
 
                     <label className="form-label" for="calories" >Select Category</label>
-                    <select className="form-check" onChange={(e)=>{setCategory(e.target.value)}}>
+                    <select className="form-control" onChange={(e)=>{setCategory(e.target.value)}}>
                         <option value={""}>Select Category</option>
                         {
                             cat.map((v)=>{
