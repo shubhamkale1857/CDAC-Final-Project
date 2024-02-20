@@ -36,7 +36,7 @@ export const CustomerProfile = ()=>{
     return (
         <div className="innercomps">
 
-            
+            <div>{JSON.stringify(user)}</div>
             <table className="table table-striped">
                 <tbody>
                 <tr>

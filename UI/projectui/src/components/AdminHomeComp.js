@@ -1,7 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import { AdminSidebar } from "./AdminSidebar";
+import { useEffect } from "react";
 
 export const AdminHome = () => {
+
+
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+          localStorage.removeItem("datainser");
+          localStorage.removeItem("dataupdate");
+        };
+        
+    
+        return () => {
+          handleBeforeUnload()
+        };
+      }, []);
+
+
+
+
     const navigate = useNavigate();
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const data2= (localStorage.getItem("tregister"));
