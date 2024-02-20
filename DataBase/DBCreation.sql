@@ -28,6 +28,7 @@ CREATE TABLE `dac_project`.`users` (
 
 CREATE TABLE `dac_project`.`customers` (
   `customer_id` int NOT NULL AUTO_INCREMENT,
+  `trainer` INT NULL,
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -44,7 +45,8 @@ CREATE TABLE `dac_project`.`customers` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `emailconstraint` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `trainer` FOREIGN KEY (`trainer`) REFERENCES `dac_project`.`trainers` (`trainer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE `dac_project`.`trainers` (

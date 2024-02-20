@@ -34,6 +34,8 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
 	@Column
+	private Integer trainer;
+	@Column
 	private String fname;
 	@Column
 	private String lname;

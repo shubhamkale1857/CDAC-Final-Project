@@ -22,3 +22,23 @@ CREATE TABLE `dac_project`.`mealfooditemtransaction` (
     ON UPDATE NO ACTION);
 
 
+CREATE TABLE `dac_project`.`trainer_requests` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `trainer_id` INT NULL,
+  `customer_id` INT NULL,
+  `req_status` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `cust_id_idx` (`customer_id` ASC) VISIBLE,
+  INDEX `train_id_idx` (`trainer_id` ASC) VISIBLE,
+  CONSTRAINT `cust_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `dac_project`.`customers` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `train_id`
+    FOREIGN KEY (`trainer_id`)
+    REFERENCES `dac_project`.`trainers` (`trainer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+

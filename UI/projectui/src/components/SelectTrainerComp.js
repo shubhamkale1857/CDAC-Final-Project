@@ -23,6 +23,7 @@ export const SelectTrainer = ()=>{
             return "Other";
         }
     }
+<<<<<<< Updated upstream
 
     const sendrequest=(id)=>{
         const buttonElement = buttonRefs.current[id];
@@ -30,15 +31,24 @@ export const SelectTrainer = ()=>{
             setButtonClass(prevClass => prevClass === 'btn btn-primary' ? 'btn btn-warning' : 'btn btn-primary');
     }
 
+=======
+>>>>>>> Stashed changes
     useEffect(()=>{
-        fetch("http://localhost:8080/getTrainers")
+        //console.log("*************************************************88")
+        fetch("https://localhost:7283/api/Trainer/Index")
         .then(resp => resp.json())
         .then(data => {setTrainers(data)})
     },[])
+
+    const requestTrainer = (tid,cid)=>{
+        console.log("Tid: "+tid+" Cid"+cid);
+        fetch("https://localhost:7283/api/Trainer/SaveTrainerReq?tid="+tid+"&cid="+cid)
+        .then(res=>{return res.text()})
+        .then(data => console.log((data+"************%########################################")))
+    }
     return (
         <div className="innercomps">
             <h3>Trainers List...</h3>
-
             <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -62,14 +72,18 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
+<<<<<<< Updated upstream
                                 <td><button  ref={(el) => buttonRefs.current[t.trainer_id] = el} className={buttonClass} onClick={()=>{sendrequest(t.trainer_id)}}>REQUEST</button></td>
+=======
+                                <td><button className="btn btn-primary" onClick={()=>requestTrainer(t.trainerId,data.id)}>REQUEST</button></td>
+>>>>>>> Stashed changes
                             </tr>
                         </tbody>
-                )
-               
+                    )
                 }) 
             }</table>
             
         </div>
     )
 }
+
