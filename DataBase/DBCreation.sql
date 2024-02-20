@@ -26,6 +26,25 @@ CREATE TABLE `dac_project`.`users` (
     ON UPDATE CASCADE);
 
 
+CREATE TABLE `dac_project`.`trainers` (
+  `trainer_id` int NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) DEFAULT NULL,
+  `lname` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `contactno` varchar(13) DEFAULT NULL,
+  `specialization` varchar(45) DEFAULT NULL,
+  `experience` int DEFAULT NULL,
+  `dob` DATE NULL,
+  `registration_date` date DEFAULT NULL,
+  `gender` VARCHAR(45) NULL,
+  `address` varchar(150) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`trainer_id`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `emailconstraint1` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
+  CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
 CREATE TABLE `dac_project`.`customers` (
   `customer_id` int NOT NULL AUTO_INCREMENT,
   `trainer` INT NULL,
@@ -49,24 +68,6 @@ CREATE TABLE `dac_project`.`customers` (
   CONSTRAINT `trainer` FOREIGN KEY (`trainer`) REFERENCES `dac_project`.`trainers` (`trainer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
-CREATE TABLE `dac_project`.`trainers` (
-  `trainer_id` int NOT NULL AUTO_INCREMENT,
-  `fname` varchar(45) DEFAULT NULL,
-  `lname` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `contactno` varchar(13) DEFAULT NULL,
-  `specialization` varchar(45) DEFAULT NULL,
-  `experience` int DEFAULT NULL,
-  `dob` DATE NULL,
-  `registration_date` date DEFAULT NULL,
-  `gender` VARCHAR(45) NULL,
-  `address` varchar(150) DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  PRIMARY KEY (`trainer_id`),
-  KEY `user_id_idx` (`user_id`),
-  CONSTRAINT `emailconstraint1` CHECK (`email` REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$'),
-  CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
-);
 
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('1', 'ADMIN');
 INSERT INTO `dac_project`.`roles` (`role_id`, `role_name`) VALUES ('2', 'CUSTOMER');

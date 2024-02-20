@@ -25,7 +25,7 @@ public class TrainerRequesController {
 	@GetMapping("/SaveTrainerReq")
 	public String saveTrainerReq(@RequestParam("tid") int tid,@RequestParam("cid") int cid) {
 		System.out.println("Traier id: "+tid+" Customer id: "+cid);
-		Customer cust = cservice.getOneCustomer(cid);
+		Customer cust = cservice.findByUid(cid);
 		Trainer train = ttservice.getOneCustomer(tid);
 		TrainerRequest tr = new TrainerRequest();
 		tr.setCustomer(cust);

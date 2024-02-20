@@ -26,6 +26,16 @@ namespace TrainerUseCases.Controllers
             return list;
         }
         [HttpGet]
+        public Trainer getOneTrainer(int uid)
+        {
+            Trainer? list = null;
+            using (var db = new dac_projectContext())
+            {
+                list = db.Trainers.Where(t=>t.UserId==uid).FirstOrDefault();
+            }
+            return list;
+        }
+        [HttpGet]
         public String SaveTrainerReq(int tid,int cid)
         {
             Console.WriteLine("saving trainer request");

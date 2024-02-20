@@ -34,7 +34,11 @@ export const CustomerProfile = ()=>{
         }
     }
     const[uu,setUU] = useState({});
-    //setUU(user.user);
+    var train = user.trainer;
+    var isTrainer = false;
+    if(train != null){
+        isTrainer = true;
+    }
     return (
         <div className="innercomps">
             <table className="table table-striped">
@@ -53,8 +57,9 @@ export const CustomerProfile = ()=>{
                     <td>{user.fname}&nbsp;{user.lname}</td>
                 </tr>
                 <tr>
-                <td>Trainer</td>
-                    <td>{user.trainer.fname}&nbsp;{user.trainer.lname}</td>
+                <td>Trainer</td>{
+                    (isTrainer?<td>{user.trainer.fname}&nbsp;{user.trainer.lname}</td>:<td>No Trainer Assigned Yet</td>)     
+                }  
                 </tr>
                 <tr>
                     <td>EMAIL</td>
