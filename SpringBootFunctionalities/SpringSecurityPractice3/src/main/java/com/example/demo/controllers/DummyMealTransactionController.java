@@ -66,7 +66,7 @@ public class DummyMealTransactionController {
 			Fooditem food = fService.getOneFoodItem(foodId);
 			foodList.add(food);
 			sumCalory += (food.getCalories()*(dummy.getList().get(i))[1]);
-			sumProtein += (food.getProtein()*(dummy.getList().get(i))[2]);
+			sumProtein += ((dummy.getList().get(i))[1])*(dummy.getList().get(i))[2];
 		}
 		
 		Customer cust = cService.findByUid(dummy.getUid());
