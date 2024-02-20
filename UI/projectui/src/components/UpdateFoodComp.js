@@ -12,6 +12,8 @@ export const UpdateFood = ()=>{
     const[calory,setcalory] = useState(0);
     const[protein,setProtein] = useState(0);
     const[cat,setCat] = useState([]);
+    const[msg,setMsg] = useState("");
+    const[msg2,setMsg2] = useState("");
 
     const createObj = (id) => {
         foodlist.map((f)=>{
@@ -52,6 +54,9 @@ export const UpdateFood = ()=>{
         .catch(error => navigate("/"))
     },[])
     const submitData = (e)=>{
+        if(foodid===0){setMsg2("select food First!")}else{setMsg2("")}
+        if(unit==="" || calory===""){setMsg("please select unit and category both!!")}else{
+            setMsg("")
         e.preventDefault();
         const reqOption = {
             method : "POST",
@@ -82,7 +87,7 @@ export const UpdateFood = ()=>{
         .catch(error => navigate("/Admin/AddFood"))
 
         localStorage.setItem("dataupdate","Data Updated Successfully!!!");
-        navigate("/Admin/AdminHome");   
+        navigate("/Admin/AdminHome"); }  
     }
     return(
         <div className="innercomps">
@@ -95,15 +100,16 @@ export const UpdateFood = ()=>{
             <form>
                     <label className="form-label" for="fname">Select Food Item to Update</label>
                     <select className="form-control" required={true} onChange={(e)=>{setFoodId(e.target.value); createObj(parseInt(e.target.value)); console.log(JSON.stringify(foodObj))}}>
+                    <option>select fooditem..</option>
                         {
                             foodlist.map((f)=>{
                                 return <option value={f.food_id}>{f.food_name}</option>
                             })
                         }
-                    </select><br/>
+                    </select><span  style={{color:"red"}}>{msg2}</span><br/>
 
-                    <label className="form-label" for="fname">Enter Food Name</label>
-                    <input required type="text" className="form-control" defaultValue={foodObj.food_name} id="fname" name="fname" minLength={1} maxLength={45} onChange={(e)=>{setFname(e.target.value)}}/><br/>
+                    <label className="form-label" for="fname">Food Name</label>
+                    <input required type="text" className="form-control" defaultValue={foodObj.food_name} id="fname" name="fname" minLength={1} maxLength={45} onChange={(e)=>{setFname(e.target.value)}} disabled/><br/>
                     
                     <label className="form-label" for="specialization">Select Unit</label>
                     <select className="form-control" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
@@ -129,6 +135,7 @@ export const UpdateFood = ()=>{
                             })
                         }
                     </select><br/>
+                    <span  style={{color:"red"}}>{msg}</span><br/><br/>
                     <input type="button" value={"Update Item"} className="btn btn-primary" onClick={(e)=>{submitData(e)}}/>
                     {/* disabled={!customer.formValid} */}
                     <input type="reset" className="btn btn-danger "/>

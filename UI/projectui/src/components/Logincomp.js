@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {login} from "../isLoggedSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const LoginComp = () =>{
 
@@ -9,6 +9,17 @@ export const LoginComp = () =>{
     const dispatch = useDispatch();
     const myState = useSelector((state)=> state.logged);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+          localStorage.removeItem("success");
+        };
+        
+    
+        return () => {
+          handleBeforeUnload()
+        };
+      }, []);
 
     const handleClick=()=>{
         const reqOption = {
