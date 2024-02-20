@@ -152,6 +152,8 @@ export const MealHistory = ()=>{
                             <td>QUANTITY</td>
                             <td>CALORIES</td>
                             <td>PROTEIN</td>
+                            <td>PROTEIN2</td>
+                            <td>PROTEIN3</td>
                         </tr>
                 </thead>
                 <tbody>
