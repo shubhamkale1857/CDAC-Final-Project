@@ -21,8 +21,6 @@ export const CustomerHome=()=>{
         return prot;
     }
 
-
-
     const calCalorie2 = ()=>{
         let democal=0;
         if(user.gender === 'm')

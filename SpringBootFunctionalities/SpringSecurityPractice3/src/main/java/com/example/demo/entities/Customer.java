@@ -16,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -33,8 +34,10 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
-	@Column
-	private Integer trainer;
+	@JsonIgnoreProperties
+	@ManyToOne
+	@JoinColumn(name = "trainer")
+	private Trainer trainer;
 	@Column
 	private String fname;
 	@Column

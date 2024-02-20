@@ -13,9 +13,6 @@ namespace TrainerUseCases.Controllers
     [ApiController]
     public class TrainerController : ControllerBase
     {
-
-        
-
         [Produces("application/json")]
         [HttpGet]
         public List<Trainer> Index()
@@ -31,6 +28,7 @@ namespace TrainerUseCases.Controllers
         [HttpGet]
         public String SaveTrainerReq(int tid,int cid)
         {
+            Console.WriteLine("saving trainer request");
             using(var db = new dac_projectContext())
             {
                 var cust = db.Customers.Where(s => s.UserId == cid).FirstOrDefault();
@@ -42,9 +40,9 @@ namespace TrainerUseCases.Controllers
                 Console.WriteLine(req.ToString());
                 db.Add(req);
                 db.SaveChanges();
+                Console.WriteLine("saved trainer request");
                 return "Success";
             }
-            return "failed";
         }
 
         [HttpGet]
@@ -70,22 +68,80 @@ namespace TrainerUseCases.Controllers
         }
 
         [HttpGet]
-        public List<Customer> approve(int tid,int cid)
+        public String approve(int tid,int cid)
         {
             Console.WriteLine(tid);
             List<TrainerRequest> list = new List<TrainerRequest>();
             List<Customer> custs = new List<Customer>();
             using (var db = new dac_projectContext())
             {
-                var train = db.Trainers.Where(s => s.UserId == tid).FirstOrDefault();
-                var cust = db.Customers.Where(c => c.CustomerId == cid).FirstOrDefault();
-                cust.Trainer = train.TrainerId;
-
-
-                db.SaveChanges();
-                
+                var train = db.Trainers.FirstOrDefault(s => s.UserId == tid);
+                var cust = db.Customers.FirstOrDefault(c => c.CustomerId == cid);
+                if(train != null)
+                {
+                    if (cust != null)
+                    {
+                        cust.Trainer = train.TrainerId;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        Console.WriteLine("cust is null");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("trianer is null");
+                }
+                //Console.WriteLine("Trainer ID=" + train.TrainerId + "  Customer ID: " + cust.CustomerId);
+                var trainerreqlist = db.TrainerRequests.Where(t => t.TrainerId == train.TrainerId && t.CustomerId == cust.CustomerId).ToList();
+                if(trainerreqlist != null)
+                {
+                    //Console.WriteLine("Length: " + trainerreqlist.Count);
+                    foreach (TrainerRequest a in trainerreqlist)
+                    {
+                        a.ReqStatus = 1;
+                        Console.WriteLine(a.ReqStatus);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("trainer list is null");
+                }   
             }
-            return custs;
+            Console.WriteLine("response send successfully");
+            return "Success";
+        }
+
+        [HttpGet]
+        public String deny(int tid, int cid)
+        {
+            Console.WriteLine(tid);
+            List<TrainerRequest> list = new List<TrainerRequest>();
+            List<Customer> custs = new List<Customer>();
+            using (var db = new dac_projectContext())
+            {
+                var train = db.Trainers.FirstOrDefault(s => s.UserId == tid);
+                var cust = db.Customers.FirstOrDefault(c => c.CustomerId == cid);
+                var trainerreqlist = db.TrainerRequests.Where(t => t.TrainerId == train.TrainerId && t.CustomerId == cust.CustomerId).ToList();
+                if (trainerreqlist != null)
+                {
+                    //Console.WriteLine("Length: " + trainerreqlist.Count);
+                    foreach (TrainerRequest a in trainerreqlist)
+                    {
+                        a.ReqStatus = 2;
+                        //Console.WriteLine(a.ReqStatus);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("trainer list is null");
+                }
+            }
+            Console.WriteLine("response send successfully");
+            return "Denied";
         }
     }
 }

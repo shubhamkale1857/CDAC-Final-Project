@@ -17,13 +17,13 @@ public class DailyMealController {
 	DailyMealService dService;
 	
 	@GetMapping("/getTotalCal")
-	public int getTotCalories(@RequestParam("cust_id") int cust_id)
+	public Integer getTotCalories(@RequestParam("cust_id") int cust_id)
 	{
 		return dService.getTotCalories(cust_id);
 	}
 	
 	@GetMapping("/getTotalProt")
-	public int getTotProteins(@RequestParam("cust_id") int cust_id)
+	public Integer getTotProteins(@RequestParam("cust_id") int cust_id)
 	{
 		return dService.getTotProteins(cust_id);
 	}

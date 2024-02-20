@@ -23,26 +23,17 @@ export const SelectTrainer = ()=>{
             return "Other";
         }
     }
-<<<<<<< Updated upstream
 
-    const sendrequest=(id)=>{
-        const buttonElement = buttonRefs.current[id];
-        if(buttonElement)
-            setButtonClass(prevClass => prevClass === 'btn btn-primary' ? 'btn btn-warning' : 'btn btn-primary');
-    }
-
-=======
->>>>>>> Stashed changes
     useEffect(()=>{
         //console.log("*************************************************88")
-        fetch("https://localhost:7283/api/Trainer/Index")
+        fetch("http://localhost:8080/getTrainers")
         .then(resp => resp.json())
         .then(data => {setTrainers(data)})
     },[])
 
     const requestTrainer = (tid,cid)=>{
         console.log("Tid: "+tid+" Cid"+cid);
-        fetch("https://localhost:7283/api/Trainer/SaveTrainerReq?tid="+tid+"&cid="+cid)
+        fetch("http://localhost:8080/SaveTrainerReq?tid="+tid+"&cid="+cid)
         .then(res=>{return res.text()})
         .then(data => console.log((data+"************%########################################")))
     }
@@ -72,11 +63,7 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
-<<<<<<< Updated upstream
-                                <td><button  ref={(el) => buttonRefs.current[t.trainer_id] = el} className={buttonClass} onClick={()=>{sendrequest(t.trainer_id)}}>REQUEST</button></td>
-=======
-                                <td><button className="btn btn-primary" onClick={()=>requestTrainer(t.trainerId,data.id)}>REQUEST</button></td>
->>>>>>> Stashed changes
+                                <td><button className="btn btn-primary" onClick={()=>requestTrainer(t.trainer_id,data.id)}>REQUEST</button></td>
                             </tr>
                         </tbody>
                     )

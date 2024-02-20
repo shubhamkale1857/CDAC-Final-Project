@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 export const ClientList = ()=>{
+    const navigate = useNavigate();
     const[req,setReq] = useState({});
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[customers,setCustomers] = useState([]);
@@ -24,15 +26,28 @@ export const ClientList = ()=>{
             return "Other";
         }
     }
+    const[ap,setAp] = useState(true);
     const approve = (cid)=>{
         fetch("https://localhost:7283/api/Trainer/approve?tid="+data.id+"&cid="+cid)
-        .then(resp => resp.json())
-        .then(data => {setCustomers(data)})
+        .then(resp => resp.text())
+        .then(data => {
+            if(data === "Success"){
+                navigate("/Trainer/TrainerHome");
+            }
+        })
+    }
+    const deny = (cid)=>{
+        fetch("https://localhost:7283/api/Trainer/deny?tid="+data.id+"&cid="+cid)
+        .then(resp => resp.text())
+        .then(data => {
+            if(data === "Denied"){
+                navigate("/Trainer/TrainerHome");
+            }
+        })
     }
     return (
         <div className="innercomps">
             <h3>ClientList List...</h3>
-            <div>{JSON.stringify(customers)}</div>
             <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -60,8 +75,8 @@ export const ClientList = ()=>{
                                 <td>{t.weight}</td>
                                 <td>{gender(t.gender)}</td>
                                 <td>{t.goal}</td>
-                                <td><button className="btn btn-primary" onClick={()=>{approve(t.customerId)}}>Aprove</button></td>
-                                <td><button className="btn btn-danger">Deny</button></td>
+                                <td><button className="btn btn-primary" onClick={()=>{approve(t.customerId);}}>Aprove</button></td>
+                                <td><button className="btn btn-danger" onClick={()=>{deny(t.customerId);}}>Deny</button></td>
                             </tr>
                         </tbody>
                     )
