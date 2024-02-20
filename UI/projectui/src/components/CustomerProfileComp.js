@@ -33,10 +33,10 @@ export const CustomerProfile = ()=>{
             return "Other";
         }
     }
+    const[uu,setUU] = useState({});
+    //setUU(user.user);
     return (
         <div className="innercomps">
-
-            <div>{JSON.stringify(user)}</div>
             <table className="table table-striped">
                 <tbody>
                 <tr>
@@ -54,7 +54,7 @@ export const CustomerProfile = ()=>{
                 </tr>
                 <tr>
                 <td>Trainer</td>
-                    <td>{}</td>
+                    <td>{user.trainer.fname}&nbsp;{user.trainer.lname}</td>
                 </tr>
                 <tr>
                     <td>EMAIL</td>

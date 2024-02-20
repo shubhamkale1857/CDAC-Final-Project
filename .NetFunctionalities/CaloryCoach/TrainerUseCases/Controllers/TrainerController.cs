@@ -94,7 +94,7 @@ namespace TrainerUseCases.Controllers
                     Console.WriteLine("trianer is null");
                 }
                 //Console.WriteLine("Trainer ID=" + train.TrainerId + "  Customer ID: " + cust.CustomerId);
-                var trainerreqlist = db.TrainerRequests.Where(t => t.TrainerId == train.TrainerId && t.CustomerId == cust.CustomerId).ToList();
+                var trainerreqlist = db.TrainerRequests.Where(t => t.CustomerId == cust.CustomerId).ToList();
                 if(trainerreqlist != null)
                 {
                     //Console.WriteLine("Length: " + trainerreqlist.Count);
