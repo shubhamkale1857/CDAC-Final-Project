@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export const FoodDBDisplay = () =>{
+    const data = JSON.parse(localStorage.getItem("loggedUser"));
 
     const navigate = useNavigate();
 
@@ -17,7 +18,10 @@ export const FoodDBDisplay = () =>{
     }
 
     useEffect(()=>{
-        fetch("http://localhost:8080/getfoodlist")
+        fetch("http://localhost:8080/getfoodlist", {
+            method: 'GET',
+            headers: {Authorization: `Bearer ${data.accessToken}`}
+          })
         .then(resp => resp.json())
         .then(data => setFood(data))
         .catch(() => navigate("/ErrorPage"))

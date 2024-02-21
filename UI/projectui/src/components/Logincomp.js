@@ -14,8 +14,6 @@ export const LoginComp = () =>{
         const handleBeforeUnload = () => {
           localStorage.removeItem("success");
         };
-        
-    
         return () => {
           handleBeforeUnload()
         };
@@ -80,24 +78,23 @@ export const LoginComp = () =>{
     }
 
     const[usenamemsg,setUserMsg] = useState("");
-    const checkUsername = (val) =>{
-        fetch("http://localhost:8500/getusername?uname="+val) 
-        .then((res)=>{return res.json()})
-        .then((data) => {
-            if(data.length == 0){
-                setUserMsg("Username Not Present!!!")
-                setFlag(true);
-            }else{
-                setFlag(false);
-                setUserMsg("");
-            }
-        })
-        .catch(() => navigate("/ErrorPage"))
-    }
+    // const checkUsername = (val) =>{
+    //     fetch("http://localhost:8500/getusername?uname="+val) 
+    //     .then((res)=>{return res.json()})
+    //     .then((data) => {
+    //         if(data.length == 0){
+    //             setUserMsg("Username Not Present!!!")
+    //             setFlag(true);
+    //         }else{
+    //             setFlag(false);
+    //             setUserMsg("");
+    //         }
+    //     })
+    //     .catch(() => navigate("/ErrorPage"))
+    // }
     const[msg, setMsg]=useState("");
     const[uname,setUname]=useState("");
     const[pwd,setPwd]=useState("");
-    const[flag,setFlag]=useState(true);
 
     
     return(
@@ -113,7 +110,7 @@ export const LoginComp = () =>{
                     <div className="row">
                         <div className="col-md-12 form-group">
                         <label for="name">UserName</label>
-                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value);checkUsername(e.target.value)}} onBlur={(e)=>{checkUsername(e.target.value)}}/>
+                        <input type="text" id="name" className="form-control" onChange={(e)=>{setUname(e.target.value)}} />
                         </div>
                         <div style={{display: (true)?"block":"none"}}><p className="text-danger">{usenamemsg}</p></div>
                     </div>
@@ -127,7 +124,7 @@ export const LoginComp = () =>{
                     <p style={{float:"right"}}>don't have an account? <Link to='/register'>register</Link></p>
                     <div className="row">
                         <div className="col-md-5 form-group">
-                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick} disabled={flag} />
+                        <input type="button" value="Login" className="btn btn-primary" onClick={handleClick}/>
                         </div>
                     </div>
                 </form>

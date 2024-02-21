@@ -7,7 +7,10 @@ export const AdminProfile = ()=>{
     const navigate = useNavigate();
     const[user,setAdmin] = useState({});
     useEffect(()=>{
-        fetch("http://localhost:8080/getAdminDetails?uid="+data.id)
+        fetch("http://localhost:8080/getAdminDetails?uid="+data.id, {
+            method: 'GET',
+            headers: {Authorization: `Bearer ${data.accessToken}`}
+          })
         .then((res)=>{
             return res.json();
         })

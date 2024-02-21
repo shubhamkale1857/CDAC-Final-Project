@@ -10,21 +10,17 @@ export const AdminHome = () => {
           localStorage.removeItem("datainser");
           localStorage.removeItem("dataupdate");
         };
-        
-    
         return () => {
           handleBeforeUnload()
         };
       }, []);
-
-
-
-
     const navigate = useNavigate();
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const data2= (localStorage.getItem("tregister"));
     const data3= (localStorage.getItem("datainser"));
     const data4= (localStorage.getItem("dataupdate"));
+
+    
     return (
         <div className="innercomps">
             <h1>Welcome {data.username}!</h1>

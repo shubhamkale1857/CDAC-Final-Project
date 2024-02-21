@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const TrainerProfile = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[user,setUser] = useState({});
+    const navigate = useNavigate();
     useEffect(()=>{
         fetch("https://localhost:7283/api/Trainer/getOneTrainer?uid="+data.id)
         .then(res => res.json())
@@ -68,9 +70,11 @@ export const TrainerProfile = ()=>{
                     <td>ADDRESS</td>
                     <td>{user.address}</td>
                 </tr>
-                
                 </tbody>
             </table>
+            <button className="btn btn-primary" onClick={()=>{
+                        navigate("/Trainer/UpdateProfile");
+                    }}> Update Pofile</button>
         </div>
     )
 }

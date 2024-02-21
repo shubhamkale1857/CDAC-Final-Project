@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 function TrainerRegistration(){
+    const data = JSON.parse(localStorage.getItem("loggedUser"));
     let navigate = useNavigate();
     const init = {
         fname : {value:"",error:"",touched:false,valid:false}, 
@@ -180,7 +181,7 @@ function TrainerRegistration(){
         e.preventDefault();
         const reqOption = {
             method : "POST",
-            headers : {"content-type":"application/json"},
+            headers : {"content-type":"application/json", Authorization: `Bearer ${data.accessToken}`},
             body : JSON.stringify({
                 fname : customer.fname.value,
                 lname : customer.lname.value,
@@ -196,7 +197,7 @@ function TrainerRegistration(){
             })
         }
         console.log(reqOption);
-        fetch("http://localhost:8080/saveTrainer",reqOption)
+        fetch("http://localhost:8080/saveTrainer", reqOption)
         .then((res)=>{
             if(res.ok){
                 console.log("here in react")

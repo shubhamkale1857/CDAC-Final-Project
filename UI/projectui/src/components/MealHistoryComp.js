@@ -98,11 +98,7 @@ export const MealHistory = ()=>{
 
     return (
         <div className="innercomps">
-            {obj.length!==1 ? "abc":"pqr"}
-            {
-                
-            }
-
+            {/* {JSON.stringify(obj)} */}
             <br/>
             <h3>Enter Date</h3>
             <form class="d-flex">

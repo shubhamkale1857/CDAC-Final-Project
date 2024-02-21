@@ -2,6 +2,7 @@ import { useEffect, useReducer,useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
 export const AddFood = ()=>{
+    const data = JSON.parse(localStorage.getItem("loggedUser"));
     let navigate = useNavigate();
     const[unit,setUnit] = useState("");
     const[category,setCategory] = useState(0);
@@ -30,7 +31,7 @@ export const AddFood = ()=>{
         e.preventDefault();
         const reqOption = {
             method : "POST",
-            headers : {"content-type":"application/json"},
+            headers : {"content-type":"application/json", Authorization: `Bearer ${data.accessToken}`},
             body : JSON.stringify({
                 fname : fname,
                 unit : unit,

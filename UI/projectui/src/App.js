@@ -111,6 +111,7 @@ function App() {
               <Route path='Requests' element={<ClientList/>}/>
               <Route path='ClientList' element={<SelfClients/>}/>
               <Route path='Profile' element={<TrainerProfile/>}/>
+              <Route path='UpdateProfile' element={<UpdateTrainer/>}/>
           </Route>
 
           <Route path='/Admin' element={<AdminSidebar/>}>
@@ -120,7 +121,6 @@ function App() {
               <Route path='AddFood' element={<AddFood/>}/>
               <Route path='Profile' element={<AdminProfile/>}/>
               <Route path='fooditems' element={<FoodDBDisplay/>}/>
-              <Route path='updateTrainer' element={<UpdateTrainer/>}/>
           </Route>
 
 

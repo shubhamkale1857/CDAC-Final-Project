@@ -27,10 +27,6 @@ export const AdminSidebar = ({ children }) => {
       name: "Add Trainer"
     },
     {
-      path: "/Admin/updateTrainer",
-      name: "Update Trainer"
-    },
-    {
       path: "/Admin/fooditems",
       name: "Foods"
     },
