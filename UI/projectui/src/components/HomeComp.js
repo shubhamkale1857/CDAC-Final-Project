@@ -18,7 +18,7 @@ export const HomeComp = () => {
 
   return (
     <div>
-      <div className="container-fluid custom-bg" style={{borderRadius:" 0 0 70% 70%"}}>
+      <div className="container-fluid custom-bg" style={{borderRadius:" 0 0 40% 40%"}}>
         
         <h1 className='titlehome'>
           BODY POSITIVITY IS A MYTH
@@ -66,7 +66,7 @@ export const HomeComp = () => {
          <table className='table table-borderless w-50'>
               <tbody>
                 <tr>
-                  <td style={{backgroundColor:'red', height:30}}></td>
+                  <td style={{backgroundColor:'red', height:25}}></td>
                   <td style={{backgroundColor:'orange'}}></td>
                   <td style={{backgroundColor:'yellow'}}></td>
                   <td style={{backgroundColor:'green'}}></td>
@@ -90,7 +90,7 @@ export const HomeComp = () => {
       </div>
 
       
-         <div style={{backgroundColor:'grey', height:150}}></div>
+         <div style={{backgroundColor:'grey', height:150}}>contact Us For More Info</div>
     </div>
     
   );
