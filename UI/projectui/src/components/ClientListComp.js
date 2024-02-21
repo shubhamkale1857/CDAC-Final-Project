@@ -5,11 +5,18 @@ export const ClientList = ()=>{
     const[req,setReq] = useState({});
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[customers,setCustomers] = useState([]);
+    const[flag, setFlag]=useState(true);
     useEffect(()=>{
         //console.log("*************************************************88")
         fetch("https://localhost:7283/api/Trainer/getReq?tid="+data.id)
         .then(resp => resp.json())
-        .then(data => {setCustomers(data)})
+        .then(data => {
+            setCustomers(data);
+            if(data.length===0)
+            {
+                setFlag(false);
+            }else{setFlag(true);}
+        })
         .catch(() => navigate("/ErrorPage"))
     },[])
     const gender=(gender)=>{
@@ -50,6 +57,7 @@ export const ClientList = ()=>{
     }
     return (
         <div className="innercomps">
+            <div style={{display: flag?"block":"none"}}>
             <h3>Client Requests...</h3>
             <table className="table table-striped table-bordered">
                         <thead>
@@ -84,7 +92,8 @@ export const ClientList = ()=>{
                         </tbody>
                     )
                 }) 
-            }</table>
+            }</table></div>
+            <div style={{display: flag?"none":"block"}}> <h2>No Requests...</h2></div>
             
         </div>
     )

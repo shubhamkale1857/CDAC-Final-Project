@@ -41,4 +41,10 @@ CREATE TABLE `dac_project`.`trainer_requests` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
+CREATE TABLE `consultations` (
+  `cu_id` int NOT NULL AUTO_INCREMENT,
+  `trainer_id` int DEFAULT NULL,
+  `customer_id` int DEFAULT NULL,
+  `script` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`cu_id`)
+) 
