@@ -47,7 +47,7 @@ export const ClientList = ()=>{
     }
     return (
         <div className="innercomps">
-            <h3>ClientList List...</h3>
+            <h3>Client Requests...</h3>
             <table className="table table-striped table-bordered">
                         <thead>
                             <tr>

@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +35,11 @@ public class TrainerRequesController {
 		tr.setReq_status(0);
 		tservice.save(tr);
 		return "Success";
+	}
+	
+	@GetMapping("/getTrainerRequests")
+	public List<TrainerRequest> getList(@RequestParam("cid") int cid)
+	{
+		return tservice.getList(cid);
 	}
 }

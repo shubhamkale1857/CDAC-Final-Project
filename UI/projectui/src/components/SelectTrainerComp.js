@@ -3,10 +3,13 @@ import { useEffect, useRef, useState } from "react";
 export const SelectTrainer = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
+    const user= JSON.parse(localStorage.getItem("user"));
 
     const[trainers,setTrainers]=useState([]);
     const [buttonClass, setButtonClass] = useState("btn btn-primary");
     const buttonRefs = useRef([]);
+    const[btnflag, setBtnflag]=useState(true);
+    const[trflag,setTrflag]=useState(true);
 
     const gender=(gender)=>{
         
@@ -26,12 +29,22 @@ export const SelectTrainer = ()=>{
 
     useEffect(()=>{
         //console.log("*************************************************88")
-        fetch("http://localhost:8080/getTrainers")
+        fetch("http://localhost:8080/getTrainerRequests?cid="+user.customer_id)
         .then(resp => resp.json())
-        .then(data => {setTrainers(data)})
+        .then(data => {
+            if(data.length===0){
+                setTrflag(true)
+            fetch("http://localhost:8080/getTrainers")
+            .then(resp => resp.json())
+            .then(data => {setTrainers(data)})
+            }else{
+                setTrflag(false)
+                console.log("nothing")
+            }})        
     },[])
 
     const requestTrainer = (tid,cid)=>{
+        setBtnflag(false);
         console.log("Tid: "+tid+" Cid"+cid);
         fetch("http://localhost:8080/SaveTrainerReq?tid="+tid+"&cid="+cid)
         .then(res=>{return res.text()})
@@ -39,6 +52,8 @@ export const SelectTrainer = ()=>{
     }
     return (
         <div className="innercomps">
+            
+            <div style={{display: trflag?"block":"none"}}>
             <h3>Trainers List...</h3>
             <table className="table table-striped table-bordered">
                         <thead>
@@ -63,12 +78,15 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
-                                <td><button className="btn btn-primary" onClick={()=>requestTrainer(t.trainer_id,data.id)}>REQUEST</button></td>
+                                <td><button className= "btn btn-primary" onClick={()=>requestTrainer(t.trainer_id,data.id)}>REQUEST</button></td>
                             </tr>
                         </tbody>
-                    )
+                   )
                 }) 
-            }</table>
+            }</table></div>
+            <div style={{display: trflag?"none":"block"}}>
+                <h3 style={{color:"green"}}>You already have a Trainer!!</h3>
+            </div>
             
         </div>
     )

@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,5 +14,9 @@ public class TrainerRequestService {
 	TrainerRequestRepository trepo;
 	public TrainerRequest save(TrainerRequest tr) {
 		return trepo.save(tr);
+	}
+	
+	public List<TrainerRequest> getList(int cid){
+		return trepo.getList(cid);
 	}
 }

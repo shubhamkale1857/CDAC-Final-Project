@@ -31,6 +31,7 @@ import { Consultation } from './components/ConsultationComp';
 import { InsertFood } from './components/InsertFoodComp';
 import { TrainerHome } from './components/TrainerHomeComp';
 import { UpdateTrainer } from './components/UpdateTrainerComp';
+import { SelfClients } from './components/SelfClientscomp';
 
 function App() {
   const myState = useSelector(state => state.logged);
@@ -107,7 +108,8 @@ function App() {
 
           <Route path='/Trainer' element={<TrainerSidebar/>}>
               <Route path='TrainerHome' element={<TrainerHome/>}/>
-              <Route path='ClientList' element={<ClientList/>}/>
+              <Route path='Requests' element={<ClientList/>}/>
+              <Route path='ClientList' element={<SelfClients/>}/>
               <Route path='Profile' element={<TrainerProfile/>}/>
           </Route>
 

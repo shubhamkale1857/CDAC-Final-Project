@@ -12,6 +12,10 @@ export const TrainerSidebar = ({ children }) => {
       name: "Dashboard"
     },
     {
+      path: "/Trainer/Requests",
+      name: "Client's Requests"
+    },
+    {
       path: "/Trainer/ClientList",
       name: "Client's List"
     },
