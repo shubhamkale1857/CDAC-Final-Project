@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const MealHistory = ()=>{
 
@@ -11,6 +12,7 @@ export const MealHistory = ()=>{
     const[luflag, setLuflag]= useState(false);
     const[snflag, setSnflag]= useState(false);
     const[diflag, setDiflag]= useState(false);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch("http://localhost:8080/getMealHistorytoday?custid="+user.customer_id)
@@ -47,6 +49,7 @@ export const MealHistory = ()=>{
             }
             return ;
         })
+        .catch(() => navigate("/ErrorPage"))
     },[])
 
     const loadData = ()=>{

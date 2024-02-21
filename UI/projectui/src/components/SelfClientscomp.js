@@ -4,11 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 export const SelfClients = ()=>{
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[customers,setCustomers] = useState([]);
+    const navigate = useNavigate();
     useEffect(()=>{
         //console.log("*************************************************88")
         fetch("https://localhost:7283/api/Trainer/getAllClients?uid="+data.id)
         .then(resp => resp.json())
         .then(data => {setCustomers(data)})
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const gender=(gender)=>{
         

@@ -56,7 +56,7 @@ function UpdateCustProfile(){
             setGender(obj.gender)
             setGoal(obj.goal)
         })
-        .catch(error => navigate("/Customer/updateProfile"))
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const validate1 = (key,val)=>{
         let valid = true;
@@ -178,7 +178,7 @@ function UpdateCustProfile(){
             // alert("Data Updated Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/Customer/updateProfile"))
+        .catch(() => navigate("/ErrorPage"))
 
         localStorage.setItem("updates","Data Updated Successfully!!");
         navigate("/Customer/Profile");   

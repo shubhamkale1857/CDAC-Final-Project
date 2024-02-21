@@ -10,6 +10,7 @@ export const TrainerProfile = ()=>{
         fetch("https://localhost:7283/api/Trainer/getOneTrainer?uid="+data.id)
         .then(res => res.json())
         .then(ans => setUser(ans))
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const gender=(gender)=>{
         

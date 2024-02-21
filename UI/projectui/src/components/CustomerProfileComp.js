@@ -12,6 +12,7 @@ export const CustomerProfile = ()=>{
         fetch("http://localhost:8080/getCustomer?uid="+data.id)
         .then(resp => resp.json())
         .then(data => {setUser(data)})
+        .catch(() => navigate("/ErrorPage"))
     },[])
 
     const navigateUpdate = ()=>{

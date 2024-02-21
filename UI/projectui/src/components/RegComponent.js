@@ -178,6 +178,7 @@ function RegComp(){
                 setUserMsg("");
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     const submitData = (e)=>{
         e.preventDefault();
@@ -212,7 +213,7 @@ function RegComp(){
         .then((msg)=>{
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/register"))
+        .catch(() => navigate("/ErrorPage"))
 
         localStorage.setItem("success","User Logged in successfully!!");
         navigate("/login");   

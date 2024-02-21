@@ -28,6 +28,7 @@ export const UpdatePassComp=()=>{
             setMsg("");
         }
         })
+        .catch(() => navigate("/ErrorPage"))
         
     }
 
@@ -49,6 +50,7 @@ export const UpdatePassComp=()=>{
         .then(data=>{
             console.log(data);
         })
+        .catch(() => navigate("/ErrorPage"))
         navigate('/profile');
     }
     return(

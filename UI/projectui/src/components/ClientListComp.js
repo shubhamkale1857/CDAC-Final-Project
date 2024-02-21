@@ -10,6 +10,7 @@ export const ClientList = ()=>{
         fetch("https://localhost:7283/api/Trainer/getReq?tid="+data.id)
         .then(resp => resp.json())
         .then(data => {setCustomers(data)})
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const gender=(gender)=>{
         
@@ -35,6 +36,7 @@ export const ClientList = ()=>{
                 navigate("/Trainer/TrainerHome");
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     const deny = (cid)=>{
         fetch("https://localhost:7283/api/Trainer/deny?tid="+data.id+"&cid="+cid)
@@ -44,6 +46,7 @@ export const ClientList = ()=>{
                 navigate("/Trainer/TrainerHome");
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     return (
         <div className="innercomps">

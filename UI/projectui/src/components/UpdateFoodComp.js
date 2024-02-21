@@ -42,7 +42,7 @@ export const UpdateFood = ()=>{
             //alert("Data Fetched!!!")
             setCat(msg);
         })
-        .catch(error => navigate("/"))
+        .catch(() => navigate("/ErrorPage"))
 
         fetch("http://localhost:8080/getfoodlist")
         .then((res)=>{
@@ -52,7 +52,7 @@ export const UpdateFood = ()=>{
             //alert("Data Fetched!!!")
             setFoodlist(msg);
         })
-        .catch(error => navigate("/"))
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const submitData = (e)=>{
         if(foodid===0){setMsg2("select food First!")}else{setMsg2("")}
@@ -85,7 +85,7 @@ export const UpdateFood = ()=>{
             //alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/Admin/AddFood"))
+        .catch(() => navigate("/ErrorPage"))
 
         localStorage.setItem("dataupdate","Data Updated Successfully!!!");
         navigate("/Admin/AdminHome"); }  

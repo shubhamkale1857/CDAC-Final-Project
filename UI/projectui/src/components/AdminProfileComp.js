@@ -18,6 +18,7 @@ export const AdminProfile = ()=>{
             console.log(JSON.stringify(data));
             setAdmin(data);
         })
+        .catch(() => navigate("/ErrorPage"))
     },[])
 
     const gender=(gender)=>{

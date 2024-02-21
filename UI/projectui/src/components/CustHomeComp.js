@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export const CustomerHome=()=>{
@@ -6,11 +7,13 @@ export const CustomerHome=()=>{
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[cal,setCal]=useState("0");
     const[prot,setProt]=useState("0");
+    const navigate = useNavigate();
 
     const calCalorie1 = ()=>{
         fetch("http://localhost:8080/getTotalCal?cust_id="+user.customer_id)
         .then(resp => resp.text())
         .then(data => {setCal(data)})
+        .catch(() => navigate("/ErrorPage"))
         return cal;
     }
 
@@ -18,6 +21,7 @@ export const CustomerHome=()=>{
         fetch("http://localhost:8080/getTotalProt?cust_id="+user.customer_id)
         .then(resp => resp.text())
         .then(data => {setProt(data)})
+        .catch(() => navigate("/ErrorPage"))
         return prot;
     }
 
@@ -53,6 +57,7 @@ export const CustomerHome=()=>{
         .then(data => {
             setUser(data)
             localStorage.setItem("user", JSON.stringify(data))})
+            .catch(() => navigate("/ErrorPage"))
     },[])
 
     

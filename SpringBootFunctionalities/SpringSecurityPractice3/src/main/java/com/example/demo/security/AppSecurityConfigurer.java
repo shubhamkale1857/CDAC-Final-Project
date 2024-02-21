@@ -95,7 +95,7 @@ public class AppSecurityConfigurer {
 			authorize.requestMatchers("/login").permitAll();
 			authorize.requestMatchers("/saveCustomer").permitAll();
 			authorize.requestMatchers("/saveTrainer").hasAuthority("ADMIN");
-			authorize.requestMatchers("/getfoodlist").hasAnyAuthority("ADMIN","CUSTOMER");
+			authorize.requestMatchers("/getfoodlist").permitAll();
 			authorize.requestMatchers("/saveTran").permitAll();
 			authorize.requestMatchers("/saveTran1").permitAll();
 			authorize.requestMatchers("/getAllSps").permitAll();

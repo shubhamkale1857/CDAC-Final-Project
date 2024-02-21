@@ -90,7 +90,7 @@ export const InsertFood = ()=>{
             console.log("Data Inserted Successfully!!!");
             setItems([]);
         })
-        .catch(error => navigate("/register"))
+        .catch(() => navigate("/ErrorPage"))
     }
     }
 

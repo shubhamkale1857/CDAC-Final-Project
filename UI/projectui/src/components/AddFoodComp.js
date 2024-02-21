@@ -23,7 +23,7 @@ export const AddFood = ()=>{
             console.log("*****************************");
             console.log(JSON.stringify(cat));
         })
-        .catch(error => navigate("/"))
+        .catch(() => navigate("/ErrorPage"))
     },[])
     const submitData = (e)=>{
         if(fname === "" || calory===0 || protein===0 || category===0 || unit == ""){ setMsg("Enter all the fields first..")}else{
@@ -54,7 +54,7 @@ export const AddFood = ()=>{
             // alert("Data Inserted Successfully!!!")
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/Admin/AddFood"))
+        .catch(() => navigate("/ErrorPage"))
 
         localStorage.setItem("datainser","Data Inserted Successfully!!!");
         navigate("/Admin/AdminHome");   

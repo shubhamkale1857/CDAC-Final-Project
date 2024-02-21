@@ -97,9 +97,9 @@ function TrainerRegistration(){
                 }
                 break;
             case 'experience':
-                if(val < 0 || val > 41){
+                if(val < 0 || val > 21){
                     valid = false;
-                    error = "Enter Valid Experience in Number between 0 to 41 years";
+                    error = "Enter Valid Experience in Number between 0 to 21 years";
                 }
                 break;
             case 'password':
@@ -162,6 +162,7 @@ function TrainerRegistration(){
                 customer.email.valid=true;
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     const[usenamemsg,setUserMsg] = useState("");
     const checkUsername = (val) =>{
@@ -176,6 +177,7 @@ function TrainerRegistration(){
                 customer.email.valid=true;
             }
         })
+        .catch(() => navigate("/ErrorPage"))
     }
     const submitData = (e)=>{
         e.preventDefault();
@@ -209,7 +211,7 @@ function TrainerRegistration(){
         .then((msg)=>{
             console.log("Data Inserted Successfully!!!");
         })
-        .catch(error => navigate("/errorpage"))
+        .catch(() => navigate("/ErrorPage"))
 
         //alert("Trainer registered succesfully!!")
         localStorage.setItem("tregister","Trainer registered succesfully!!");

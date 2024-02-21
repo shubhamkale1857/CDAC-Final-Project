@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SelectTrainer = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const user= JSON.parse(localStorage.getItem("user"));
+    const navigate = useNavigate();
 
     const[trainers,setTrainers]=useState([]);
     const [buttonClass, setButtonClass] = useState("btn btn-primary");
@@ -41,7 +43,8 @@ export const SelectTrainer = ()=>{
             }else{
                 setTrflag(false)
                 console.log("nothing")
-            }})        
+            }}) 
+            .catch(() => navigate("/ErrorPage"))       
     },[])
 
     const requestTrainer = (tid,cid,e)=>{
