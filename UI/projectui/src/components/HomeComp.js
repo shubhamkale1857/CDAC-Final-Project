@@ -90,7 +90,11 @@ export const HomeComp = () => {
       </div>
 
       
-         <div style={{backgroundColor:'grey', height:150}}>contact Us For More Info</div>
+         <div style={{backgroundColor:'grey', height:100, color:"white"}}>
+          <h4>Shubham Kale. Manasi Diwate. Rahul Nale. Suraj Abhale.</h4>
+          click here for more information..
+          <a href='https://know-it.co.in/'>link</a>
+         </div>
     </div>
     
   );
