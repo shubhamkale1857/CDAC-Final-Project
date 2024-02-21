@@ -103,8 +103,23 @@ namespace TrainerUseCases.Controllers
                 {
                     Console.WriteLine("trianer is null");
                 }
+                var trainerreqlist0 = db.TrainerRequests.Where(t => t.CustomerId == cust.CustomerId).ToList();
+                if (trainerreqlist0 != null)
+                {
+                    //Console.WriteLine("Length: " + trainerreqlist.Count);
+                    foreach (TrainerRequest a in trainerreqlist0)
+                    {
+                        a.ReqStatus = 2;
+                        //Console.WriteLine(a.ReqStatus);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("trainer list is null");
+                }
                 //Console.WriteLine("Trainer ID=" + train.TrainerId + "  Customer ID: " + cust.CustomerId);
-                var trainerreqlist = db.TrainerRequests.Where(t => t.CustomerId == cust.CustomerId).ToList();
+                var trainerreqlist = db.TrainerRequests.Where(t => t.TrainerId == train.TrainerId && t.CustomerId == cust.CustomerId).ToList();
                 if(trainerreqlist != null)
                 {
                     //Console.WriteLine("Length: " + trainerreqlist.Count);
@@ -152,6 +167,17 @@ namespace TrainerUseCases.Controllers
             }
             Console.WriteLine("response send successfully");
             return "Denied";
+        }
+        [HttpGet]
+        public List<Customer> getAllClients(int uid)
+        {
+            List<Customer> Customers = null;
+            using (var db = new dac_projectContext())
+            {
+                var train = db.Trainers.FirstOrDefault(s => s.UserId == uid);
+                Customers = db.Customers.Where(c => c.Trainer == train.TrainerId).ToList();
+            }
+            return Customers;
         }
     }
 }
