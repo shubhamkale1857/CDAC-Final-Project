@@ -10,6 +10,7 @@ export const SelectTrainer = ()=>{
     const buttonRefs = useRef([]);
     const[btnflag, setBtnflag]=useState(true);
     const[trflag,setTrflag]=useState(true);
+    const[request,setRequest] = useState([]);
 
     const gender=(gender)=>{
         
@@ -43,7 +44,14 @@ export const SelectTrainer = ()=>{
             }})        
     },[])
 
-    const requestTrainer = (tid,cid)=>{
+    const requestTrainer = (tid,cid,e)=>{
+        setRequest((prevApprove) => {
+            const newApprove = [...prevApprove];
+            newApprove[tid] = true; // Assuming 'true' represents 'approved'
+            return newApprove;
+          });
+        
+        
         setBtnflag(false);
         console.log("Tid: "+tid+" Cid"+cid);
         fetch("http://localhost:8080/SaveTrainerReq?tid="+tid+"&cid="+cid)
@@ -78,7 +86,7 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
-                                <td><button className= "btn btn-primary" onClick={()=>requestTrainer(t.trainer_id,data.id)}>REQUEST</button></td>
+                                <td><button id={t.trainer_id} className={request[t.trainer_id] ? "btn btn-warning" : 'btn btn-primary'} onClick={(e)=>requestTrainer(t.trainer_id,data.id,e)} disabled={request[t.trainer_id]}>REQUEST</button></td>
                             </tr>
                         </tbody>
                    )
