@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { AdminSidebar } from "./AdminSidebar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const AdminHome = () => {
-
-
+    const user = JSON.parse(localStorage.getItem("loggedUser"));
+    const [reqs, setReqs] = useState([]);
     useEffect(() => {
         const handleBeforeUnload = () => {
           localStorage.removeItem("datainser");

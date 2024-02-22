@@ -83,8 +83,7 @@ export const UpdatePassComp=()=>{
                         <div className="col-md-5 form-group">
                         <button className="btn btn-primary" onClick={setPassinDb}>Click</button>
                         </div>
-                    </div>
-                
+                    </div>   
           </div>
         </div>
         </div>

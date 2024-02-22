@@ -31,4 +31,8 @@ public class TrainerService {
 			return null;
 		}
 	}
+	
+	public Trainer getTrainerByUid(int id) {
+		return trepo.getTrainerByUid(id);
+	}
 }
