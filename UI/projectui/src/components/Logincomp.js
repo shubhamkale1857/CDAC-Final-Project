@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import {login} from "../isLoggedSlice";
 import { useEffect, useState } from "react";
 
+
 export const LoginComp = () =>{
 
     const successmessage= (localStorage.getItem("success"));
     const dispatch = useDispatch();
     const myState = useSelector((state)=> state.logged);
     const navigate = useNavigate();
+  
 
     useEffect(() => {
         const handleBeforeUnload = () => {
@@ -64,8 +66,8 @@ export const LoginComp = () =>{
                     dispatch(login())
                     localStorage.setItem("loggedUser",JSON.stringify(data));
                     const role = data.roles[0];
-                    if(role === "ADMIN")
-                        navigate("/Admin/AdminHome");
+                    if(role === "ADMIN"){
+                        navigate("/Admin/AdminHome");}
                     else if(role === "CUSTOMER")
                         navigate("/Customer/CustomerHome", { replace: true });
                     else if(role === "TRAINER")
