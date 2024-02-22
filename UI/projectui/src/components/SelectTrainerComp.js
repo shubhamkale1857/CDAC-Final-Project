@@ -63,7 +63,6 @@ export const SelectTrainer = ()=>{
     }
     return (
         <div className="innercomps">
-            
             <div style={{display: trflag?"block":"none"}}>
             <h3>Trainers List...</h3>
             <table className="table table-striped table-bordered">
