@@ -177,7 +177,7 @@ export const UpdateTrainer = ()=>{
 
         //alert("Trainer registered succesfully!!")
         localStorage.setItem("tregister","Trainer registered succesfully!!");
-        navigate("/Trainer/TrainerHome");   
+        navigate("/Trainer/Profile");   
     }
     const[gender,setGender] = useState("");
     return(
@@ -228,9 +228,9 @@ export const UpdateTrainer = ()=>{
                     <input type="text" className="form-control" id="uname" name="username" readOnly defaultValue={data.username} onChange={(e)=>{handleChange("username",e.target.value)}} onBlur={(e)=>{handleChange("username",e.target.value) ; }}/><br/>
                     <div style={{display: (!customer.username.valid && customer.username.touched)?"block":"none"}}><p className="text-danger">{customer.username.error}</p></div>
                     
-                    <input type="button" value={"Register"} className="btn btn-primary" onClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
+                    <input type="button" value={"Update"} className="btn btn-primary" onClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
                     {/* disabled={!customer.formValid} */}
-                    <input type="reset" value={"Reset"} onClick={()=>{dispatch({type:"reset"})}} className="btn btn-danger "/>
+                    
                 </form></div> 
         </div>
         </div>   

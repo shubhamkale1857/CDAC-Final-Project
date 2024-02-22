@@ -5,6 +5,7 @@ export const TrainerProfile = ()=>{
 
     const data= JSON.parse(localStorage.getItem("loggedUser"));
     const[user,setUser] = useState({});
+    const data2= (localStorage.getItem("tregister"));
     const navigate = useNavigate();
     useEffect(()=>{
         fetch("https://localhost:7283/api/Trainer/getOneTrainer?uid="+data.id)
@@ -12,6 +13,8 @@ export const TrainerProfile = ()=>{
         .then(ans => setUser(ans))
         .catch(() => navigate("/ErrorPage"))
     },[])
+
+    
     const gender=(gender)=>{
         
         if(gender==='m')
@@ -37,7 +40,7 @@ export const TrainerProfile = ()=>{
                 </tr>
                 
                 <tr style={{height:40}}> </tr>
-                 <span style={{color:"green", fontSize:20}}></span>
+                 <span style={{color:"green", fontSize:20}}>{data2}</span>
 
                 <tr>
                     <td>NAME</td>

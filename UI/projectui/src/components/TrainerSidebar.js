@@ -6,6 +6,13 @@ import { useSelector } from "react-redux";
 export const TrainerSidebar = ({ children }) => {
   //const [isOpen, setIsOpen] = useState(false);
   // const toggle = () => setIsOpen(!isOpen);
+
+  const handlestrore = (pth)=>{
+    if(pth==="/Trainer/Profile")
+    {
+      localStorage.removeItem("tregister");
+    }
+  }
   const menuItem = [
     {
       path: "/Trainer/TrainerHome",
@@ -34,6 +41,7 @@ export const TrainerSidebar = ({ children }) => {
             key={index}
             className="link"
             activeclassName="active"
+            onClick={()=>{handlestrore(item.path)}}
           >
             
             <div style={{ display: "block" }} className="link_text">

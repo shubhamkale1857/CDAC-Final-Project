@@ -245,7 +245,7 @@ function UpdateCustProfile(){
 
                     <input type="button" value={"Update"} className="btn btn-primary" onClick={(e)=>{submitData(e)}} disabled={!customer.formValid} />
                     {/* disabled={!customer.formValid} */}
-                    <input type="reset" value={"Reset"} onClick={()=>{dispatch({type:"reset"})}} className="btn btn-danger "/>
+                    
                 </form></div> 
         </div>
         </div>
