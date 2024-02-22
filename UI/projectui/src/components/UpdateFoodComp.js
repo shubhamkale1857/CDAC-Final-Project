@@ -56,7 +56,7 @@ export const UpdateFood = ()=>{
     },[])
     const submitData = (e)=>{
         if(foodid===0){setMsg2("select food First!")}else{setMsg2("")}
-        if(unit==="" || calory===""){setMsg("please select unit and category both!!")}else{
+        if(unit==="" || category===0){setMsg("please select unit and category both!!")}else{
             setMsg("")
         e.preventDefault();
         const reqOption = {
@@ -115,9 +115,9 @@ export const UpdateFood = ()=>{
                     <label className="form-label" for="specialization">Select Unit</label>
                     <select className="form-control" required={true} onChange={(e)=>{setUnit(e.target.value)}}>
                         <option value={""}>Select Unit</option>
-                        <option value={"100ml"} className="form-check-input">100ml</option>
+                        <option value={"50ml"} className="form-check-input">50ml</option>
                         <option value={"cup (approx 250gm)"} className="form-check-input">cup (approx 250gm)</option>
-                        <option value={"100gms"} className="form-check-input">100gms</option>
+                        <option value={"50gms"} className="form-check-input">50gms</option>
                         <option value={"unit"} className="form-check-input">unit</option>
                     </select><br/>
 

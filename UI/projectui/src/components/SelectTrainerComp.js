@@ -89,7 +89,7 @@ export const SelectTrainer = ()=>{
                                 <td>{t.specialization}</td>
                                 <td>{t.experience}</td>
                                 <td>{gender(t.gender)}</td>
-                                <td><button id={t.trainer_id} className={request[t.trainer_id] ? "btn btn-warning" : 'btn btn-primary'} onClick={(e)=>requestTrainer(t.trainer_id,data.id,e)} disabled={request[t.trainer_id]}>REQUEST</button></td>
+                                <td><input type="button" id={t.trainer_id} className={request[t.trainer_id] ? "btn btn-warning" : 'btn btn-primary'} onClick={(e)=>requestTrainer(t.trainer_id,data.id,e)} disabled={request[t.trainer_id]} value= {request[t.trainer_id]?"PENDING":"REQUEST"}/></td>
                             </tr>
                         </tbody>
                    )
