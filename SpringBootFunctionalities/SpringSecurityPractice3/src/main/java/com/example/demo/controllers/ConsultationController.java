@@ -30,7 +30,7 @@ public class ConsultationController {
 	}
 	
 	@GetMapping("/getScripts")
-	public List<String> getScript(@RequestParam("cid") int cid, @RequestParam("tid") int tid)
+	public List<Object> getScript(@RequestParam("cid") int cid, @RequestParam("tid") int tid)
 	{
 		return cService.getScripts(cid, tid);
 	}

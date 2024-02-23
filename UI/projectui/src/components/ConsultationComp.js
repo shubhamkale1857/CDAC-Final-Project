@@ -21,15 +21,42 @@ export const Consultation = ()=>{
             .catch(() => navigate("/ErrorPage"))
         }
     },[])
+
+    const handleDate = (a)=>{
+        const dateObject = new Date(a);
+
+        const year = dateObject.getFullYear();
+        const month = dateObject.getMonth() + 1; // Month is zero-based, so add 1
+        const day = dateObject.getDate();
+        const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+        const hours = dateObject.getHours();
+        const minutes = dateObject.getMinutes();
+        const seconds = dateObject.getSeconds();
+        const formattedTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        const currentDate = new Date();
+        const tyear = currentDate.getFullYear();
+        const tmonth = String(currentDate.getMonth() + 1).padStart(2, '0'); 
+        const tday = String(currentDate.getDate()).padStart(2, '0');
+        const tformattedDate = `${tyear}-${tmonth}-${tday}`;
+
+        if(formattedDate === tformattedDate)
+        {
+            return "Today at "+formattedTime;
+        }else{
+            return formattedDate+" at "+formattedTime;
+        }
+
+
+    }
     
     return (
         <div className="innercomps">
             <div style={{display:flag?"block":"none"}}>
             <h3>Consultations..</h3><br/>
-            <h5> says..</h5>
             <ul>
             {script.map((s)=>{
-                return<li style={{fontSize:20}}>{s}</li>
+                return<><span style={{fontSize:14}}>{handleDate(s[1])}</span> <li style={{fontSize:20}}>{s[0]}</li><br/></>
 
             })}
             </ul>

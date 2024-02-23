@@ -18,7 +18,7 @@ public class ConsultationService {
 		return cRepo.save(con);
 	}
 	
-	public List<String> getScripts(int cid, int tid)
+	public List<Object> getScripts(int cid, int tid)
 	{
 		return cRepo.getScript(cid, tid);
 	}

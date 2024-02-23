@@ -11,7 +11,7 @@ import com.example.demo.entities.Consultation;
 @Repository
 public interface ConsultationRepository extends JpaRepository<Consultation, Integer> {
 	
-	@Query("select c.script from Consultation c where c.customer_id = :cid and c.trainer_id= :tid order by c.date DESC")
-	public List<String> getScript(int cid, int tid); 
+	@Query("select c.script, c.date from Consultation c where c.customer_id = :cid and c.trainer_id= :tid order by c.date DESC")
+	public List<Object> getScript(int cid, int tid); 
 
 }
