@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ConsultationController {
 	@PostMapping("/saveCounsultion")
 	public String save(@RequestBody Consultation con)
 	{
-		con.setDate(LocalDate.now());
+		con.setDate(LocalDateTime.now());
 		cService.save(con);
 		return "Success";
 	}

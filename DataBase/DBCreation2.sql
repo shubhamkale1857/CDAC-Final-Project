@@ -46,5 +46,6 @@ CREATE TABLE `dac_project`.`consultations` (
   `trainer_id` int DEFAULT NULL,
   `customer_id` int DEFAULT NULL,
   `script` varchar(200) DEFAULT NULL,
+  `date` DATETIME NULL,
   PRIMARY KEY (`cu_id`)
 ) 
