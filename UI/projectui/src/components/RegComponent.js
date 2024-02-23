@@ -215,7 +215,7 @@ function RegComp(){
         })
         .catch(() => navigate("/ErrorPage"))
 
-        localStorage.setItem("success","User Logged in successfully!!");
+        localStorage.setItem("success","User Registered in successfully!!");
         navigate("/login");   
     }
     const[gender,setGender] = useState("");
