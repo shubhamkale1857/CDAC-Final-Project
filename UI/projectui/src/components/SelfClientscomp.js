@@ -41,7 +41,7 @@ export const SelfClients = ()=>{
         };
       }, []);
 
-      const formRef = useRef(null);
+      const formRef = useRef([]);
 
 
 
@@ -83,7 +83,7 @@ export const SelfClients = ()=>{
         .then(data=>{
             if(data==="Success"){
                 localStorage.setItem("successmsg","msg sent successfully!!");
-                formRef.current.reset();
+                formRef.current[a].reset();
                 navigate("/Trainer/ClientList")
             }
         })
@@ -246,7 +246,7 @@ export const SelfClients = ()=>{
                             <td colSpan={7}>
 
                             <h4>Give Consultation</h4>
-                            <form  ref={formRef}>
+                            <form  ref={(ref)=>{formRef.current[t.customerId]=ref}}>
                                 <div className="form-group">
                                 <textarea
                                     id="feedbackTextarea"
